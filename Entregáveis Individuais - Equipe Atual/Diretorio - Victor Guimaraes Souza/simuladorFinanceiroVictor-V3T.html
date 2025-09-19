@@ -56,11 +56,11 @@
             divMsg.innerHTML = `<span style = "color: red;">Informe valores validos</span>`;
         }else{
             divMsg.innerHTML = `<b>Sem o nosso sistema:</b><br>
-            Seu estoque tem uma perda mensal de ${qtdSemEconomia}kg de carne vegetal, que representa ${porcentagem} do total.<br>
+            Seu estoque tem uma perda mensal de ${qtdSemEconomia.toFixed(2)}kg de carne vegetal, que representa ${porcentagem}% do total.<br>
             <span style ="color: red;">Perda financeira mensal: R$${valorSemEconomia.toFixed(2)}<br> Perda financeira anual: R$${valorAnualSem.toFixed(2)}<br> Desperdício anual de estoque: ${qtdAnualSem.toFixed(2)}</span><br><br>
             <b>Com o nosso sistema:</b><br>
-            Com o nosso sistema de monitoramento, você vai reduzir o seu desperdício em ${qtdComEconomia.toFixed(2)} mensais, transformando o que seria perda em lucro de:<br>
-            <span style ="color: green;">Economia financeira mensal: R$${valorComEconomia.toFixed(2)}<br> Economia financeira anual: R$${EconomiaValor.toFixed(2)}<br> Estoque aproveitado anualmente: ${qtdEconomia}Kg.</span>`
+            Com o nosso sistema de monitoramento, você vai reduzir o seu desperdício em ${qtdComEconomia.toFixed(2)}Kg mensais, transformando o que seria perda em lucro de:<br>
+            <span style ="color: green;">Economia financeira mensal: R$${valorComEconomia.toFixed(2)}<br> Economia financeira anual: R$${EconomiaValor.toFixed(2)}<br> Estoque aproveitado anualmente: ${qtdEconomia.toFixed(2)}Kg.</span>`
         }
 
     }
