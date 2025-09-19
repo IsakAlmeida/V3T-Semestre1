@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro - V3T</title>
+</head>
+<body>
+    <h2>Simulador Financeiro</h2> <br>
+
+    Seja bem-vindo ao simulador financeiro da V3T! <br>
+    Aqui você consegue visualizar de forma fácil e rápida como nossa solução pode impactar de forma positiva na sua economia. <br><br>
+
+    Preencha o formulário abaixo e descubra: <br><br>
+
+    Digite a quantidade de reservatórios: <br>
+    <input id="iptQtdReserva"> <br><br>
+
+    Digite o custo médio por lote de biotinta armazenado: <br>
+    <input id="iptCustoLote"> <br><br>
+
+    Digite o número de lotes armazenados por mês: <br>
+    <input id="iptLotesPMes"> <br><br>
+
+    Digite a % de perda atual mensal: <br>
+    <input id="iptPercentPerda"> <br><br>
+
+    <button onclick="calcular()">Calcular</button> <br><br><br>
+
+    <div id="divMsg"></div>
+
+</body>
+<script>
+    function calcular(){
+        var qtdReservatorios = Number(iptQtdReserva.value);
+        var custoLote = Number(iptCustoLote.value);
+        var lotePMes = Number(iptLotesPMes.value);
+        var percentPerda = Number(iptPercentPerda.value)/100;
+
+        var perdaMensalSemMonitoramento = custoLote * lotePMes * percentPerda * qtdReservatorios ;
+        var perdaMensalComMonitoramento = perdaMensalSemMonitoramento - (perdaMensalSemMonitoramento * 0.70);
+        var economiaMensal = perdaMensalSemMonitoramento - perdaMensalComMonitoramento;
+        var economiaAnual = economiaMensal * 12;
+
+        divMsg.innerHTML = `Atualmente, com <b>${qtdReservatorios} reservatório(s)</b>, armazenando em média 
+    <b>${lotePMes} lotes por mês</b> ao custo de <b>R$ ${custoLote.toFixed(2)}</b> cada,
+    resulta atualmente em uma perda mensal estimada de <b style="color: red;">R$ ${perdaMensalSemMonitoramento.toFixed(2)}</b> <br><br>`
+
+    divMsg.innerHTML += `Com o nosso sistema de monitoramento inteligente, essas perdas podem ser
+    reduzidas em até <b>70%</b>, caindo para: <b style="color: green;">R$ ${perdaMensalComMonitoramento.toFixed(2)}</b> <br><br>
+    <b>Isso significa:</b> <br>
+    Uma economia mensal de: <b style="color: green;">R$ ${economiaMensal.toFixed(2)}</b> <br>
+    Uma economia anual de: <b style="color: green;">R$ ${economiaAnual.toFixed(2)}</b> <br><br><br>`
+
+    divMsg.innerHTML += `<i><b>Cada mês sem monitoramento representa dinheiro perdido. <br>
+        Invista agora e transforme prejuízo em lucro com a <b style="color: green;">V3T!</b></b></i>`
+    }
+</script>
+</html>
