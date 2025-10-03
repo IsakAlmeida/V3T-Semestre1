@@ -3,11 +3,11 @@ USE sprint2;
 -- ENDEREÇO: Armazena informações de localização, como rua, bairro, cidade, UF, CEP e número.
 CREATE TABLE Endereco(
 idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+CEP CHAR(8) NOT NULL,
 Rua VARCHAR(50),
 Bairro VARCHAR(50),
 Cidade VARCHAR(50),
 UF CHAR(2),
-CEP CHAR(8) NOT NULL,
 Numero VARCHAR(8)
 );
 
@@ -51,21 +51,14 @@ fkEmpresa INT,
 		REFERENCES Empresa (idEmpresa)
 );
 
--- MONITORAMENTO: Armazena as leituras coletadas pelos sensores, como temperatura, umidade e data/hora do registro.
-CREATE TABLE Monitoramento(
-idMonitoramento INT PRIMARY KEY AUTO_INCREMENT,
+-- REGISTROS: Armazena as leituras coletadas pelos sensores, como temperatura, umidade e data/hora do registro.
+CREATE TABLE Registros(
+idRegistros INT PRIMARY KEY AUTO_INCREMENT,
 Temperatura DECIMAL(5,2),
-Umidade DECIMAL(5,2),
-dtHora DATETIME DEFAULT CURRENT_TIMESTAMP,
+Umidade INT,
+dtHora DATETIME,
 fkSensor INT,
-	CONSTRAINT fkMonitoramentoSensor FOREIGN KEY(fkSensor)
+	CONSTRAINT fkRegistrosSensor FOREIGN KEY(fkSensor)
 		REFERENCES Sensor (idSensor)
 );
 
-/*
-CREATE TABLE Produto(
-idProduto INT PRIMARY KEY AUTO_INCREMENT,
-tipoCarneVegetal VARCHAR(45),
-CONSTRAINT chkTipoCarneVegetal CHECK(tipoCarneVegetal IN('Soja', 'Feijao', 'Arroz', 'Alga'))
-);
-*/
