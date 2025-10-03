@@ -19,7 +19,7 @@
     </div>
 
     <script>
-        var sensorAnalogico = new Chart(document.getElementById('Temperatura').getContext('2d'), {
+        var Umidade = new Chart(document.getElementById('Temperatura').getContext('2d'), {
             type: 'line',
             data: {
                 datasets: [{
@@ -44,14 +44,14 @@
             }
         });
 
-        var sensorDigital = new Chart(document.getElementById('Umidade').getContext('2d'), {
+        var Temperatura = new Chart(document.getElementById('Umidade').getContext('2d'), {
             type: 'line',
             data: {
                 datasets: [{
                     label: 'Umidade',
                     borderColor: '#63B1BC',
                     backgroundColor: '#0762C8'
-                }]
+                }],
             },
             options: {
                 scales: {

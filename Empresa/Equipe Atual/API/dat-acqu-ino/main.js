@@ -20,7 +20,7 @@ const serial = async (
     let poolBancoDados = mysql.createPool(
         {
             host: '127.0.0.1',
-            user: 'Usuário Teste',
+            user: 'arduino',
             password: 'v3t123',
             database: 'sprint2',    
             port: 3306
@@ -63,7 +63,7 @@ const serial = async (
 
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO Monitoramento (Temperatura,Umidade) VALUES (?, ?)',
+                'INSERT INTO Monitoramento (Temperatura,Umidade,dtHora) VALUES (?, ?)',
                 [Temperatura, Umidade]
             );
             console.log("valores inseridos no banco: ", Temperatura + ", " + Umidade);
@@ -98,10 +98,10 @@ const servidor = (
     });
 
     // define os endpoints da API para cada tipo de sensor
-    app.get('/sensores/analogico', (_, response) => {
+    app.get('/sensores/temperatura', (_, response) => {
         return response.json(valoresTemperatura);
     });
-    app.get('/sensores/digital', (_, response) => {
+    app.get('/sensores/umidade', (_, response) => {
         return response.json(valoresUmidade);
     });
 }
