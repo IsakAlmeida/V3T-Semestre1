@@ -14,6 +14,7 @@ const HABILITAR_OPERACAO_INSERIR = true;
 const serial = async (
     valoresTemperatura,
     valoresUmidade,
+    valoresHora,
 ) => {
 
     // conexão com o banco de dados MySQL
@@ -51,20 +52,22 @@ const serial = async (
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
         console.log(data);
         const valores = data.split(';');
-        const Umidade = parseInt(valores[0]);
-        const Temperatura = parseFloat(valores[1]);
+        const Temperatura = parseFloat(valores[0]);
+        const Umidade = parseInt(valores[1]);
+        const hora = pegarData.toString();
 
         // armazena os valores dos sensores nos arrays correspondentes
         valoresTemperatura.push(Temperatura);
         valoresUmidade.push(Umidade);
+        valoresHora.push(hora);
 
         // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
-
+        
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO Monitoramento (Temperatura,Umidade,dtHora) VALUES (?, ?)',
-                [Temperatura, Umidade]
+                'INSERT INTO Registro (Temperatura,Umidade, dtHora) VALUES (?, ?, ?)',
+                [Temperatura, Umidade, hora]
             );
             console.log("valores inseridos no banco: ", Temperatura + ", " + Umidade);
 
@@ -81,7 +84,8 @@ const serial = async (
 // função para criar e configurar o servidor web
 const servidor = (
     valoresTemperatura,
-    valoresUmidade
+    valoresUmidade,
+    valoresHora
 ) => {
     const app = express();
 
@@ -104,23 +108,52 @@ const servidor = (
     app.get('/sensores/umidade', (_, response) => {
         return response.json(valoresUmidade);
     });
+    app.get('/sensores/hora', (_, response) => {
+        return response.json(valoresHora);
+    });
 }
+function pegarData(){
+       
+        var dataAtual = new Date;
+        dataAtual = dataAtual.toString().split(' ');
+        var ano = dataAtual[3];
+        var dia = dataAtual[2];
+        var mes = dataAtual[1] === 'Jan' ? '01' :
+        dataAtual[1] === 'Feb' ? '02' :
+        dataAtual[1] === 'Mar' ? '03' :
+        dataAtual[1] === 'Apr' ? '04' :
+        dataAtual[1] === 'May' ? '05' :
+        dataAtual[1] === 'Jun' ? '06' :
+        dataAtual[1] === 'Jul' ? '07' :
+        dataAtual[1] === 'Aug' ? '08' :
+        dataAtual[1] === 'Sep' ? '09' :
+        dataAtual[1] === 'Oct' ? '10' :
+        dataAtual[1] === 'Nov' ? '11' : '12' ;
+        var hora = dataAtual[4];
+        var dataCompleta = `${ano}-${mes}-${dia} ${hora}`;
+
+         return dataCompleta;
+    }
 
 // função principal assíncrona para iniciar a comunicação serial e o servidor web
 (async () => {
     // arrays para armazenar os valores dos sensores
     const valoresTemperatura = [];
     const valoresUmidade = [];
+    const valoresHora = [];
 
     // inicia a comunicação serial
     await serial(
         valoresTemperatura,
-        valoresUmidade
+        valoresUmidade,
+        valoresHora
     );
 
     // inicia o servidor web
     servidor(
         valoresTemperatura,
-        valoresUmidade
+        valoresUmidade,
+        valoresHora
     );
+
 })();
