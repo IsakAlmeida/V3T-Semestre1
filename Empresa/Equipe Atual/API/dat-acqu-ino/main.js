@@ -54,7 +54,7 @@ const serial = async (
         const valores = data.split(';');
         const Temperatura = parseFloat(valores[0]);
         const Umidade = parseInt(valores[1]);
-        const hora = pegarData.toString();
+        const hora = pegarData().toString();
 
         // armazena os valores dos sensores nos arrays correspondentes
         valoresTemperatura.push(Temperatura);
@@ -66,10 +66,10 @@ const serial = async (
         
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO Registro (Temperatura,Umidade, dtHora) VALUES (?, ?, ?)',
+                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 1)',
                 [Temperatura, Umidade, hora]
             );
-            console.log("valores inseridos no banco: ", Temperatura + ", " + Umidade);
+            console.log("valores inseridos no banco: ", Temperatura + ", " + Umidade+ "," + hora);
 
         }
 
@@ -129,7 +129,7 @@ function pegarData(){
         dataAtual[1] === 'Sep' ? '09' :
         dataAtual[1] === 'Oct' ? '10' :
         dataAtual[1] === 'Nov' ? '11' : '12' ;
-        var hora = dataAtual[4];
+        let hora = dataAtual[4];
         var dataCompleta = `${ano}-${mes}-${dia} ${hora}`;
 
          return dataCompleta;
