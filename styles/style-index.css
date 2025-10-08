@@ -60,4 +60,88 @@ a:hover{
     scale: 95%;
 }
 
+/* Código para o banner abaixo do header */
+#div-banner img{
+      width: 99vw;   /* vw para ocupar a largura total da viewport */
+      height: auto;   
+    }
+
+/* Código para a parte sobre o simulador financeiro */
+#div-simulador{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 90px;
+}
+
+#subdiv-texto-simulador h3{
+    color: #21593B;
+    font-size: 65px;
+}
+
+#subdiv-texto-simulador{
+    font-size: 35px;
+    color: #21593B;
+    margin-left: 80px;
+}
+#subdiv-texto-simulador button{
+    background-color: #21593B;
+    color: white;
+    width: 566px;
+    height: 63px;
+    font-family: 'Montserrat', sans-serif; 
+    border-radius: 6px;
+    font-size: 25px;
+    margin-top: 50px;
+}
+#subdiv-img-simulador img{
+    width: 450px;
+    height: auto;
+    margin-right: 60px;
+    margin-top: 40px;
+}
+
+/* Código para a parte sobre dashboard */
+#div-dashboard{
+    background-color: #21593B;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    gap: 150px;
+}
+
+#subdiv-imgs-dashboard img{
+    border-radius: 20px;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 600px;
+    height: auto;
+}
+
+#subdiv-texto-dashboard{
+    font-size: 35px;
+    color: white;
+    margin-right: 65px;
+    margin-top: 85px;
+}
+#subdiv-texto-dashboard h3{
+    margin-left: 10px;
+    font-size: 65px;
+}
+
+#subdiv-kpis{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    gap: 90px;
+}
+#subdiv-kpis-situacao-atual-dashboard img, #subdiv-kpis-status-dashboard img{
+    width: 250px;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 72px;
+    margin-top: 90px;
+}
 
