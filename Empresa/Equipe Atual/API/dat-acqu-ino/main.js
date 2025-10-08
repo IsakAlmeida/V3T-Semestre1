@@ -23,8 +23,8 @@ const serial = async (
             host: '127.0.0.1',
             user: 'arduino',
             password: 'v3t123',
-            database: 'sprint2',    
-            port: 3306
+            database: 'v3t',    
+            port: 3307
         }
     ).promise();
 
@@ -64,13 +64,19 @@ const serial = async (
         // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
         
-            // este insert irá inserir os dados na tabela "medida"
+            // este insert irá inserir os dados na tabela "Registro", assim como simulações de situações de alerta
             await poolBancoDados.execute(
                 'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 1)',
                 [Temperatura, Umidade, hora]
             );
-            console.log("valores inseridos no banco: ", Temperatura + ", " + Umidade+ "," + hora);
-
+            await poolBancoDados.execute(
+                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 2)',
+                [Temperatura+10, Umidade+20, hora]
+            );
+            await poolBancoDados.execute(
+                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 3)',
+                [Temperatura-25, Umidade-30, hora]
+            );
         }
 
     });
@@ -112,6 +118,8 @@ const servidor = (
         return response.json(valoresHora);
     });
 }
+
+// função para pegar a data e hora do computador onde está a API
 function pegarData(){
        
         var dataAtual = new Date;
