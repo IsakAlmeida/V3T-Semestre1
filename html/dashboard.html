@@ -1,14 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../imgs/logo-redonda.png" type="image/png">
     <link rel="stylesheet" href="../styles/style-dashboard.css">
-    <script src="../scripts/script-dashboard.js"></script>
+
     <title>Dashboard - V3T</title>
 </head>
+
 <body>
-    
+    <div class="Janela">
+        <div class="headerLeft">
+            <div id="imgLogo">
+                <a href="index.html">
+                    <img src="../imgs/logo-dashboard.png" alt="Logo V3T">
+                </a>
+            </div>
+            <div id="buttonDashBoard">
+                <a href="">
+                    <h3>DashBoard</h3>
+                </a>
+            </div>
+            <div id="buttonSensores">
+                <h3>Sensores</h3>
+            </div>
+            <div id="buttonPerfil">
+                <h3>Perfil</h3>
+            </div>
+            <div id="buttonConfiguracoes">
+                <h3>Configurações</h3>
+            </div>
+            <div id="buttonLogout">
+                <a href="index.html">
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </div>
+        <div class="pageDashBoard">
+            <div id="title">
+                <h1>DashBoard</h1>
+            </div>
+            <div id="select">
+                <select id="selectSensor">
+                    <option value="Selecione">Selecione...</option>
+                    <option value="Sensor 1">Sensor 1</option>
+                    <option value="Sensor 2">Sensor 2</option>
+                </select>
+            </div>
+            <div class="kpis">
+                <div id="kpiTemperaturaAtual">
+                    <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
+                    <p>Temp.Atual</p>
+                    <p>19°C</p>
+                </div>
+                <div id="kpiTemperaturaStatus">
+                    <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
+                    <p>Temp.Status</p>
+                    <p>Moderado</p>
+                </div>
+                <div id="kpiUmidadeAtual">
+                    <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
+                    <p>Umid.Atual</p>
+                    <p>80%</p>
+                </div>
+                <div id="kpiUmidadeStatus">
+                    <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
+                    <p>Umid.Status</p>
+                    <p>Crítico</p>
+                </div>
+            </div>
+            <div class="graphics">
+                <div id="graphicTemperatura">
+                    <canvas id="chartTemperatura"></canvas>
+                </div>
+                <div id="graphicUmidade">
+                    <canvas id="chartUmidade"></canvas>
+                </div>
+                <div id="graphicAlertas">
+                    <canvas id="chartAlertas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../scripts/script-dashboard.js"></script>
 </body>
+
 </html>
