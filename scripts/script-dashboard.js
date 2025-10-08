@@ -49,7 +49,8 @@ new Chart(ctxAlertas, {
         datasets: [{
             label: 'Umidade',
             data: [12, 19, 3, 5, 2, 3, 8, 8, 6, 5, 4, 7],
-            borderWidth: 1
+            borderWidth: 1,
+            borderRadius: 50
         }]
     },
     options: {
