@@ -22,7 +22,7 @@ const serial = async (
         {
             host: '127.0.0.1',
             user: 'arduino',
-            password: 'v3t123',
+            password: 'V3T@123projeto',
             database: 'v3t',    
             port: 3307
         }
@@ -66,15 +66,15 @@ const serial = async (
         
             // este insert irá inserir os dados na tabela "Registro", assim como simulações de situações de alerta
             await poolBancoDados.execute(
-                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 1)',
+                'INSERT INTO Registros (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 1)',
                 [Temperatura, Umidade, hora]
             );
             await poolBancoDados.execute(
-                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 2)',
+                'INSERT INTO Registros (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 2)',
                 [Temperatura+10, Umidade+20, hora]
             );
             await poolBancoDados.execute(
-                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 3)',
+                'INSERT INTO Registros (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 3)',
                 [Temperatura-25, Umidade-30, hora]
             );
         }
