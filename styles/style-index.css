@@ -36,9 +36,7 @@ header li {
     width: 20%;
     justify-items: center;
 }
-#img-header:hover{
-    scale: 95%;
-}
+
 #div-menu{
     width: 80%;
     justify-items: end;
@@ -63,7 +61,7 @@ a{
 }
 
 a:hover{
-
+    text-decoration: underline;
 }
 
 /* Código para o banner abaixo do header */
