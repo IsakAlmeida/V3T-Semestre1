@@ -14,7 +14,7 @@ function analise() {
     if (sensor === '2') {
         temperatura = [22, 24, 21, 25, 23];
         umidade = [60, 58, 62, 65, 59];
-        alertas = [12, 19, 3, 5, 2, 3, 8, 8, 6, 5, 4, 7]
+        alertas = [12, 19, 3, 5, 1, 3, 8, 8, 6, 5, 4, 7]
     }
 
     var ctxTemperatura = document.getElementById('chartTemperatura');
@@ -29,7 +29,7 @@ function analise() {
             datasets: [{
                 label: 'Temperatura °C',
                 data: temperatura,
-                borderWidth: 1
+                borderWidth: 1,
             }]
         },
         options: {
@@ -69,7 +69,7 @@ function analise() {
                 label: 'Umidade',
                 data: alertas,
                 borderWidth: 1,
-                borderRadius: 50
+                borderRadius: 100
             }]
         },
         options: {
