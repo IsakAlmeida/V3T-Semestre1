@@ -20,60 +20,65 @@
             </div>
             <div id="buttonDashBoard">
                 <a href="">
-                    <img src="" alt="Icone DashBoard">
+                    <img src="../imgs/icone-chart.png" alt="Icone DashBoard">
                     <h3>DashBoard</h3>
                 </a>
             </div>
             <div id="buttonSensores">
-                <img src="" alt="Icone Sensor">
+                <img src="../imgs/icone-sensor.png" alt="Icone Sensor">
                 <h3>Sensores</h3>
             </div>
             <div id="buttonPerfil">
-                <img src="" alt="Icone Perfil">
+                <img src="../imgs/icone-perfil.png" alt="Icone Perfil">
                 <h3>Perfil</h3>
             </div>
             <div id="buttonConfiguracoes">
-                <img src="" alt="Icone Configurações">
+                <img src="../imgs/icone-configuracoes.png" alt="Icone Configurações">
                 <h3>Configurações</h3>
             </div>
             <div id="buttonLogout">
                 <a href="index.html">
-                    <img src="" alt="Icone Logout">
+                    <img src="../imgs/icone-logout.png" alt="Icone Logout">
                     <h3>Logout</h3>
                 </a>
             </div>
         </div>
         <div class="pageDashBoard">
-            <div id="title">
-                <h1>DashBoard</h1>
-            </div>
-            <div id="select">
-                <select id="selectSensor">
-                    <option value="Selecione">Selecione...</option>
-                    <option value="Sensor 1">Sensor 1</option>
-                    <option value="Sensor 2">Sensor 2</option>
-                </select>
+            <div class="headerTop">
+                <div id="title">
+                    <h1>DashBoard</h1>
+                </div>
+                <div id="select">
+                    <select id="selectSensor">
+                        <option value="">Selecione...</option>
+                        <option value="1">Sensor 1</option>
+                        <option value="2">Sensor 2</option>
+                    </select>
+                </div>
+                <div id="buttonSelect">
+                    <button onclick="analise()">Mostrar gráficos</button>
+                </div>
             </div>
             <div class="kpis">
                 <div id="kpiTemperaturaAtual">
                     <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
                     <p>Temp.Atual</p>
-                    <p>19°C</p>
+                    <span>19°C</span>
                 </div>
                 <div id="kpiTemperaturaStatus">
                     <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
                     <p>Temp.Status</p>
-                    <p>Moderado</p>
+                    <span style="color: #FFDD00;">Moderado</span>
                 </div>
                 <div id="kpiUmidadeAtual">
                     <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
                     <p>Umid.Atual</p>
-                    <p>80%</p>
+                    <span>80%</span>
                 </div>
                 <div id="kpiUmidadeStatus">
                     <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
                     <p>Umid.Status</p>
-                    <p>Crítico</p>
+                    <span style="color: #ff0000;">Crítico</span>
                 </div>
             </div>
             <div class="graphics">
