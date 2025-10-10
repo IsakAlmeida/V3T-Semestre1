@@ -29,16 +29,39 @@ function analise() {
             datasets: [{
                 label: 'Temperatura °C',
                 data: temperatura,
-                borderWidth: 1,
+                borderWidth: 2,
+                borderColor: '#004830',
+                backgroundColor: '#ffffffff',
+                pointRadius: 5,
+                pointBorderWidth: 2,
+                tension: 0.4
             }]
         },
         options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+            plugins: {
+                legend: {
+                    position: 'top',
+                    align: 'start',
+                    labels: {
+                        usePointStyle: true,
+                        boxWidth: 0
+                    }
                 }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false
+                    }
+                },
             }
-        }
+        },
     });
 
     new Chart(ctxUmidade, {
@@ -46,15 +69,38 @@ function analise() {
         data: {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             datasets: [{
-                label: 'Umidade',
+                label: 'Umidade %',
                 data: umidade,
-                borderWidth: 1
+                borderWidth: 2,
+                borderColor: '#004830',
+                backgroundColor: '#ffffffff',
+                pointRadius: 5,
+                pointBorderWidth: 2,
+                tension: 0.4
             }]
         },
         options: {
+            plugins: {
+                legend: {
+                    position: 'top',
+                    align: 'start',
+                    labels: {
+                        usePointStyle: true,
+                        boxWidth: 0
+                    }
+                }
+            },
             scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    grid: {
+                        display: false
+                    }
                 }
             }
         }
@@ -66,19 +112,36 @@ function analise() {
         data: {
             labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
             datasets: [{
-                label: 'Umidade',
+                label: 'Quantidade de Alertas',
                 data: alertas,
                 borderWidth: 1,
                 borderRadius: 100
             }]
         },
         options: {
+            plugins: {
+                legend: {
+                    position: 'top',
+                    align: 'start',
+                    labels: {
+                        usePointStyle: true,
+                        boxWidth: 0
+                    }
+                }
+            },
             scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    grid: {
+                        display: false
+                    }
                 }
             }
         }
     });
-
 }
