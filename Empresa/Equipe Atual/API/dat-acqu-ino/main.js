@@ -126,20 +126,21 @@ function pegarData(){
         dataAtual = dataAtual.toString().split(' ');
         var ano = dataAtual[3];
         var dia = dataAtual[2];
-        var mes = dataAtual[1] === 'Jan' ? '01' :
-        dataAtual[1] === 'Feb' ? '02' :
-        dataAtual[1] === 'Mar' ? '03' :
-        dataAtual[1] === 'Apr' ? '04' :
-        dataAtual[1] === 'May' ? '05' :
-        dataAtual[1] === 'Jun' ? '06' :
-        dataAtual[1] === 'Jul' ? '07' :
-        dataAtual[1] === 'Aug' ? '08' :
-        dataAtual[1] === 'Sep' ? '09' :
-        dataAtual[1] === 'Oct' ? '10' :
-        dataAtual[1] === 'Nov' ? '11' : '12' ;
         let hora = dataAtual[4];
-        var dataCompleta = `${ano}-${mes}-${dia} ${hora}`;
+        if(dataAtual[1]=='Jan'){var mes = '01';}
+        else if(dataAtual[1]=='Feb'){var mes = '02';}
+        else if(dataAtual[1]=='Mar'){var mes = '03';}
+        else if(dataAtual[1]=='Apr'){var mes = '04';}
+        else if(dataAtual[1]=='May'){var mes = '05';}
+        else if(dataAtual[1]=='Jun'){var mes = '06';}
+        else if(dataAtual[1]=='Jul'){var mes = '07';}
+        else if(dataAtual[1]=='Aug'){var mes = '08';}
+        else if(dataAtual[1]=='Sep'){var mes = '09';}
+        else if(dataAtual[1]=='Oct'){var mes = '10';}
+        else if(dataAtual[1]=='Nov'){var mes = '11';}
+        else{var mes = '12';}
 
+        var dataCompleta = `${ano}-${mes}-${dia} ${hora}`;
          return dataCompleta;
     }
 
