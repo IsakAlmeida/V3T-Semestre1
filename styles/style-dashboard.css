@@ -1,139 +1,240 @@
-/*Importando fonte Montserrat*/
+/*======================================================
+  IMPORTAÇÃO DE FONTES
+======================================================*/
+/* Importa a fonte Montserrat (para textos gerais) e Fira Code (para código) do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/*Padronizando body*/
-body {
-    width: 100%;
-    margin: 0px;
-    font-family: 'Montserrat', sans-serif;
+/*======================================================
+  0. CSS RESET GERAL
+======================================================*/
+/* Reset de margens e paddings padrão para evitar inconsistências entre navegadores */
+body, html {
+    margin: 0; /* remove margem padrão do navegador */
+    padding: 0; /* remove padding padrão do navegador */
+    width: 100%; /* garante que ocupe 100% da largura da tela */
+    overflow-x: hidden; /* impede barra de rolagem horizontal indesejada */
+    font-family: 'Montserrat', sans-serif; /* define fonte padrão da página */
 }
 
-.Janela {
-    display: flex;
-    width: 100%;
-}
-
+/*======================================================
+  1. MENU LATERAL (HEADERLEFT / SIDEBAR)
+======================================================*/
 .headerLeft {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    height: 100%;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
+    position: fixed; /* fixa o menu na tela, mesmo ao rolar */
+    top: 0; /* topo da tela */
+    left: 0; /* esquerda da tela */
+    height: 100vh; /* altura total da viewport (tela) */
+    width: 250px; /* largura fixa do menu */
+    background-color: #ffffff; /* fundo branco */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* sombra à direita do menu */
+    z-index: 10; /* garante que o menu fique acima de outros elementos */
+
+    list-style: none; /* remove marcadores de lista padrão */
+    padding: 0; /* remove padding interno */
+    margin: 0; /* remove margem externa */
+    text-align: left; /* alinha textos à esquerda */
 }
 
-#imgLogo {
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
+/*======================================================
+  1.1. ESTILO DO ITEM ATIVO NO MENU
+======================================================*/
+.headerLeft li.active {
+    position: relative; /* necessário para posicionar o ::after corretamente */
 }
 
-#imgLogo img {
-    height: auto;
-    width: 224px;
+/* Cor do texto do item ativo */
+.headerLeft li.active span {
+    color: #21593B; /* verde do destaque */
 }
 
-#buttonDashBoard a,
-#buttonSensores,
-#buttonPerfil,
-#buttonConfiguracoes,
-#buttonLogout a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px;
-    gap: 8px;
+/* Criação de traço verde lateral no item ativo */
+.headerLeft li.active::after {
+    content: ''; /* necessário para o pseudo-elemento aparecer */
+    position: absolute; /* posição relativa ao li.active */
+    top: 0; /* começa no topo do item */
+    right: 0; /* fixa à direita do item */
+    width: 2px; /* largura do traço */
+    height: 130%; /* altura maior que o item, para destacar */
+    border-radius: 5px; /* borda arredondada */
+    background-color: #21593B; /* mesma cor do texto ativo */
 }
 
-#buttonDashBoard img,
-#buttonLogout img {
-    height: 24px;
-    width: 24px;
-    gap: 8px;
+/*======================================================
+  LOGO V3T
+======================================================*/
+.logoV3T {
+    text-align: center; /* centraliza conteúdo horizontalmente */
+    padding: 20px 0 130px 0; /* espaçamento: topo 20px, inferior 130px */
 }
 
-.pageDashBoard {
-    position: relative;
-    left: 20%;
-    height: 100%;
-    width: 80%;
-    background-color: #f4f7fe;
-    overflow: auto;
+.logoV3T img {
+    display: block; /* remove comportamento inline padrão das imagens */
+    margin: 0 auto; /* centraliza horizontalmente */
+    max-width: 80%; /* limita largura da logo */
 }
 
-.headerTop {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 30px;
-    margin-left: 40px;
+/*======================================================
+  1.2. ITENS DO MENU (BOTÕES)
+======================================================*/
+.buttonDashboard,
+.buttonSensores,
+.buttonPerfil,
+.buttonConfiguracoes,
+.buttonLogout {
+    display: flex; /* permite alinhar ícone e texto horizontalmente */
+    align-items: center; /* centraliza verticalmente os itens dentro do botão */
+    justify-content: flex-start; /* alinha itens à esquerda */
+    color: #a3aed0; /* cor do texto */
+    padding-left: 20px; /* espaçamento à esquerda */
+    margin-bottom: 25px; /* distância entre itens do menu */
+    cursor: pointer; /* indica que é clicável */
 }
 
-.kpis {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
-    margin-top: 20px;
-
+/* Estilo específico do link de logout */
+.buttonLogout a {
+    color: #333; /* cor do texto */
+    text-decoration: none; /* remove sublinhado */
 }
 
-.kpis div {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    gap: 10px;
-    transition: transform 0.3s ease;
-
+.buttonLogout a:visited {
+    color: #a3aed0; /* mantém cor mesmo após visita */
 }
 
-.kpis div:hover {
-    transform: scale(1.03);
+.buttonLogout a:hover {
+    color: #232020; /* muda a cor ao passar o mouse */
+    text-decoration: none; /* mantém sem sublinhado */
 }
 
-.kpis img {
-    height: auto;
-    width: 50px;
+/* Espaçamento entre ícone e texto dentro dos botões */
+.buttonDashboard img,
+.buttonSensores img,
+.buttonPerfil img,
+.buttonConfiguracoes img,
+.buttonLogout img {
+    margin-right: 10px; /* distância entre ícone e texto */
+    width: 20px; /* largura do ícone */
+    height: 20px; /* altura do ícone */
 }
 
-.kpis p {
-    font-size: 13px;
-    color: #555;
-    margin: 0;
+/*======================================================
+  2. CONTEÚDO PRINCIPAL (PAGEDASHBOARD)
+======================================================*/
+.pageDashboard {
+    background-color: #f4f7fe; /* fundo da área de conteúdo */
+    margin-left: 250px; /* desloca conteúdo para não ficar atrás do menu fixo */
+    padding-top: 20px; /* espaçamento superior */
+    padding-right: 40px; /* espaçamento lateral direito */
+    padding-bottom: 40px; /* espaçamento inferior */
+    position: relative; /* permite controle de z-index interno */
+    z-index: 1; /* garante que o conteúdo fique atrás do menu */
 }
 
-.kpis span {
-    font-size: 18px;
-    font-weight: 600;
-    color: #3b3b3b;
+/*======================================================
+  3. BARRA DE CONTROLES (UL.TITLE)
+======================================================*/
+.pageDashboard .title {
+    display: flex; /* organiza itens horizontalmente */
+    align-items: center; /* centraliza verticalmente */
+    justify-content: flex-start; /* alinha à esquerda */
+
+    list-style: none; /* remove marcadores de lista */
+    margin: 20px 0 10px 40px; /* margem externa: topo, direita, inferior, esquerda */
+    padding: 20px 40px; /* padding interno: topo/baixo 20px, lateral 40px */
+    background-color: #ffffff; /* fundo branco */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* sombra leve */
+    border-radius: 10px; /* cantos arredondados */
 }
 
-.graphics {
-    max-width: 700px;
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
+/* Espaçamento entre itens da barra */
+.pageDashboard .title li {
+    margin-right: 20px; /* distância horizontal entre itens */
 }
 
-#graphicTemperatura {
-    box-sizing: border-box;
-    height: 350px;
-    width: 700px;
+/* Estilo do título "Dashboard" */
+.pageDashboard .title li span {
+    font-size: 24px; /* tamanho da fonte */
+    font-weight: bold; /* negrito */
+    color: #333; /* cor do texto */
 }
 
-#graphicUmidade {
-    box-sizing: border-box;
-    height: 350px;
-    width: 700px;
+/* Estilo do Select */
+#selectSensor {
+    padding: 8px 12px; /* espaçamento interno */
+    border: 1px solid #ccc; /* borda cinza */
+    border-radius: 5px; /* cantos arredondados */
+    font-size: 14px; /* tamanho da fonte */
 }
 
-#graphicAlertas {
-    box-sizing: border-box;
-    height: 350px;
-    width: 700px;
+/* Estilo dos botões da barra de controles */
+.pageDashboard .title li button {
+    padding: 8px 15px; /* espaço interno */
+    border: none; /* sem borda */
+    border-radius: 4px; /* cantos arredondados */
+    background-color: #21593B; /* cor do botão */
+    color: white; /* cor do texto */
+    font-weight: 500; /* peso da fonte */
+    cursor: pointer; /* indica clicável */
+    transition: background-color 0.2s; /* animação suave ao mudar cor */
+}
+
+/* Efeito hover nos botões da barra */
+.pageDashboard .title li button:hover {
+    transform: scale(1.1); /* aumenta levemente o botão */
+    background-color: #00BF63; /* altera cor do botão */
+}
+
+/*======================================================
+  4. KPIS (INDICADORES DO DASHBOARD)
+======================================================*/
+.kpi-container {
+    display: flex; /* organiza os cards horizontalmente */
+    justify-content: space-around; /* distribui espaço igual entre os cards */
+    flex-wrap: wrap; /* permite que os cards quebrem linha em telas menores */
+    gap: 10px; /* espaçamento entre os cards */
+    padding-left: 40px; /* padding interno à esquerda */
+}
+
+.kpi-card {
+    display: flex; /* ícone e conteúdo lado a lado */
+    align-items: center; /* centraliza verticalmente */
+    width: 250px; /* largura do card */
+    height: 40px; /* altura do card */
+    padding: 20px; /* espaçamento interno */
+    background-color: white; /* fundo branco */
+    border-radius: 10px; /* cantos arredondados */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* sombra leve */
+}
+
+.kpi-icon {
+    width: 60px; /* largura do ícone */
+    height: auto; /* altura proporcional */
+    margin-right: 20px; /* distância do conteúdo */
+}
+
+.kpi-content {
+    display: flex; /* organiza título e valor verticalmente */
+    flex-direction: column; /* coluna vertical */
+    line-height: 1.5; /* espaçamento entre linhas */
+}
+
+.kpi-title {
+    font-size: 14px; /* tamanho da fonte do título */
+    color: #555; /* cor cinza */
+    font-weight: normal; /* peso normal */
+}
+
+.kpi-value {
+    font-size: 28px; /* tamanho maior do valor */
+    font-weight: bold; /* valor em negrito */
+    color: #333; /* cor escura */
+}
+
+/* Estilo para status moderado (ex: amarelo) */
+.status-moderado .kpi-value {
+    color: #FFC107; 
+}
+
+/* Estilo para status crítico (ex: vermelho) */
+.status-critico .kpi-value {
+    color: #b92929; 
 }
