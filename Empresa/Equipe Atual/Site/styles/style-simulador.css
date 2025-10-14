@@ -1,0 +1,196 @@
+
+/*Importando fonte Montserrat*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*Padronizando body*/
+body{
+    width: 100%;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+header {
+    width: 100%;
+    height: 95px;
+    margin: 0px;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    position: fixed;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header li {
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.div-img {
+    width: 20%;
+    justify-items: center;
+}
+
+.div-nav {
+    width: 80%;
+    justify-items: end;
+    align-items: center;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.bt-login {
+    font-weight: normal;
+    color: white;
+    background-color: #21593B;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.bt-login:hover {
+    transform: scale(1.1);
+    background-color: #00BF63;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:nth-of-type(1):hover {
+    text-decoration: underline;
+}
+
+a:nth-of-type(2):hover {
+    text-decoration: underline;
+}
+
+a:nth-of-type(3):hover {
+    text-decoration: underline;
+}
+
+a:nth-of-type(4):hover {
+    text-decoration: underline;
+}
+
+.div-inicial {
+    background-color: #21593B;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.div-inicial img {
+    height: 200px;
+}
+
+.div-inicial h2 {
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.div-inicial h4 {
+    font-size: 25px;
+    width: 70%;
+    margin-top: 50px;
+}
+
+.div-simulador {
+    width: 80%;
+    height: 600px;
+    background-color: #66A07A;
+    border-radius: 15px; 
+    margin: 60px auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-simulador h1 {
+    font-weight: 800; 
+}
+
+.div-simulador p {
+    font-size: 25px;
+    
+}
+
+.div-simulador input {
+    width: 500px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.div-input1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-input2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-simulador button {
+    width: 400px;
+    height: 70px;
+    font-size: 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: #004D2D;
+    color: white;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.div-simulador button:hover {
+    transform: scale(1.1);
+    background-color: #00BF63;
+}
+
+.div-msg {
+    width: 80%;
+    height: 600px;
+    background-color: #66A07A;
+    border-radius: 15px; 
+    margin: 60px auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-msg p {
+    font-size: 25px;
+}
+
+.div-msg-final {
+    font-weight: bold;
+    font-style: italic;
+    height: 90px;
+}
+
+.div-msg-final img {
+    height: 40px;
+}
