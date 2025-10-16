@@ -11,92 +11,104 @@
 </head>
 
 <body>
-    <div class="Janela">
-        <div class="headerLeft">
-            <div id="imgLogo">
-                <a href="index.html">
-                    <img src="../imgs/logo-dashboard.png" alt="Logo V3T">
-                </a>
+    <ul class="headerLeft">
+        <li class="logoV3T">
+            <a href="index.html">
+                <img src="../imgs/logo-dashboard.png" alt="Logo V3T">
+            </a>
+        </li>
+        <li class="buttonDashboard active">
+            <img src="../imgs/icone-chart.png" alt="Icone Dashboard">
+            <span>Dashboard</span>
+        </li>
+        <li class="buttonSensores">
+            <img src="../imgs/icone-sensor.png" alt="Icone Sensores">
+            <span>Sensores</span>
+        </li>
+        <li class="buttonPerfil">
+            <img src="../imgs/icone-perfil.png" alt="Icone Perfil">
+            <span>Perfil</span>
+        </li>
+        <li class="buttonConfiguracoes">
+            <img src="../imgs/icone-configuracoes.png" alt="Icone Configuracoes">
+            <span>Configurações</span>
+        </li>
+        <li class="buttonLogout">
+            <a href="index.html">
+                <img src="../imgs/icone-logout.png" alt="Icone Logout">
+                <span>Logout</span>
+            </a>
+        </li>
+    </ul>
+    <div class="pageDashboard">
+        <ul class="title">
+            <li>
+                <span>DashBoard</span>
+            </li>
+            <li>
+                <select id="selectSensor">
+                    <option value="">Selecione...</option>
+                    <option value="1">Sensor 1</option>
+                    <option value="2">Sensor 2</option>
+                </select>
+            </li>
+            <li>
+                <button onclick="analise()">Mostrar gráficos</button>
+            </li>
+        </ul>
+        <div class="kpi-container">
+            <div class="kpi-card">
+                <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Atual" class="kpi-icon">
+                <div class="kpi-content">
+                    <span class="kpi-title">Temp. Atual</span>
+                    <span class="kpi-value">19 °C</span>
+                </div>
             </div>
-            <div id="buttonDashBoard">
-                <a href="">
-                    <img src="../imgs/icone-chart.png" alt="Icone DashBoard">
-                    <h3>DashBoard</h3>
-                </a>
+            <div class="kpi-card status-moderado">
+                <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Status" class="kpi-icon">
+                <div class="kpi-content">
+                    <span class="kpi-title">Temp. Status</span>
+                    <span class="kpi-value">Moderado</span>
+                </div>
             </div>
-            <div id="buttonSensores">
-                <img src="../imgs/icone-sensor.png" alt="Icone Sensor">
-                <h3>Sensores</h3>
+            <div class="kpi-card">
+                <img src="../imgs/icone-dashboard.png" alt="kpi Umidade Atual" class="kpi-icon">
+                <div class="kpi-content">
+                    <span class="kpi-title">Umid. Atual</span>
+                    <span class="kpi-value">19 °C</span>
+                </div>
             </div>
-            <div id="buttonPerfil">
-                <img src="../imgs/icone-perfil.png" alt="Icone Perfil">
-                <h3>Perfil</h3>
-            </div>
-            <div id="buttonConfiguracoes">
-                <img src="../imgs/icone-configuracoes.png" alt="Icone Configurações">
-                <h3>Configurações</h3>
-            </div>
-            <div id="buttonLogout">
-                <a href="index.html">
-                    <img src="../imgs/icone-logout.png" alt="Icone Logout">
-                    <h3>Logout</h3>
-                </a>
+            <div class="kpi-card status-critico">
+                <img src="../imgs/icone-dashboard.png" alt="kpi Umidade Status" class="kpi-icon">
+                <div class="kpi-content">
+                    <span class="kpi-title">Umid. Status</span>
+                    <span class="kpi-value">Crítico</span>
+                </div>
             </div>
         </div>
-        <div class="pageDashBoard">
-            <div class="headerTop">
-                <div id="title">
-                    <h1>DashBoard</h1>
-                </div>
-                <div id="select">
-                    <select id="selectSensor">
-                        <option value="">Selecione...</option>
-                        <option value="1">Sensor 1</option>
-                        <option value="2">Sensor 2</option>
-                    </select>
-                </div>
-                <div id="buttonSelect">
-                    <button onclick="analise()">Mostrar gráficos</button>
-                </div>
-            </div>
-            <div class="kpis">
-                <div id="kpiTemperaturaAtual">
-                    <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
-                    <p>Temp.Atual</p>
-                    <span>19°C</span>
-                </div>
-                <div id="kpiTemperaturaStatus">
-                    <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
-                    <p>Temp.Status</p>
-                    <span style="color: #FFDD00;">Moderado</span>
-                </div>
-                <div id="kpiUmidadeAtual">
-                    <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
-                    <p>Umid.Atual</p>
-                    <span>80%</span>
-                </div>
-                <div id="kpiUmidadeStatus">
-                    <img src="../imgs/icone-dashboard.png" alt="Icone DashBoard">
-                    <p>Umid.Status</p>
-                    <span style="color: #ff0000;">Crítico</span>
-                </div>
-            </div>
-            <div class="graphics">
+        <div class="graphics">
+            <div class="graficos-duplos">
                 <div id="graphicTemperatura">
+                    <span>Temperatura °C</span>
+                    <img src="../imgs/icone-dashboard.png" alt="Temperatura" class="kpi-icon">
                     <canvas id="chartTemperatura"></canvas>
                 </div>
                 <div id="graphicUmidade">
+                    <span>Umidade %</span>
+                    <img src="../imgs/icone-dashboard.png" alt="Umidade" class="kpi-icon">
                     <canvas id="chartUmidade"></canvas>
-                </div>
-                <div id="graphicAlertas">
-                    <canvas id="chartAlertas"></canvas>
                 </div>
             </div>
         </div>
+        <div id="graphicAlertas">
+            <span>Quantidade de Alertas</span>
+            <canvas id="chartAlertas"></canvas>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.1.0/dist/chartjs-plugin-annotation.min.js"></script>
     <script src="../scripts/script-dashboard.js"></script>
-
 </body>
 
 </html>

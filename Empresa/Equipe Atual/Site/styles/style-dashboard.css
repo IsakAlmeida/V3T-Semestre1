@@ -1,139 +1,461 @@
-/*Importando fonte Montserrat*/
+/*======================================================
+  IMPORTAÇÃO DE FONTES
+======================================================*/
+/* Importa a fonte Montserrat (para textos gerais) e Fira Code (para código) do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/*Padronizando body*/
-body {
+/*======================================================
+  0. CSS RESET GERAL
+======================================================*/
+/* Reset de margens e paddings padrão e definição de fonte base */
+body,
+html {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    margin: 0px;
+    overflow-x: hidden;
+    /* impede barra de rolagem horizontal indesejada */
     font-family: 'Montserrat', sans-serif;
+    /* define fonte padrão da página */
 }
 
-.Janela {
-    display: flex;
-    width: 100%;
-}
-
+/*======================================================
+  1. MENU LATERAL (HEADERLEFT / SIDEBAR)
+======================================================*/
 .headerLeft {
     position: fixed;
+    /* fixa o menu na tela, mesmo ao rolar */
     top: 0;
     left: 0;
-    z-index: 999;
-    height: 100%;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
+    height: 100vh;
+    /* altura total da viewport (tela) */
+    width: 250px;
+    /* largura fixa do menu */
     background-color: #ffffff;
+    /* fundo branco */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    /* sombra à direita do menu */
+    z-index: 10;
+    /* garante que o menu fique acima de outros elementos */
+
+    /* Estilos do conteúdo */
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    /* alinha textos à esquerda */
 }
 
-#imgLogo {
+/*======================================================
+  1.1. ESTILO DO ITEM ATIVO NO MENU
+======================================================*/
+/* Aplique 'active' ao elemento pai (li ou div) do botão. */
+.headerLeft li.active,
+.headerLeft .buttonDashboard.active,
+.headerLeft .buttonSensores.active,
+.headerLeft .buttonPerfil.active,
+.headerLeft .buttonConfiguracoes.active,
+.headerLeft .buttonLogout.active {
+    position: relative;
+    /* necessário para posicionar o ::after corretamente */
+}
+
+/* Cor do texto do item ativo (assume-se que o texto está dentro de um <span>) */
+.headerLeft li.active span {
+    color: #21593B;
+    font-weight: bold;
+    /* verde do destaque */
+}
+
+/* Criação de traço verde lateral no item ativo */
+.headerLeft li.active::after,
+.headerLeft .active::after {
+    /* Aplica-se ao elemento com a classe 'active' */
+    content: '';
+    /* necessário para o pseudo-elemento aparecer */
+    position: absolute;
+    /* posição relativa ao elemento .active */
+    top: 0;
+    /* começa no topo do item */
+    right: 0;
+    /* fixa à direita do item */
+    width: 2px;
+    /* largura do traço */
+    height: 130%;
+    /* altura maior que o item, para destacar */
+    border-radius: 5px;
+    /* borda arredondada */
+    background-color: #21593B;
+    /* mesma cor do texto ativo */
+}
+
+/*======================================================
+  LOGO V3T
+======================================================*/
+.logoV3T {
     text-align: center;
-    padding: 20px 0;
+    /* centraliza conteúdo horizontalmente */
+    padding: 20px 0 130px 0;
+    /* espaçamento: topo 20px, inferior 130px */
+}
+
+.logoV3T img {
+    display: block;
+    /* permite o uso de margin: auto para centralizar */
+    margin: 0 auto;
+    /* centraliza horizontalmente */
+    max-width: 80%;
+    /* limita largura da logo */
+}
+
+/*======================================================
+  1.2. ITENS DO MENU (BOTÕES)
+======================================================*/
+.buttonDashboard,
+.buttonSensores,
+.buttonPerfil,
+.buttonConfiguracoes,
+.buttonLogout {
+    display: flex;
+    /* permite alinhar ícone e texto horizontalmente */
+    align-items: center;
+    /* centraliza verticalmente os itens dentro do botão */
+    justify-content: flex-start;
+    /* alinha itens à esquerda */
+    color: #a3aed0;
+    /* cor do texto padrão */
+    padding-left: 20px;
+    /* espaçamento à esquerda */
+    margin-bottom: 25px;
+    /* distância entre itens do menu */
+    cursor: pointer;
+    /* indica que é clicável */
+}
+
+/* Estilo específico do link de logout (se houver um <a> dentro) */
+.buttonLogout a {
+    color: inherit;
+    /* herda a cor do .buttonLogout para evitar confusão de cores */
+    text-decoration: none;
+    /* remove sublinhado */
+}
+
+.buttonLogout a:visited {
+    color: #a3aed0;
+    /* mantém cor mesmo após visita */
+}
+
+.buttonLogout a:hover {
+    color: #232020;
+    /* muda a cor ao passar o mouse */
+}
+
+/* Estilo comum para ícones dos botões */
+.buttonDashboard img,
+.buttonSensores img,
+.buttonPerfil img,
+.buttonConfiguracoes img,
+.buttonLogout img {
+    margin-right: 10px;
+    /* distância entre ícone e texto */
+    width: 20px;
+    /* largura do ícone */
+    height: 20px;
+    /* altura do ícone */
+}
+
+/*======================================================
+  2. CONTEÚDO PRINCIPAL (PAGEDASHBOARD) - AJUSTE FINAL
+======================================================*/
+.pageDashboard {
+    background-color: #f4f7fe;
+    /* fundo da área de conteúdo */
+
+    /* Centralização do Conteúdo: */
+    max-width: 1200px;
+    /* Define largura máxima para o conteúdo (Ajuste este valor se necessário) */
+    margin-left: 250px;
+    /* Mantém o deslocamento para a direita da sidebar */
+    margin-right: auto;
+    /* Centraliza o bloco dentro do espaço restante */
+
+    padding: 15px 20px 20px 20px;
+    /* Padding lateral uniforme para evitar que o conteúdo toque as bordas da tela */
+
+    position: relative;
+    z-index: 1;
+    /* garante que o conteúdo fique atrás do menu */
+}
+
+/*======================================================
+  3. BARRA DE CONTROLES (UL.TITLE) - AJUSTE FINAL
+======================================================*/
+.pageDashboard .title {
+    display: flex;
+    /* organiza itens horizontalmente */
+    align-items: center;
+    /* centraliza verticalmente */
+    justify-content: flex-start;
+    /* alinha à esquerda */
+
+    list-style: none;
+    /* remove marcadores de lista */
+
+    /* Configuração revisada: Usa margens laterais para o alinhamento de 40px */
+    margin: 20px 40px 15px 40px;
+    padding: 20px;
+    /* Padding interno uniforme */
+    width: auto;
+
+    background-color: #ffffff;
+    /* fundo branco */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* sombra leve */
+    border-radius: 10px;
+    /* cantos arredondados */
+}
+
+/* Espaçamento entre itens da barra */
+.pageDashboard .title li {
+    margin-right: 20px;
+    /* distância horizontal entre itens */
+}
+
+/* Estilo do título "Dashboard" */
+.pageDashboard .title li span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo do Select */
+#selectSensor {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Estilo dos botões da barra de controles */
+.pageDashboard .title li button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #21593B;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    /* Adicionado transição para transform e cor */
+}
+
+/* Efeito hover nos botões da barra */
+.pageDashboard .title li button:hover {
+    transform: scale(1.1);
+    /* aumenta levemente o botão */
+    background-color: #00BF63;
+    /* altera cor do botão */
+}
+
+/*======================================================
+  4. KPIS (INDICADORES DO DASHBOARD) - AJUSTE FINAL 
+======================================================*/
+.kpi-container {
+    display: flex;
+    /* organiza os cards horizontalmente */
+    justify-content: space-between;
+    /* Distribui os cards para preencherem a largura, usando espaço entre eles */
+    flex-wrap: wrap;
+    /* permite que os cards quebrem linha em telas menores */
+    gap: 15px;
+    /* Espaçamento entre os cards, que será sobreposto pelo space-between se houver 4 */
+    padding: 0 40px;
+    /* Padding lateral uniforme de 40px, ALINHANDO COM OS DEMAIS ELEMENTOS */
+}
+
+.kpi-card {
+    display: flex;
+    align-items: center;
+
+    /* FAZ O CARD EXPANDIR E OCUPAR 1/4 DO ESPAÇO DISPONÍVEL (menos o gap) */
+    flex: 1 1 20%;
+    /* Permite que o card cresça e encolha, tendo 20% como base (garante que 4 caibam) */
+    min-width: 200px;
+    /* Garante que não encolha demais, mantendo a responsividade */
+
+    height: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.kpi-icon {
+    width: 60px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.kpi-content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+.kpi-title {
+    font-size: 14px;
+    color: #555;
+    font-weight: normal;
+}
+
+.kpi-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.status-moderado .kpi-value {
+    color: #FFC107;
+}
+
+.status-critico .kpi-value {
+    color: #b92929;
+}
+
+/*======================================================
+  5. GRÁFICOS E ALERTAS (AJUSTADO) - FINAL
+======================================================*/
+
+/* CONTAINER PAI: Garante o padding lateral para o container principal */
+.graphics {
+    padding: 0 40px;
+    /* Mantém o padding lateral de 40px para alinhar com KPI-Container e .title */
+    margin-top: 20px;
+    box-sizing: border-box;
     width: 100%;
 }
 
-#imgLogo img {
-    height: auto;
-    width: 224px;
-}
-
-#buttonDashBoard a,
-#buttonSensores,
-#buttonPerfil,
-#buttonConfiguracoes,
-#buttonLogout a {
+/* CONTAINER NOVO: organiza os dois gráficos lado a lado */
+.graficos-duplos {
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px;
-    gap: 8px;
-}
-
-#buttonDashBoard img,
-#buttonLogout img {
-    height: 24px;
-    width: 24px;
-    gap: 8px;
-}
-
-.pageDashBoard {
-    position: relative;
-    left: 20%;
-    height: 100%;
-    width: 80%;
-    background-color: #f4f7fe;
-    overflow: auto;
-}
-
-.headerTop {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 30px;
-    margin-left: 40px;
-}
-
-.kpis {
-    display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 20px;
-    margin-top: 20px;
-
-}
-
-.kpis div {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    gap: 10px;
-    transition: transform 0.3s ease;
-
-}
-
-.kpis div:hover {
-    transform: scale(1.03);
-}
-
-.kpis img {
-    height: auto;
-    width: 50px;
-}
-
-.kpis p {
-    font-size: 13px;
-    color: #555;
-    margin: 0;
-}
-
-.kpis span {
-    font-size: 18px;
-    font-weight: 600;
-    color: #3b3b3b;
-}
-
-.graphics {
-    max-width: 700px;
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-}
-
-#graphicTemperatura {
+    width: 100%;
     box-sizing: border-box;
-    height: 350px;
-    width: 700px;
 }
 
+/* ESTILOS DOS CARDS (os quadros brancos) */
+#graphicTemperatura,
 #graphicUmidade {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
-    height: 350px;
-    width: 700px;
+    display: flex;
+    flex-direction: column;
 }
 
+/* ======================================================= */
+/* ESTILOS PARA POSICIONAR TÍTULO E ÍCONE NOS CARDS GRÁFICOS */
+/* ======================================================= */
+
+/* 1. Torna o card o ponto de referência (Já feito pelo flex, mas adicionamos relative para segurança) */
+#graphicTemperatura, 
+#graphicUmidade {
+    position: relative; 
+}
+
+/* 2. Posiciona o Ícone (img.kpi-icon) no canto superior direito e BEM PARA CIMA */
+#graphicTemperatura .kpi-icon, 
+#graphicUmidade .kpi-icon {
+    position: absolute;
+    top: 5px;   /* AJUSTADO: 10px para ficar mais em cima */
+    right: 5px; /* Alinhado com o padding de 25px */
+    z-index: 10;
+}
+
+/* 3. Posiciona o Texto de Título (span) no canto superior esquerdo e BEM PARA CIMA */
+#graphicTemperatura > span, 
+#graphicUmidade > span {
+    position: absolute;
+    top: 15px;   /* AJUSTADO: 10px para alinhar com o ícone */
+    left: 15px;  /* Alinhado com o padding de 25px */
+    z-index: 10;
+    
+    /* Opcional: Estilo para o texto (se precisar) */
+    font-size: 24px; /* Exemplo */
+    font-weight: bold; /* Exemplo */
+    color: #333; /* Exemplo */
+}
+
+/* ======================================================= */
+/* ESTILOS PARA O GRÁFICO DE ALERTAS */
+/* ======================================================= */
+
+/* 1. Torna o card o ponto de referência */
 #graphicAlertas {
+    position: relative; 
+}
+
+/* 2. Posiciona o Título (span) no canto superior esquerdo */
+#graphicAlertas > span {
+    position: absolute;
+    top: 10px;   /* Ajustado para alinhar com os outros títulos (se o padding do card for 25px) */
+    left: 25px;  /* Alinhado com o padding 'left' do card */
+    z-index: 10;
+    
+    /* Opcional: Estilo para o texto (se precisar) */
+    font-size: 24px; /* Exemplo */
+    font-weight: bold; /* Exemplo */
+    color: #333; /* Exemplo */
+}
+
+/* 3. Ajusta o Gráfico (Canvas) para começar abaixo do título */
+#chartAlertas {
+    /* Mova o gráfico para baixo o suficiente para não cobrir o título */
+    margin-top: 30px; 
+}
+
+/* 4. Ajusta o Gráfico (Canvas) para começar abaixo do título e ícone */
+#chartTemperatura, #chartUmidade {
+    /* Mova o gráfico para baixo o suficiente para não cobrir o título/ícone */
+    margin-top: 30px; 
+}
+
+/* LARGURA DOS ITENS FILHOS DENTRO DO NOVO CONTAINER DUPLO */
+#graphicTemperatura,
+#graphicUmidade {
+    flex: 1;
+    min-width: 0;
+}
+
+/* AJUSTE DE ALTURA DOS GRÁFICOS (Canvas) */
+#graphicTemperatura canvas,
+#graphicUmidade canvas {
+    height: 300px;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* GRÁFICO DE ALERTAS (abaixo) */
+#graphicAlertas {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
-    height: 350px;
-    width: 700px;
+
+    /* Alinha a largura e o padding do #graphicAlertas com os demais elementos */
+    width: calc(100% - 80px);
+    /* 100% menos 40px de margin-left e 40px de margin-right */
+    min-height: 280px;
+    margin: 20px 40px;
+    /* Adiciona margem superior e laterais de 40px */
+}
+
+/* Ajuste geral do canvas */
+canvas {
+    width: 100%;
+    display: block;
 }
