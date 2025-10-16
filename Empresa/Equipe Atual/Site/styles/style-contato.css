@@ -2,6 +2,12 @@
 /*Importando fonte Montserrat*/
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /*Padronizando body*/
 body{
     width: 100%;
@@ -18,14 +24,16 @@ header {
     background-color: white;
     align-items: center;
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
-    
+
 }
- header ul {
+
+header ul {
     list-style: none;
     display: flex;
 }
+
 header li {
     font-weight: bold;
     padding-left: 20px;
@@ -33,45 +41,152 @@ header li {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-#div-img{
+
+#div-img {
     width: 20%;
     justify-items: center;
 }
-#img-header:hover{
-    scale: 95%;
-}
-#div-menu{
+
+
+#div-menu {
+
     width: 80%;
     justify-items: end;
     align-items: center;
     text-align: center;
     margin-right: 30px;
 }
-#li-login{
+
+#li-login {
     font-weight: normal;
     color: white;
     background-color: #21593B;
     border-radius: 20px;
 }
-#li-login:hover{
+
+#li-login:hover {
     transform: scale(1.1);
     background-color: #00BF63;
 }
 
-a{
+a {
     color: black;
     text-decoration: none;
 }
+
 a:hover{
+    text-decoration: underline;
     scale: 95%;
 }
-#divTopo{
-    width: 100%;
-    height: 103%;
-    margin-top: 7%;
+.banner {
+    width: 100vw; 
+    height: 23vh; 
 }
-#imgInicial{
+.banner img {
+    display: block;
+    width: 100%; 
+    height: 150%; 
+    object-fit: cover; 
+}
+main{
     display: flex;
-    width: 100%;
-    height: 75px;
+    flex-direction: column;
+}
+.sectionContato{
+    height: 620px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.divTextoContato h2{
+    color: #21593B;
+    font-size: 60px;
+    text-align: left;
+    padding-left: 3rem;
+}
+.divTextoContato p{
+    margin-top: 30px;    
+    align-self: center;
+    text-align: left;
+    width: 80%;
+    color: #21593B;
+    font-size: 35px;
+    padding-left: 3rem;
+}
+.sectionContato img{
+    padding-right: 5rem;
+    width: 392px;
+    
+}
+.sectionForm{
+    background-color: #66A07A;
+    border-radius: 10px;
+    margin: 0 10% 0 10%;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 20px 20px 20px #211b15;
+}
+.sectionForm h2,h3 {
+    color: #FFFFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    text-align: left;
+    font-size: 40px;
+    margin: 5px;
+
+}
+.formEmpresa{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding-left: 3.5rem;
+    
+}
+
+.formEmpresa input[type= "text"]{
+    border: 2px solid #FFFFFFFF;
+    border-radius: 10px;
+    margin: 7px;
+    height: 45px;
+    width: 95%;
+}
+
+input::placeholder{
+    padding-left: 1rem;
+}
+
+#formEndereco{
+    align-items: center;
+    border-radius: 10px;
+}
+
+.iptEndereco{
+display: flex;
+align-items: center;
+padding-left: 3.5rem;
+
+}
+
+#formEndereco input[type= "text"]{
+    border: 2px solid #FFFFFFFF;
+    border-radius: 10px;
+    margin: 15px 5px 15px 5px;
+    height: 45px;
+    width: 47.5%;
+
+}
+
+button{
+    background-color: #004D2D;
+    padding: 0.8rem;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer; 
+    width: 20%;
+    margin-left: 2rem;
 }

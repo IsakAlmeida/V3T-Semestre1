@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../imgs/logo-redonda.png" type="image/png">
-    <link rel="stylesheet" href="../styles/style-contato.css">
-    <script src="../scripts/script-contato.js"></script>
-    <title>Contato - V3T</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../imgs/logo-redonda.png" type="image/png">
+  <link rel="stylesheet" href="../styles/style-contato.css">
+  <script src="../scripts/script-contato.js"></script>
+  <title>Contato - V3T</title>
 </head>
+
 <body>
-      <header>
+  <header>
     <div id="div-img"><a href="./index.html"><img id="img-header" src="../imgs/logo-preta.png" /></a></div>
     <div id="div-menu">
       <ul>
@@ -31,39 +33,59 @@
       </ul>
     </div>
   </header>
-  <div id="divTopo">
-    <img id="imgInicial" src="../imgs/print-banner-contato.png" alt="banner">
-  </div>
-  <div>
-    <h1>Teste de commit</h1>
-    <h2>Entre em contato conosco</h2>
-    <p>Preencha seus dados para adquirir nossa solução 
-    e tornar a análise e controle do armazenamento de biotinta muito mais simples e eficiente.</p>
-    <img src="../imgs/contato.png" alt="imagem contato">
-  </div>
-  <div>
-    <h2>Preencha os dados da sua empresa:</h2>
-    <input type="text" placeholder="Razão Social">
-    <br><br>
-    <input type="text" placeholder="Nome Fantasia">
-    <br><br>
-    <input type="text" placeholder="CNPJ">
-    <br><br>
-    <input type="text" placeholder="E-mail para contato">
-    <br><br>
-    <input type="text" placeholder="Telefone">
-    <h3>Endereço:</h3>
-    <input type="text" placeholder="Rua"> 
-    <input type="text" placeholder="N°">
-    <br><br>
-    <input type="text" placeholder="Bairro">
-    <input type="text" placeholder="Cidade">
-    <br><br>
-    <input type="text" placeholder="UF">
-    <input type="text" placeholder="CEP">
-    <br><br>
-    <button onclick="enviar()">Enviar!</button>
+  <section class="banner">
+    <img src="../imgs/banner-contato.png" alt="banner">
+  </section>
+  <main>
+    <section class="sectionContato">
+      <div class="divTextoContato">
+        <h2>Entre em contato <br>conosco!</h2>
+        <p>Preencha seus dados para adquirir nossa solução e tornar a análise e controle do armazenamento de biotinta
+          muito mais <b style="color: #21593B;">simples</b> e <b style="color: #21593B;">eficiente</b>.</p>
+      </div>
+      <img src="../imgs/contato.png" alt="icone contato">
+    </section>
+    <section class="sectionForm">
+      <h2>Preencha os dados <br>da sua empresa:</h2>
+      <div class="formEmpresa">
+        <input type="text" name="razao" placeholder="Razão Social">
+        <br>
+        <input type="text" name="nomeFantasia" placeholder="Nome Fantasia">
+        <br>
+        <input type="text" name="CNPJ" placeholder="CNPJ">
+        <br>
+        <input type="text" name="email" placeholder="Email">
+        <br>
+        <input type="text" name="telefone" placeholder="Telefone">
+        <br><br>
+      </div>
+      <h3>Endereço:</h3>
+      <div id="formEndereco">
+        <div class="iptEndereco">
+        <input type="text" name="rua" placeholder="Rua">
+        <input type="text" name="num" placeholder="N°">
+        </div>
+        <div class="iptEndereco">
+        <input type="text" name="bairro" placeholder="Bairro">
+        <input type="text" name="cidade" placeholder="Cidade">
+        </div>
+        <div class="iptEndereco">
+        <input type="text" name="UF" placeholder="UF">
+        <input type="text" name="CPF" placeholder="CPF">
+        </div>
+        <br><br>
+      </div>
+      <div>
+        <button onclick="">Enviar!</button>
+      </div>
+    </section>
 
-  </div>
+  </main>
+
+  <footer>
+    Esse é o footer
+
+  </footer>
 </body>
+
 </html>
