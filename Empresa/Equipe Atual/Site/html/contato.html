@@ -48,35 +48,53 @@
     <section class="sectionForm">
       <h2>Preencha os dados <br>da sua empresa:</h2>
       <div class="formEmpresa">
-        <input type="text" name="razao" placeholder="Razão Social">
+        <input type="text" name="razao" placeholder="Razão Social" id="iptRazao" onkeyup="social()">
+         <div id="divRazao" style="color: white;"></div>
+        
         <br>
-        <input type="text" name="nomeFantasia" placeholder="Nome Fantasia">
+        <input type="text" name="nomeFantasia" placeholder="Nome Fantasia" id="iptNome" onkeyup="nomeFan()">
+         <div id="divNome" style="color: white;"></div>
         <br>
-        <input type="text" name="CNPJ" placeholder="CNPJ">
+        <input type="text" name="CNPJ" placeholder="CNPJ" id="iptCNPJ" onkeyup="numCpnj()" >
+         <div id="divCnpj" style="color: white;">ade</div>
         <br>
-        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="email" placeholder="Email" id="iptEmail">
+         <div id="divEmail" style="color: white;">ade</div>
         <br>
-        <input type="text" name="telefone" placeholder="Telefone">
+        <input type="text" name="telefone" placeholder="Telefone" id="iptTelefone">
+         <div id="divTelefone" style="color: white;">ade</div>
         <br><br>
       </div>
       <h3>Endereço:</h3>
       <div id="formEndereco">
         <div class="iptEndereco">
-        <input type="text" name="rua" placeholder="Rua">
-        <input type="text" name="num" placeholder="N°">
+        <input type="text" name="rua" placeholder="Rua" id="iptRua">
+        <br>
+         <div id="divRua" style="color: white;">ade</div>
+        <input type="text" name="num" placeholder="N°" id="iptNum">
+        <br>
+         <div id="divNum" style="color: white;">ade</div>
         </div>
         <div class="iptEndereco">
-        <input type="text" name="bairro" placeholder="Bairro">
-        <input type="text" name="cidade" placeholder="Cidade">
+        <input type="text" name="bairro" placeholder="Bairro" id="iptBairro">
+        <br>
+         <div id="divBairro" style="color: white;">ade</div>
+        <input type="text" name="cidade" placeholder="Cidade" id="iptCidade">
+        <br>
+         <div id="divCidade" style="color: white;">ade</div>
         </div>
         <div class="iptEndereco">
-        <input type="text" name="UF" placeholder="UF">
-        <input type="text" name="CPF" placeholder="CPF">
+        <input type="text" name="UF" placeholder="UF" id="iptUF">
+        <br>
+         <div id="divUF" style="color: white;">ade</div>
+        <input type="text" name="CPF" placeholder="CEP" id="iptCEP">
+        <br>
+         <div id="divCEP" style="color: white;">ade</div>
         </div>
         <br><br>
       </div>
       <div>
-        <button onclick="">Enviar!</button>
+        <button onclick="enviar()">Enviar!</button>
       </div>
     </section>
 
