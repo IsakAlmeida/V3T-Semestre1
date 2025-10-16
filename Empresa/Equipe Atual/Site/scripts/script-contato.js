@@ -3,7 +3,7 @@ var razao = iptRazao.value;
 var nome = iptNome.value;
 var cnpj = iptCNPJ.value;
 var email = iptEmail.value;
-var tel = iptTelefone.value;
+var telefone = iptTelefone.value;
 var rua = iptRua.value;
 var num = Number(iptNum.value);
 var bairro = iptBairro.value;
@@ -63,3 +63,39 @@ function nomeFan() {
         divCnpj.innerHTML = ``;
     }
  }
+
+ function mail(){
+    email = iptEmail.value.trim();
+    let erro = "";
+
+    if (email == "") {
+        erro = `Preencha o campo Email`
+    }else if(email.indexOf("@") == -1){
+            erro = `Insira um email válido que contenha @`;
+ }
+
+ if (erro != "") {
+    divEmail.innerHTML = `${erro}`; 
+ }else{
+    divEmail.innerHTML = ``;
+ }
+
+}
+
+function tel(){
+    telefone = iptTelefone.value.trim();
+    let erro = "";
+
+    if (telefone == '') {
+        erro = `Preencha o campo Telefone`
+   }else if (telefone.length < 15) {
+    erro = `Informe um número válido igual ao exemplo`;
+    }
+
+    if (erro != "") {
+        divTelefone.innerHTML = `${erro}`
+    }else{
+        divTelefone.innerHTML = `Ex: (xx) xxxx-xxxx`;
+    }
+}
+ 
