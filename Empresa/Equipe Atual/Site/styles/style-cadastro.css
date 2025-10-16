@@ -1,93 +1,186 @@
-/*Importando fonte Montserrat*/
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Importando fonte Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
 
-/*Nav*/
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  background-color: #f5f5f5;
-  padding: 0 40px;
-  position: relative;
-  z-index: 10;
-}
-
-.logo {
-  width: 80px;
-}
-
-/*Body*/
-body {
-  width: 100%;
+/* RESET */
+* {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #e5e5e5; /* cor do fundo externo */
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/*Área verde com o conteúdo centralizado*/
-.conteudo_principal {
-  position: relative; /* base para as linhas */
+/* ===== HEADER ===== */
+header {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0 50px;
+}
+
+#div-img img {
+  width: 90px;
+  height: auto;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+header li {
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#bt-login {
+  font-weight: normal;
+  color: white;
+  background-color: #21593B;
+  border-radius: 20px;
+  padding: 8px 20px;
+}
+
+#bt-login:hover {
+  background-color: #00BF63;
+  transform: scale(1.05);
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #E5E5E5;
+}
+
+/* ===== FUNDO ===== */
+.fundo_cadastro {
+  min-height: 100vh;
+  background-image: url(../imgs/fundo_cadastro.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #21593B;
-  min-height: calc(100vh - 60px); /* ocupa o resto da tela abaixo do nav */
-  overflow: hidden; /* evita que as linhas passem para fora */
+  padding: 40px 0;
 }
 
-/* Linhas decorativas */
-.linha {
-  position: absolute;
-  z-index: 0;
-  height: 300px;
-  opacity: 0.9;
-}
-
-.linha.cima {
-  top: 0;
-  left: 0;
-  width: 350px;
-}
-
-.linha.baixo {
-  bottom: 0;
-  right: 0;
-  width: 350px;
-}
-
-/*Quadrado cinza com sombra*/
+/* ===== QUADRADO COM SOMBRA ===== */
 .quadrado_com_sombra {
-  position: relative;
-  z-index: 1; /* garante que fique acima das linhas */
   background-color: #F5F5F5;
-  height: 400px;
-  width: 500px;
-  margin: 0; /* remove o espaço que empurrava pra baixo */
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 15px 15px 9px rgba(0, 0, 0, 0.5);
+  width: 480px;
+  padding: 40px 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
-.paragrafos_e_inputs{
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+/* ===== TEXTOS ===== */
+.titulo {
+  font-weight: 900;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
-.titulo{
-   font-weight: 900;
-   font-size: large;
-   text-align: center;
-   padding: 1%;
+.subtitulo {
+  font-weight: 600;
+  font-size: 0.80rem;
+  margin-bottom: 25px;
 }
 
-.subtitulo{
-    font-weight: 700;
-   font-size: medium;
-   text-align: center;
-   padding: 1%;
+.subtitulo a {
+  color: #66A07A;
+  font-weight: 700;
+}
+
+.subtitulo a:hover {
+  color: #00BF63;
+}
+
+/* ===== INPUTS ===== */
+input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #fff;
+  font-size: 0.95rem;
+  transition: 0.9s;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #21593B inset;
+}
+
+.div_senha {
+  position: relative;
+  width: 100%;
+}
+
+.div_senha input {
+  width: 100%;
+  padding: 14px 40px 14px 14px; /* espaço à direita pro ícone */
+  margin-bottom: 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #fff;
+  font-size: 0.95rem;
+  transition: 0.9s;
+}
+
+.div_senha input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #21593B inset;
+}
+
+.olho-senha {
+  position: absolute;
+  right: 15px;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 22px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.olho-senha:hover {
+  opacity: 1;
+}
+
+
+/* ===== BOTÃO ===== */
+.botao {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 20px;
+  background-color: #21593B;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.botao:hover {
+  background-color: #00BF63;
+  transform: scale(1.03);
 }
