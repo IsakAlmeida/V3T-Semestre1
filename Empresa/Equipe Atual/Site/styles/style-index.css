@@ -55,6 +55,7 @@ header li {
     color: white;
     background-color: #21593B;
     border-radius: 20px;
+    transition: all 0.2s ease;
 }
 
 #li-login:hover {
@@ -157,7 +158,7 @@ a:hover{
 #subdiv-kpis-situacao-atual-dashboard img,
 #subdiv-kpis-status-dashboard img {
     width: 250px;
-    height: auto;
+    height: 85px;
     border-radius: 20px;
     margin-bottom: 72px;
     margin-top: 70px;
