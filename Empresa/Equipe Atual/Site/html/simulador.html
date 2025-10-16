@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../imgs/logo-redonda.png" type="image/png">
     <link rel="stylesheet" href="../styles/style-simulador.css">
-    <script src="../scripts/script-simulador.js"></script>
     <title>Simulador Financeiro - V3T</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="div-img">
             <a href="index.html"><img class="img-header" src="../imgs/logo-preta.png" alt="logo_V3T"></a>
         </div>
@@ -28,7 +27,7 @@
                     <li>Cadastro </li>
                 </a>
                 <a href="login.html">
-                    <li class="bt-login">LOGIN </li>
+                    <li class="btn-login">LOGIN </li>
                 </a>
             </ul>
         </div>
@@ -41,24 +40,28 @@
     </div>
     <div class="div-simulador">
             <h1>Preencha os dados abaixo:</h1>
-            <div class="div-input1">
-                <p>Digite a quantidade de matéria-prima produzida por dia (em kg):</p>
-                <input type="text" placeholder="Digite aqui...">
+            <div class="div-input">
+                <p>Quantidade de matéria-prima produzida por dia (em kg):</p>
+                <input id="iptQtdMateria" type="number" placeholder="Digite aqui...">
             </div>
-            <div class="div-input2">
-                <p>Digite o valor de venda por kg:</p>
-                <input type="text" placeholder="Digite aqui...">
+            <div class="div-input">
+                <p>Valor de venda por kg:</p>
+                <input id="iptValor" type="number" placeholder="Digite aqui...">
             </div>
-            <button>Simule agora</button>
+            <button onclick="simular()">Simule agora</button>
     </div>
-    <div class="div-msg">
-        <p>Considerando estimativas de mercado, empresas perdem em média 15% de sua produção sem monitoramento adequado. Ou seja, o prejuízo é de no ano.</p>
-        <p>Com a V3T você irá reduzir em até 30% a perda, resultando em de ganho!</p>
+    <div class="div-msg" id="divMsg">
+        <p>Considerando estimativas de mercado, empresas perdem em média <span class="destaque-vermelho">15%</span> de sua produção sem monitoramento adequado. Ou seja, o prejuízo é de <span id="valor_prejuizo" class="destaque-vermelho"></span> no ano.</p>
+        <p>Com os nossos sensores de monitoramento, você irá reduzir em até <span class="destaque-verde">30%</span> a perda, resultando em <span id="valor_ganho" class="destaque-verde"></span> de ganho!</p>
         <div class="div-msg-final">
             <p>Cada mês sem monitoramento representa dinheiro perdido.</p>
             <p>Invista agora e transforme prejuízo em LUCRO com a <img src="../imgs/logo v3t branco 1.png">!</p>
         </div>
-        <p>*dados adquiridos através de estudos da <a href="https://www.sciencedirect.com/science/article/abs/pii/S036054422202463X">ScienceDirect</a> e <a href="https://www.iiot-world.com/predictive-analytics/predictive-maintenance/predictive-maintenance-cost-savings/">IIoT World</a></p>
+        <p class="info-refs">*dados adquiridos através de estudos da <a href="https://www.sciencedirect.com/science/article/abs/pii/S036054422202463X">ScienceDirect</a> e <a href="https://www.iiot-world.com/predictive-analytics/predictive-maintenance/predictive-maintenance-cost-savings/">IIoT World</a></p>
+        <a href="contato.html" class="btn-contrate">
+            <button>Contrate já!</button>
+        </a>
     </div>
 </body>
+<script src="../scripts/script-simulador.js"></script>
 </html>
