@@ -16,22 +16,31 @@
             <a href="index.html">
                 <img src="../imgs/logo-dashboard.png" alt="Logo V3T">
             </a>
+            <span>Olá, Fernanda!</span>
         </li>
-        <li class="buttonDashboard active">
-            <img src="../imgs/icone-chart.png" alt="Icone Dashboard">
-            <span>Dashboard</span>
+        <li class="buttonDashboard ativo">
+            <a>
+                <img src="../imgs/iconeVerde-chart.png" alt="Icone Dashboard">
+                <span>Dashboard</span>
+            </a>
         </li>
         <li class="buttonSensores">
-            <img src="../imgs/icone-sensor.png" alt="Icone Sensores">
-            <span>Sensores</span>
+            <a>
+                <img src="../imgs/icone-sensor.png" alt="Icone Sensores">
+                <span>Sensores</span>
+            </a>
         </li>
         <li class="buttonPerfil">
-            <img src="../imgs/icone-perfil.png" alt="Icone Perfil">
-            <span>Perfil</span>
+            <a>
+                <img src="../imgs/icone-perfil.png" alt="Icone Perfil">
+                <span>Perfil</span>
+            </a>
         </li>
         <li class="buttonConfiguracoes">
-            <img src="../imgs/icone-configuracoes.png" alt="Icone Configuracoes">
-            <span>Configurações</span>
+            <a>
+                <img src="../imgs/icone-configuracoes.png" alt="Icone Configuracoes">
+                <span>Configurações</span>
+            </a>
         </li>
         <li class="buttonLogout">
             <a href="index.html">
@@ -56,53 +65,54 @@
                 <button onclick="analise()">Mostrar gráficos</button>
             </li>
         </ul>
-        <div class="kpi-container">
-            <div class="kpi-card">
-                <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Atual" class="kpi-icon">
-                <div class="kpi-content">
-                    <span class="kpi-title">Temp. Atual</span>
-                    <span class="kpi-value">19 °C</span>
+        <div class="kpiContainer">
+            <div class="kpiCard">
+                <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Atual" class="kpiIcon">
+                <div class="kpiContent">
+                    <span class="kpiTitle">Temp. Atual</span>
+                    <span class="kpiValue">19 °C</span>
                 </div>
             </div>
-            <div class="kpi-card status-moderado">
-                <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Status" class="kpi-icon">
-                <div class="kpi-content">
-                    <span class="kpi-title">Temp. Status</span>
-                    <span class="kpi-value">Moderado</span>
+            <div class="kpiCard statusModerado">
+                <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Status" class="kpiIcon">
+                <div class="kpiContent">
+                    <span class="kpiTitle">Temp. Status</span>
+                    <span class="kpiValue">Moderado</span>
                 </div>
             </div>
-            <div class="kpi-card">
-                <img src="../imgs/icone-dashboard.png" alt="kpi Umidade Atual" class="kpi-icon">
-                <div class="kpi-content">
-                    <span class="kpi-title">Umid. Atual</span>
-                    <span class="kpi-value">19 °C</span>
+            <div class="kpiCard">
+                <img src="../imgs/icone-dashboard.png" alt="kpi Umidade Atual" class="kpiIcon">
+                <div class="kpiContent">
+                    <span class="kpiTitle">Umid. Atual</span>
+                    <span class="kpiValue">19 °C</span>
                 </div>
             </div>
-            <div class="kpi-card status-critico">
-                <img src="../imgs/icone-dashboard.png" alt="kpi Umidade Status" class="kpi-icon">
+            <div class="kpiCard statusCritico">
+                <img src="../imgs/icone-dashboard.png" alt="kpi Umidade Status" class="kpiIcon">
                 <div class="kpi-content">
-                    <span class="kpi-title">Umid. Status</span>
-                    <span class="kpi-value">Crítico</span>
+                    <span class="kpiTitle">Umid. Status</span>
+                    <span class="kpiValue">Crítico</span>
                 </div>
             </div>
         </div>
         <div class="graphics">
-            <div class="graficos-duplos">
+            <div class="graficosDuplos">
                 <div id="graphicTemperatura">
                     <span>Temperatura °C</span>
-                    <img src="../imgs/icone-dashboard.png" alt="Temperatura" class="kpi-icon">
+                    <img src="../imgs/icone-dashboard.png" alt="Temperatura" class="kpiIcon">
                     <canvas id="chartTemperatura"></canvas>
                 </div>
                 <div id="graphicUmidade">
                     <span>Umidade %</span>
-                    <img src="../imgs/icone-dashboard.png" alt="Umidade" class="kpi-icon">
+                    <img src="../imgs/icone-dashboard.png" alt="Umidade" class="kpiIcon">
                     <canvas id="chartUmidade"></canvas>
                 </div>
             </div>
-        </div>
-        <div id="graphicAlertas">
-            <span>Quantidade de Alertas</span>
-            <canvas id="chartAlertas"></canvas>
+            <div id="graphicAlertas">
+                <span>Quantidade de Alertas</span>
+                <img src="../imgs/icone-alerta.png" alt="Temperatura" class="kpiIcon">
+                <canvas id="chartAlertas"></canvas>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
