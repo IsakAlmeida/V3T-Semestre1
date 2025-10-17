@@ -17,14 +17,16 @@ header {
     background-color: white;
     align-items: center;
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
-    
+
 }
- header ul {
+
+header ul {
     list-style: none;
     display: flex;
 }
+
 header li {
     font-weight: bold;
     padding-left: 20px;
@@ -32,31 +34,42 @@ header li {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-#div-img{
+
+#div-img {
     width: 20%;
     justify-items: center;
 }
-#img-header:hover{
-    scale: 95%;
-}
-#div-menu{
+
+
+#div-menu {
+
     width: 80%;
     justify-items: end;
     align-items: center;
     text-align: center;
     margin-right: 30px;
 }
-#li-login{
+
+#li-login {
     font-weight: normal;
     color: white;
     background-color: #21593B;
     border-radius: 20px;
 }
-a{
+
+#li-login:hover {
+    transform: scale(1.1);
+    background-color: #00BF63;
+    text-decoration: none;
+}
+
+a {
     color: black;
     text-decoration: none;
 }
+
 a:hover{
+    text-decoration: underline;
     scale: 95%;
 }
 /*Fim header*/
@@ -118,7 +131,83 @@ a:hover{
     flex-direction: column;
     justify-items: center;
 }
-.div-valores img{
-  
+#div-devs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+#h2-titulo{
+ font-size: 60px;
+ color: #21593B;
+ text-align: center;
+}
+.estrutura-fotos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#div-fotos{
+    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 80px;
+    width: 60%;
+    justify-content: center;
+}
+.card-foto{
+    background-color: #D9D9D9;
+    width: 250px;
+    height: 345px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-foto img{
+    width: 85%;
+    align-self: center;
+    border-radius: 30px;
+    
+}
+#nome-dev{
+    font-size: 10px;
 }
 
+/* Código para o footer */
+footer{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: 15px;
+    padding-right: 100px;
+}
+
+#img-footer{
+    width: 90px;
+    height: auto;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+footer ul{
+    list-style: none;
+}
+footer li:hover{
+    scale: 105%;
+    text-decoration: underline;
+    border-radius: 20px;
+}
+
+#marca-footer{
+    font-size: 15px;
+    justify-self: center;
+    padding-top: 10px;
+}
