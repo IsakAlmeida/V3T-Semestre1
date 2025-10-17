@@ -11,7 +11,7 @@ function analise() {
     var umidade = [60, 58, 62, 65, 59, 63, 61, 64, 60, 62, 65, 61]; // Aumentei o array para 12 pontos
     var alertas = [12, 19, 3, 5, 2, 3, 8, 8, 6, 5, 4, 7];
 
-    if (sensor === '2') {
+    if (sensor == '2') {
         temperatura = [21, 23, 20, 24, 22, 26, 25, 24, 23, 25, 24, 23];
         umidade = [55, 53, 57, 60, 54, 58, 56, 59, 55, 57, 60, 56];
         alertas = [10, 15, 5, 8, 1, 6, 9, 7, 5, 4, 3, 6]
@@ -60,8 +60,8 @@ function analise() {
                         },
                         tempAlertaMax: {
                             type: 'line',
-                            yMin: 28,
-                            yMax: 28,
+                            yMin: 25,
+                            yMax: 25,
                             borderColor: 'rgba(208, 94, 24, 1)',
                             borderWidth: 2,
                         }
@@ -77,7 +77,7 @@ function analise() {
                 y: {
                     beginAtZero: true,
                     min: 0, // Garante que a escala comece em 0
-                    max: 40, // Garante que o range (15 a 28) seja visível
+                    max: 40, // Garante que o range (15 a 25) seja visível
                     grid: {
                         display: false
                     }
@@ -117,15 +117,15 @@ function analise() {
                     annotations: {
                         alertaMin: {
                             type: 'line',
-                            yMin: 50,
-                            yMax: 50,
+                            yMin: 30,
+                            yMax: 30,
                             borderColor: 'rgba(208, 94, 24, 1)',
                             borderWidth: 2,
                         },
                         alertaMax: {
                             type: 'line',
-                            yMin: 70,
-                            yMax: 70,
+                            yMin: 50,
+                            yMax: 50,
                             borderColor: 'rgba(208, 94, 24, 1)',
                             borderWidth: 2,
                         }
