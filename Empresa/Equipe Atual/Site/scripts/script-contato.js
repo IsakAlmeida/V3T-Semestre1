@@ -1,3 +1,15 @@
+var chkSocial = false;
+var chkNomeFan = false;
+var chkNumCpnj = false;
+var chkMail = false;
+var chkTel = false;
+var chkLugar = false;
+var chkNumeracao = false;
+var chkBar = false;
+var chkCity = false;
+var chkUnidade = false;
+var chkClickCep = false;
+
 
 function social() {
     razao = iptRazao.value.trim();
@@ -6,13 +18,15 @@ function social() {
     if (razao == '') {
         erro = `Preencha o campo Razão Social`;
     } else if (razao.length < 2) {
-        erro = `Insira um nome valido (mínimo 2 caracteres)`;
+        erro = `Insira um nome valido (mínimo 2 caracteres)`; 
     }
 
     if (erro != "") {
         divRazao.innerHTML = `${erro}`;
+        chkSocial = false;
     } else {
         divRazao.innerHTML = ``;
+        chkSocial = true;
     }
 }
 
@@ -28,8 +42,10 @@ function nomeFan() {
 
     if (erro != "") {
         divNome.innerHTML = `${erro}`;
+        chkNomeFan = false;
     } else {
         divNome.innerHTML = ``;
+        chkNomeFan = true;
     }
 }
 
@@ -45,8 +61,10 @@ function numCpnj() {
 
     if (erro != "") {
         divCnpj.innerHTML = `${erro}`;
+        chkNumCpnj = false;
     } else {
         divCnpj.innerHTML = ``;
+        chkNumCpnj = true;
     }
 }
 
@@ -62,8 +80,10 @@ function mail() {
 
     if (erro != "") {
         divEmail.innerHTML = `${erro}`;
+        chkMail = false;
     } else {
         divEmail.innerHTML = ``;
+        chkMail = true;
     }
 
 }
@@ -80,8 +100,10 @@ function tel() {
 
     if (erro != "") {
         divTelefone.innerHTML = `${erro}`
+        chkTel = false;
     } else {
         divTelefone.innerHTML = ``;
+        chkTel = true;
     }
 }
 
@@ -96,8 +118,10 @@ function lugar() {
     }
     if (erro != "") {
         divRua.innerHTML = `${erro}`;
+        chkLugar = false;
     } else {
         divRua.innerHTML = ``;
+        chkLugar = true;
     }
 }
 
@@ -113,8 +137,10 @@ function numeracao() {
 
     if (erro != "") {
         divNum.innerHTML = `${erro}`
+        chkNumeracao = false;
     } else {
         divNum.innerHTML = ``;
+        chkNumeracao = true;
     }
 }
 
@@ -130,8 +156,10 @@ function bar() {
 
     if (erro != "") {
         divBairro.innerHTML = `${erro}`;
+        chkBar = false;
     } else {
         divBairro.innerHTML = ``;
+        chkBar = true;
     }
 }
 
@@ -147,8 +175,10 @@ function city() {
 
     if (erro != "") {
         divCidade.innerHTML = `${erro}`;
+        chkCity = false;
     } else {
         divCidade.innerHTML = ``;
+        chkCity = true;
     }
 }
 
@@ -161,8 +191,10 @@ function unidade() {
     }
     if (erro != "") {
         divUF.innerHTML = `${erro}`;
+        chkUnidade = false;
     } else {
         divUF.innerHTML = ``;
+        chkUnidade = true;
     }
 }
 
@@ -177,8 +209,10 @@ function clickCep() {
     }
     if (erro != "") {
         divCEP.innerHTML = `${erro}`
+        chkClickCep = false;
     } else {
         divCEP.innerHTML = ``
+        chkClickCep = true;
     }
 }
 
@@ -195,17 +229,24 @@ function enviar(){
     unidade();
     clickCep();
 
-    let erros = [ divRazao.innerHTML,divNome.innerHTML,divCnpj.innerHTML,divEmail.innerHTML,divTelefone.innerHTML,divRua.innerHTML,divNum.innerHTML,divBairro.innerHTML,divCidade.innerHTML,divUF.innerHTML,divCEP.innerHTML];
+    const temErro = chkSocial &&
+                        chkNomeFan &&
+                        chkNumCpnj &&
+                        chkMail &&
+                        chkTel &&
+                        chkLugar &&
+                        chkNumeracao &&
+                        chkBar &&
+                        chkCity &&
+                        chkUnidade &&
+                        chkClickCep;
 
-    const temErro = erros.some(msg => msg.trim() !== "");
 
-    if (temErro) {
+    if (!temErro) {
         alert("Verifique se todos os campos estão preenchidos!");
         return false;
     } else {
         alert("Email enviado!! Iremos entrar em contato através do email");
     }
-
-
 
 }
