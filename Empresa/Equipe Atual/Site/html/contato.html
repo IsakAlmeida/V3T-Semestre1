@@ -48,35 +48,61 @@
     <section class="sectionForm">
       <h2>Preencha os dados <br>da sua empresa:</h2>
       <div class="formEmpresa">
-        <input type="text" name="razao" placeholder="Razão Social">
+        <input type="text" name="razao" placeholder="Razão Social" id="iptRazao" onkeyup="social()">
+         <div class="validacaoEmpresa" id="divRazao" style="color: white;"></div>
         <br>
-        <input type="text" name="nomeFantasia" placeholder="Nome Fantasia">
+        <input type="text" name="nomeFantasia" placeholder="Nome Fantasia" id="iptNome" onkeyup="nomeFan()">
+         <div class="validacaoEmpresa" id="divNome" style="color: white;"></div>
         <br>
-        <input type="text" name="CNPJ" placeholder="CNPJ">
+        <input type="text" name="CNPJ" placeholder="CNPJ" id="iptCNPJ" onkeyup="numCpnj()" >
+         <div class="validacaoEmpresa" id="divCnpj" style="color: white;"></div>
         <br>
-        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="email" placeholder="Email" id="iptEmail" onkeyup="mail()">
+         <div class="validacaoEmpresa" id="divEmail" style="color: white;"></div>
         <br>
-        <input type="text" name="telefone" placeholder="Telefone">
+        <input type="text" name="telefone" placeholder="Telefone" id="iptTelefone" onkeyup="tel()">
+         <div class="validacaoEmpresa" style="color: white;">Ex: (xx) xxxx-xxxx</div>
+         <div class="validacaoEmpresa" id="divTelefone" style="color: white;"></div><br>
         <br><br>
       </div>
       <h3>Endereço:</h3>
       <div id="formEndereco">
         <div class="iptEndereco">
-        <input type="text" name="rua" placeholder="Rua">
-        <input type="text" name="num" placeholder="N°">
+        <div class="validacaoEndereco">
+        <input type="text" name="rua" placeholder="Rua" id="iptRua" onkeyup="lugar()">
+         <div class="msgEndereco" id="divRua" style="color: white;"></div>
+         </div>
+         <div class="validacaoEndereco">
+        <input type="text" name="num" placeholder="N°" id="iptNum" onkeyup="numeracao()">
+         <div class="msgEndereco" id="divNum" style="color: white;"></div>
         </div>
+         </div>
         <div class="iptEndereco">
-        <input type="text" name="bairro" placeholder="Bairro">
-        <input type="text" name="cidade" placeholder="Cidade">
+          <div class="validacaoEndereco">
+        <input type="text" name="bairro" placeholder="Bairro" id="iptBairro" onkeyup="bar()">
+         <div class="msgEndereco" id="divBairro" style="color: white;"></div>
+         </div>
+         <div class="validacaoEndereco">
+        <input type="text" name="cidade" placeholder="Cidade" id="iptCidade" onkeyup="city()">
+         <div class="msgEndereco" id="divCidade" style="color: white;"></div>
+         </div>
         </div>
+
         <div class="iptEndereco">
-        <input type="text" name="UF" placeholder="UF">
-        <input type="text" name="CPF" placeholder="CPF">
+        <div class="validacaoEndereco">
+        <input type="text" name="UF" placeholder="UF" id="iptUF" onkeyup="unidade()">
+         <div class="msgEndereco" id="divUF" style="color: white;"></div>
+         </div>
+         <div class="validacaoEndereco">
+        <input type="text" name="CPF" placeholder="CEP" id="iptCEP" onkeyup="clickCep()">
+         <div class="msgEndereco" id="divCEP" style="color: white;"></div>
+         </div>
         </div>
+
         <br><br>
       </div>
       <div>
-        <button onclick="">Enviar!</button>
+        <button onclick="enviar()">Enviar!</button>
       </div>
     </section>
 
