@@ -45,19 +45,24 @@
                     <p class="subtitulo">Você ja tem uma conta? <a href="login.html" class="entrar">Entrar</a> </p>
 
                     <input type="text" id="ipt_nome" placeholder="Nome">
+                    <div class="msg_erro" id="div_msg_nome"></div> 
+
                     <input type="text" id="ipt_email" placeholder="Email">
+                    <div class="msg_erro" id="div_msg_email"></div>
 
                     <div class="div_senha">
                         <input type="password" id="ipt_senha" placeholder="Senha">
                         <img src="../imgs/olho-fechado-senha.png" alt="Mostrar senha" class="olho-senha" onclick="mostrarSenha('ipt_senha', this)">
                     </div>
+                    <div class="msg_erro" id="div_msg_senha"></div>
 
                     <div class="div_senha">
                         <input type="password" id="ipt_confirmacaoSenha" placeholder="Confirmação de senha">
                         <img src="../imgs/olho-fechado-senha.png" alt="Mostrar senha" class="olho-senha" onclick="mostrarSenha('ipt_confirmacaoSenha', this)">
                     </div>
-
+                    <div class="msg_erro" id="div_msg_conf_senha"></div>
                     <input type="text" id="ipt_token" placeholder="Token da Empresa">
+                    <div class="msg_erro" id="div_msg_token"></div>
 
                     <button class="botao" onclick="cadastrar()">Cadastrar</button>
                 </div>
