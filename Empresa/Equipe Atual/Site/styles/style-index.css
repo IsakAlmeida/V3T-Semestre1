@@ -9,7 +9,7 @@ body {
 }
 
 /*Código para o header*/
-header {
+.header {
     width: 100%;
     height: 95px;
     margin: 0px;
@@ -17,32 +17,23 @@ header {
     background-color: white;
     align-items: center;
     position: fixed;
-    top: 0;
-    left: 0;
-
+    transition: 0.3s;
 }
-
-header ul {
+.header ul {
     list-style: none;
     display: flex;
 }
 
-header li {
-    font-weight: bold;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.header li {
+    padding: 10px 20px;
 }
 
-#div-img {
+.div-img {
     width: 20%;
     justify-items: center;
 }
 
-
-#div-menu {
-
+.div-nav {
     width: 80%;
     justify-items: end;
     align-items: center;
@@ -50,7 +41,7 @@ header li {
     margin-right: 30px;
 }
 
-#li-login {
+.btn-login {
     font-weight: normal;
     color: white;
     background-color: #21593B;
@@ -58,20 +49,33 @@ header li {
     transition: all 0.2s ease;
 }
 
-#li-login:hover {
+.btn-login:hover {
     transform: scale(1.1);
     background-color: #00BF63;
 }
 
 a {
     color: black;
+    font-weight: bold;
     text-decoration: none;
 }
 
-a:hover{
+a:nth-of-type(1):hover {
     text-decoration: underline;
-    scale: 95%;
 }
+
+a:nth-of-type(2):hover {
+    text-decoration: underline;
+}
+
+a:nth-of-type(3):hover {
+    text-decoration: underline;
+}
+
+a:nth-of-type(4):hover {
+    text-decoration: underline;
+}
+
 
 /* Código para o banner abaixo do header */
 #div-banner img {
@@ -91,32 +95,45 @@ a:hover{
 
 #subdiv-texto-simulador h3 {
     color: #21593B;
-    font-size: 65px;
+    font-size: 50px;
+    margin-bottom: 60px;
 }
 
 #subdiv-texto-simulador {
-    font-size: 35px;
+    font-size: 30px;
     color: #21593B;
     margin-left: 80px;
+    margin-top: 60px;
 }
 
 #subdiv-texto-simulador button {
     background-color: #21593B;
     color: white;
-    width: 566px;
-    height: 63px;
+    width: 500px;
+    height: 50px;
     font-family: 'Montserrat', sans-serif;
-    border-radius: 6px;
-    font-size: 25px;
-    margin-top: 50px;
+    border-radius: 40px;
+    font-size: 20px;
+    margin-top: 60px;
+    transition: all 0.3s;
+    border: none;
+
+}
+
+#subdiv-texto-simulador button:hover {
+    background-color: #00BF63;
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 #subdiv-img-simulador img {
-    width: 450px;
+    width: 350px;
     height: auto;
-    margin-right: 60px;
-    margin-top: 40px;
+    margin-right: 100px;
+    margin-top: 110px;
+
 }
+
 
 /* Código para a parte sobre dashboard */
 #div-dashboard {
@@ -130,29 +147,30 @@ a:hover{
 #subdiv-imgs-dashboard img {
     border-radius: 20px;
     margin-bottom: 15px;
-    margin-top: 30px;
-    margin-left: 30px;
-    width: 600px;
+    margin-top: 60px;
+    margin-left: 90px;
+    width: 450px;
     height: auto;
 }
 
 #subdiv-texto-dashboard {
-    font-size: 35px;
+    font-size: 25px;
     color: white;
     margin-right: 65px;
-    margin-top: -15px;
+    margin-top: 40px;
 }
 
 #subdiv-texto-dashboard h3 {
     margin-left: 10px;
-    font-size: 65px;
+    font-size: 50px;
 }
 
 #subdiv-kpis {
     display: flex;
     flex: 1;
     justify-content: space-between;
-    gap: 90px;
+    gap: 30px;
+    margin-top: 50px;
 }
 
 #subdiv-kpis-situacao-atual-dashboard img,
@@ -160,7 +178,7 @@ a:hover{
     width: 250px;
     height: 85px;
     border-radius: 20px;
-    margin-bottom: 72px;
+    margin-bottom: 40px;
     margin-top: 70px;
 }
 
@@ -171,7 +189,7 @@ a:hover{
 }
  
 #div-vantagens-pai h3 {
-    font-size: 55px;
+    font-size: 50px;
     color: #ffff;
     justify-self: center;
     padding-top: 90px;
@@ -194,7 +212,7 @@ a:hover{
     width: 450px;
     height: 541px;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 5px;
     font-size: 20px;
 
 
@@ -214,15 +232,21 @@ footer{
     justify-content: space-between;
     margin-left: 50px;
     margin-right: 50px;
+    margin-top: 20px;
     padding-left: 15px;
     padding-right: 100px;
+    font-size: 15px;
 }
 
 #img-footer{
     width: 90px;
-    height: auto;
+    height: 75px;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 0px;
+}
+
+#img-home-footer{
+    align-self: center;
 }
 
 footer ul{
@@ -232,10 +256,14 @@ footer li:hover{
     scale: 105%;
     text-decoration: underline;
     border-radius: 20px;
+    font-weight: normal;
 }
 
 #marca-footer{
-    font-size: 15px;
+    font-size: 10px;
     justify-self: center;
-    padding-top: 10px;
+}
+
+footer a {
+    font-weight: normal;
 }
