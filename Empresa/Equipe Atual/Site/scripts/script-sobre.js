@@ -10,7 +10,7 @@ var valores =
         </p>
       </div>
       <img src="../imgs/sobre-visao.png" alt="" />
-    </div>`,`<div class="div-valores" style="background-color: #f5f5f5">
+    </div>`,`<div class="div-valores">
       <img src="../imgs/sobre-missao.png" alt="" />
       <div class="div-texto-valores">
         <h2>Missão</h2>
@@ -33,18 +33,22 @@ var valores =
       <img src="../imgs/sobre-valores.png" alt="" />
     </div>`];
     div_valores.innerHTML = valores[0];
+    div_idCarrossel.innerHTML = `<div class='pointDestaque'></div><div class='point'></div><div class='point'></div>`
     function direitaCarrossel() {
         
         if(index==0){
             index = 1;
             div_valores.innerHTML = valores[index];
+            div_idCarrossel.innerHTML = `<div class='point'></div><div class='pointDestaque'></div><div class='point'></div>`
         }else if(index==1){
             index = 2;
             div_valores.innerHTML = valores[index];
+            div_idCarrossel.innerHTML = `<div class='point'></div></div><div class='point'></div><div class='pointDestaque'>`
         }
         else{
             index = 0;
             div_valores.innerHTML = valores[index];
+            div_idCarrossel.innerHTML = `<div class='pointDestaque'></div><div class='point'></div><div class='point'></div>`
         }
 
     }
@@ -53,13 +57,16 @@ var valores =
         if(index==0){
             index = 2;
             div_valores.innerHTML = valores[index];
+            div_idCarrossel.innerHTML = `<div class='point'></div></div><div class='point'></div><div class='pointDestaque'>`
         }else if(index==1){
             index = 0;
             div_valores.innerHTML = valores[index];
+            div_idCarrossel.innerHTML = `<div class='pointDestaque'></div><div class='point'></div><div class='point'></div>`
         }
         else{
             index = 1;
             div_valores.innerHTML = valores[index];
+            div_idCarrossel.innerHTML = `<div class='point'></div><div class='pointDestaque'></div><div class='point'></div>`
         }
 
     }
