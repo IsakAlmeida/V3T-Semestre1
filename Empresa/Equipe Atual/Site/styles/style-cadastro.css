@@ -103,6 +103,10 @@ body {
   margin-bottom: 25px;
 }
 
+.subtitulo.b{
+  text-align: left;
+}
+
 .subtitulo a {
   color: #66A07A;
   font-weight: 700;
@@ -117,7 +121,7 @@ body {
   font-size: 0.65rem;
   color: rgb(198, 5, 5);
   text-align: left;
-  padding: 0px 20px;
+  padding: 0px 20px 20px;
 }
 
 /* ===== INPUTS ===== */

@@ -43,17 +43,17 @@
                 <div class="paragrafos_e_inputs">
                     <p class="titulo">Faça login para acessar seus dados em tempo real: </p>
 
-                    <input type="text" id="ipt_email" placeholder="Email">
-                    <div class="msg_erro" id="div_msg_email"></div>
+                    <input type="text" id="ipt_email" placeholder="Email" onkeyup="onkey_email()">
+                    <div class="msg_erro" id="div_msg_email"> </div>
                     <div class="div_senha">
-                        <input type="password" id="ipt_senha" placeholder="Senha">
-                        <img src="../imgs/olho-fechado-senha.png" alt="Mostrar senha" class="olho-senha"
+                        <input type="password" id="ipt_senha" placeholder="Senha" onkeyup="onkey_senha()">
+                        <img src="../imgs/olho-aberto-senha.png" alt="Mostrar senha" class="olho-senha"
                             onclick="mostrarSenha('ipt_senha', this)">
                     </div>
-                    <div class="msg_erro" id="div_msg_senha"></div>
-                    <div class="msg_erro" id="div_msg_login"></div>
+                    <div class="msg_erro" id="div_msg_senha">  </div>
+    
                     <p class="subtitulo"><a href="#"> Esqueceu sua senha? </a> </p>
-
+                    <div class="msg_erro" id="div_msg_login"> </div>
                     <button onclick="login()" class="botao">Entrar</button>
 
                     <p class="subtitulo center">Ainda não é nosso parceiro? <a href="cadastro.html"> Faça seu cadastro!</a> </p>
