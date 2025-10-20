@@ -1,10 +1,12 @@
-USE sprint2;
+CREATE DATABASE v3t;
+
+USE v3t;
 
 -- ENDEREÇO: Armazena informações de localização, como rua, bairro, cidade, UF, CEP e número.
 CREATE TABLE Endereco(
 idEndereco INT PRIMARY KEY AUTO_INCREMENT,
 CEP CHAR(8) NOT NULL,
-Rua VARCHAR(50),
+Logradouro VARCHAR(50),
 Bairro VARCHAR(50),
 Cidade VARCHAR(50),
 UF CHAR(2),
@@ -16,11 +18,12 @@ CREATE TABLE Empresa(
 idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 RazaoSocial VARCHAR(45) NOT NULL,
 NomeEmpresa VARCHAR(50),
-CNPJ CHAR(14) NOT NULL,
+CNPJ CHAR(14) NOT NULL UNIQUE,
 Email VARCHAR(45) UNIQUE NOT NULL,
 	CONSTRAINT chkEmailEmpresa CHECK(Email LIKE '%@%.%'),
 Telefone CHAR(11),
-fkEndereco INT,
+Token VARCHAR(8) UNIQUE,
+fkEndereco INT UNIQUE,
 	CONSTRAINT fkEmpresaEndereco FOREIGN KEY(fkEndereco)
 		REFERENCES Endereco (idEndereco)
 );
@@ -32,8 +35,6 @@ NomeUsuario VARCHAR(45),
 Email VARCHAR(45) UNIQUE NOT NULL,
 	CONSTRAINT chkEmailUsuario CHECK(Email LIKE '%@%.%'),
 Senha VARCHAR(45) NOT NULL,
-Funcao VARCHAR(45),
-	CONSTRAINT chkFuncao CHECK(funcao IN('Adminstrador', 'Funcionário')),
 fkEmpresa INT,
 	CONSTRAINT fkUsuarioEmpresa FOREIGN KEY(fkEmpresa)
 		REFERENCES Empresa (idEmpresa)
@@ -52,8 +53,8 @@ fkEmpresa INT,
 );
 
 -- REGISTROS: Armazena as leituras coletadas pelos sensores, como temperatura, umidade e data/hora do registro.
-CREATE TABLE Registros(
-idRegistros INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE Registro(
+idRegistro INT PRIMARY KEY AUTO_INCREMENT,
 Temperatura DECIMAL(5,2),
 Umidade INT,
 dtHora DATETIME,
