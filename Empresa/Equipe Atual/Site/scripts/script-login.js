@@ -1,64 +1,51 @@
- //=== Função para mostrar senha e icone no input de senha ===
-    function mostrarSenha(idInput, icone) {
-        const input = document.getElementById(idInput);
+//=== Função para mostrar senha e icone no input de senha ===
+function mostrarSenha(idInput, icone) {
+    // declara a função 'mostrarSenha' que recebe dois parâmetros:
+    // - idInput: string com o id do elemento <input> que contém a senha
+    // - icone: referencia ao elemento <img> (ou outro elemento) que representa o ícone do olho
 
-        if (input.type === "password") {
-            input.type = "text";
-            icone.src = "../imgs/olho-aberto-senha.png"; // ícone de olho aberto
-        } else {
-            input.type = "password";
-            icone.src = "../imgs/olho-fechado-senha.png"; // ícone de olho fechado
-        }
+    const input = document.getElementById(idInput);
+    // usa document.getElementById para buscar no HTML o elemento <input> cujo id é idInput
+    // e armazena essa referência na constante 'input'.
+    // Se não existir elemento com esse id, 'input' será null.
+
+    if (input.type === "password") {
+        // verifica se o atributo 'type' do input é exatamente igual a "password".
+        // Essa condição é true quando o campo está em modo 'esconder senha'.
+
+        input.type = "text";
+        // altera o atributo 'type' do input para "text", ou seja, torna a senha visível como texto normal no campo.
+
+        icone.src = "../imgs/olho-aberto-senha.png";
+        // altera a propriedade 'src' do elemento 'icone' para a imagem do olho aberto, indicando visualmente que a senha está sendo mostrada.
+
+    } else {
+        // caso a condição do if seja false (ou seja, input.type não é "password"), executa o bloco else.
+
+        input.type = "password";
+        // altera o atributo 'type' de volta para "password", escondendo novamente o texto.
+
+        icone.src = "../imgs/olho-fechado-senha.png";
+        // muda o 'src' do ícone para a imagem do olho fechado, indicando que a senha está oculta.
     }
-    //=== Função Entrar/Login ===
-    function login() {
-        var email = ipt_email.value;
-        var senha = ipt_senha.value;
+}
 
-        //Verificação de inputs em branco
-        if (email == "") {
-            alert('O campo Email não pode estar em branco!');
-        } else if (senha == "") {
-            alert('O campo Senha não pode estar em branco!');
-        }
-        // Verificação de quantidade de caracteres na senha
-        else if (senha.length < 8) {
-            alert('A senha deve ter pelo menos 8 caracteres!');
-        } else if (senha.indexOf("0") == -1 && senha.indexOf("1") == -1 && senha.indexOf("2") == -1 &&
-            senha.indexOf("3") == -1 && senha.indexOf("4") == -1 && senha.indexOf("5") == -1 &&
-            senha.indexOf("6") == -1 && senha.indexOf("7") == -1 && senha.indexOf("8") == -1 &&
-            senha.indexOf("9") == -1) {
-            alert('A senha deve conter pelo menos um número!');
-        }
-        // Verificação de @ no email
-        else if (email.indexOf("@") == -1) {
-            alert('O email deve conter o símbolo @');
-        } else {
-        // Verificação de letra maiúscula
-            var contador = 0;
-            var temMaiuscula = false;
+//=== Função Entrar/Login ===
+function login() {
+    var email = ipt_email.value;
+    var senha = ipt_senha.value;
 
-            while (contador < senha.length) {
-                var letra = senha[contador];
-
-                if (letra >= "A" && letra <= "Z") {
-                    temMaiuscula = true;
-                    break; // para o loop assim que encontrar uma maiúscula
-                }
-                contador++;
-            }
-
-            if (!temMaiuscula) {
-                alert('A senha deve conter pelo menos uma letra maiúscula!');
-            }
-            //Verificação de caractere especial - se n for encontrado o caractere em alguma posicão da senha, ele retorna -1, e se uma das condições forem verdadeiras, exibe o alert
-            else if (senha.indexOf("!") == -1 && senha.indexOf("@") == -1 && senha.indexOf("#") == -1 && senha.indexOf("$") == -1 && senha.indexOf("%") == -1 && senha.indexOf("&") == -1) {
-                alert('A senha deve conter pelo menos um caractere especial (!, @, #, $, %, &)');
-            }
-            // Else final
-            else {
-                alert('Login realizado com sucesso! Bem vindo a V3T.');
-                window.location.href = "dashboard.html";
-            }
-        }
+    //Verificação de inputs em branco
+    if (email == "") {
+        div_msg_email.innerHTML = '* O campo Email não pode estar em branco!';
+    } else if (senha == "") {
+        div_msg_senha.innerHTML = '* O campo Senha não pode estar em branco!';
     }
+    // if simulando um cadastro
+    else if (email == 'fernanda@sptech' && senha == '123456789') {
+        alert('Login realizado com sucesso! Bem vindo a V3T.');
+        window.location.href = "dashboard.html";
+    } else {
+        div_msg_login.innerHTML = '* Email ou senhas invalidos, tente novamente!';
+    }
+}
