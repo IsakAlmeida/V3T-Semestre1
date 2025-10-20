@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../imgs/logo-redonda.png" type="image/png" />
     <link rel="stylesheet" href="../styles/style-sobre.css" />
-    <script src="../scripts/script-sobre.js"></script>
     <title>Sobre Nós - V3T</title>
   </head>
   <body>
@@ -48,45 +47,22 @@
         </p>
       </div>
     </div>
-    <div class="div-valores">
-      <div class="div-texto-valores">
-        <h2>Visão</h2>
-        <p>
-          Ser referência em soluções tecnológicas de
-          <b>monitoramento de temperatura e umidade</b>, garantindo qualidade e
-          confiança na indústria de biotintas para alimentos.
-        </p>
-      </div>
-      <img src="../imgs/sobre-visao.png" alt="" />
-    </div>
-    <div class="div-valores" style="background-color: #f5f5f5">
-      <img src="../imgs/sobre-missao.png" alt="" />
-      <div class="div-texto-valores">
-        <h2>Missão</h2>
-        <p>
-          Oferecer <b>soluções IoT inovadoras</b> para armazenagem de biotinta
-          de impressão 3D de alimentos, <b>assegurando qualidade</b>, reduzindo
-          desperdícios e promovendo sustentabilidade.
-        </p>
-      </div>
-    </div>
-    <div class="div-valores">
-      <div class="div-texto-valores">
-        <h2>Valores</h2>
-        <p>
-          <b>Inovação:</b> Tecnologia de ponta para a indústria alimentícia;<br />
-          <b>Transparência:</b> Dados claros e confiáveis;<br />
-          <b>Eficiência:</b> Otimização de processos e redução de perdas;<br />
-          <b>Colaboração:</b> Integração com empresas e pesquisadores.
-        </p>
-      </div>
-      <img src="../imgs/sobre-valores.png" alt="" />
+    <div id="div_valores"></div>
+    <div id="div_buttons">
+      <button onclick="esquerdaCarrossel()">
+        <img src="../imgs/sobre-buttonEsquerda.svg" alt="" />
+      </button>
+      <button onclick="direitaCarrossel()">
+        <img src="../imgs/sobre-buttonDireita.svg" alt="" />
+      </button>
     </div>
     <div id="div-devs">
       <h2 id="h2-titulo">Equipe de <br />Desenvolvedores</h2>
       <div id="div-fotos">
         <div class="estrutura-fotos">
-          <div class="card-foto"><img src="../imgs/dev-bianca.jpg" alt="desenvolvedor" /></div>
+          <div class="card-foto">
+            <img src="../imgs/dev-bianca.jpg" alt="desenvolvedor" />
+          </div>
           <h2 class="nome-dev">Bianca Iwata</h2>
         </div>
         <div class="estrutura-fotos">
@@ -96,11 +72,15 @@
           <h2 class="nome-dev">Caique Gomes</h2>
         </div>
         <div class="estrutura-fotos">
-          <div class="card-foto"><img src="../imgs/dev-isak.jpg" alt="desenvolvedor" /></div>
+          <div class="card-foto">
+            <img src="../imgs/dev-isak.jpg" alt="desenvolvedor" />
+          </div>
           <h2 class="nome-dev">Isak de Amorim</h2>
         </div>
         <div class="estrutura-fotos">
-          <div class="card-foto"><img src="../imgs/dev-lucas.jpeg" alt="desenvolvedor" /></div>
+          <div class="card-foto">
+            <img src="../imgs/dev-lucas.jpeg" alt="desenvolvedor" />
+          </div>
           <h2 class="nome-dev">Lucas Frossi</h2>
         </div>
         <div class="estrutura-fotos">
@@ -110,7 +90,9 @@
           <h2 class="nome-dev">Rayza Siqueira</h2>
         </div>
         <div class="estrutura-fotos">
-          <div class="card-foto"><img src="../imgs/dev-victor.jpg" alt="desenvolvedor" /></div>
+          <div class="card-foto">
+            <img src="../imgs/dev-victor.jpg" alt="desenvolvedor" />
+          </div>
           <h2 class="nome-dev">Victor Guimarães</h2>
         </div>
       </div>
@@ -157,5 +139,6 @@
       </div>
     </footer>
     <p id="marca-footer"><b>2025 - V3T</b></p>
+    <script src="../scripts/script-sobre.js"></script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+// função para scroll da navbar
+
 {
     const header = document.querySelector('.header');
     let ultimoScrollY = window.scrollY;
