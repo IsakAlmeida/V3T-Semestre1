@@ -1,20 +1,4 @@
-// função para scroll da navbar
-
-{
-    const header = document.querySelector('.header');
-    let ultimoScrollY = window.scrollY;
-    
-    window.addEventListener('scroll', () => {
-        if (ultimoScrollY < window.scrollY) {
-            header.classList.add('nav-hidden');
-        } else {
-            header.classList.remove('nav-hidden');
-        }
-
-        ultimoScrollY = window.scrollY;
-    })
-}
-
+// função para calcular valor de prejuízo e economia
 function simular(){
     let materia_prima = Number(iptQtdMateria.value);
     let valor = Number(iptValor.value);
@@ -27,16 +11,12 @@ function simular(){
         // cálculo do prejuízo anual
         let perda_anual = (materia_prima * valor * 365) * 0.15;
 
-        // cálculo de ganho em cima do prejuízo
+        // cálculo de economia
         let ganho = perda_anual * 0.3;
 
         // inserindo dados na div de resuiltado da simulação 
-        valor_prejuizo.innerHTML = `${perda_anual.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}`
-        valor_ganho.innerHTML = `${ganho.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}`
-
-        divMsg.style.display = "flex";
-
-        divMsg.scrollIntoView({behavior: 'smooth', block: 'start'});
+        valor_prejuizo.innerHTML = `${perda_anual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}).replaceAll('R$', '').trim()}`
+        valor_ganho.innerHTML = `${ganho.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}).replaceAll('R$', '').trim()}`
 
         iptQtdMateria.value = '';
         iptValor.value = '';
