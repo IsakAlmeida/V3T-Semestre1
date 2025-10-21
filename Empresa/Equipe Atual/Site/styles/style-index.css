@@ -162,23 +162,31 @@ a:nth-of-type(4):hover {
     display: flex;
     flex-direction: column;
     gap: 0px;
+    text-align: center;
 }
-
 #subdiv-texto-dashboard h3 {
     margin-left: 10px;
     font-size: 50px;
+    
 }
-
 #subdiv-kpis {
     display: flex;
+    flex-direction: column;
     flex: 1;
     justify-content: space-between;
-    gap: 30px;
     margin-top: 50px;
+}
+#subdiv-kpis-situacao-atual-dashboard ,
+#subdiv-kpis-status-dashboard  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 #subdiv-kpis-situacao-atual-dashboard img,
 #subdiv-kpis-status-dashboard img {
+
     width: 250px;
     height: 85px;
     border-radius: 20px;
