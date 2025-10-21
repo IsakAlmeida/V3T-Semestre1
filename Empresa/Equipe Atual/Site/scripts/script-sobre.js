@@ -70,3 +70,5 @@ var valores =
         }
 
     }
+
+    setInterval(direitaCarrossel,5000);
