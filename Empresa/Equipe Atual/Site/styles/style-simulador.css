@@ -12,7 +12,7 @@ body{
 /* Estilização do Header*/
 .header {
     width: 100%;
-    height: 95px;
+    height: 100px;
     margin: 0px;
     display: flex;
     background-color: white;
