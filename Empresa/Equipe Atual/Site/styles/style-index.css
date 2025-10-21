@@ -158,6 +158,7 @@ a:nth-of-type(4):hover {
     color: white;
     margin-right: 65px;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 #subdiv-texto-dashboard h3 {
