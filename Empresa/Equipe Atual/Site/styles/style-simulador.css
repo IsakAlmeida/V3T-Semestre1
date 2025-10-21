@@ -289,7 +289,6 @@ footer ul{
     list-style: none;
 }
 footer li:hover{
-    scale: 105%;
     text-decoration: underline;
     border-radius: 20px;
     font-weight: normal;
