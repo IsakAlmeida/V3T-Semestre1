@@ -147,7 +147,7 @@ a:nth-of-type(4):hover {
     height: 40px;
     padding: 0 14px;
     border-radius: 20px;
-    border: 2px solid #004D2D;
+    border: 2px solid #21593B;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
 
@@ -166,7 +166,7 @@ button {
     font-size: 19px;
     border-radius: 20px;
     border: none;
-    background-color: #004D2D;
+    background-color: #21593B;
     color: white;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
