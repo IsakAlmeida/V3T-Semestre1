@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../imgs/logo-redonda.png" type="image/png">
-    <link rel="stylesheet" href="../styles/style-dashboard.css">
+    <link rel="stylesheet" href="../styles/style-sensor1.css">
 
     <title>Dashboard - V3T</title>
 </head>
@@ -18,15 +18,15 @@
             </a>
             <span>Olá, Fernanda!</span>
         </li>
-        <li class="buttonDashboard ativo">
+        <li class="buttonDashboard">
             <a>
-                <img src="../imgs/iconeVerde-chart.png" alt="Icone Dashboard">
+                <img src="../imgs/icone-chart.png" alt="Icone Dashboard">
                 <span>Dashboard</span>
             </a>
         </li>
-        <li class="buttonSensores">
+        <li class="buttonSensores ativo">
             <a>
-                <img src="../imgs/icone-sensor.png" alt="Icone Sensores">
+                <img src="../imgs/iconeVerde-sensor.png" alt="Icone Sensores">
                 <span>Sensores</span>
             </a>
         </li>
@@ -52,46 +52,28 @@
     <div class="pageDashboard">
         <ul class="title">
             <li>
-                <span>DashBoard</span>
-            </li>
-            <li>
-                <select id="selectSensor">
-                    <option value="">Selecione...</option>
-                    <option value="1">Sensor 1</option>
-                    <option value="2">Sensor 2</option>
-                </select>
-            </li>
-            <li>
-                <button onclick="analise()">Mostrar gráficos</button>
+                <span>Sensor 1</span>
             </li>
         </ul>
         <div class="kpiContainer">
             <div class="kpiCard">
                 <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Atual" class="kpiIcon">
                 <div class="kpiContent">
-                    <span class="kpiTitle">Temp. Atual</span>
-                    <span class="kpiValue">19 °C</span>
-                </div>
-            </div>
-            <div class="kpiCard statusModerado">
-                <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Status" class="kpiIcon">
-                <div class="kpiContent">
-                    <span class="kpiTitle">Temp. Status</span>
-                    <span class="kpiValue">Moderado</span>
+                    <div class="kpiText">
+                        <span class="kpiTitle">Temp. Atual</span>
+                        <span class="kpiStatusIdeal">Ideal</span>
+                    </div>
+                    <span class="kpiValue">20 °C</span>
                 </div>
             </div>
             <div class="kpiCard">
                 <img src="../imgs/icone-dashboard.png" alt="kpi Umidade Atual" class="kpiIcon">
                 <div class="kpiContent">
-                    <span class="kpiTitle">Umid. Atual</span>
-                    <span class="kpiValue">19 °C</span>
-                </div>
-            </div>
-            <div class="kpiCard statusCritico">
-                <img src="../imgs/icone-dashboard.png" alt="kpi Umidade Status" class="kpiIcon">
-                <div class="kpi-content">
-                    <span class="kpiTitle">Umid. Status</span>
-                    <span class="kpiValue">Crítico</span>
+                    <div class="kpiText">
+                        <span class="kpiTitle">Umid. Relativa do Ar Atual</span>
+                        <span class="kpiStatusModerado">Moderado</span>
+                    </div>
+                    <span class="kpiValue">32 %</span>
                 </div>
             </div>
         </div>
@@ -99,11 +81,23 @@
             <div class="graficosDuplos">
                 <div id="graphicTemperatura">
                     <span>Temperatura °C</span>
+                    <div class="descricao">
+                        <div id="traco"></div>
+                        <div class="limites">Limites</div>
+                        <div id="tracoRegistrosTemp"></div>
+                        <div class="registros">Registros</div>
+                    </div>
                     <img src="../imgs/icone-dashboard.png" alt="Temperatura" class="kpiIcon">
                     <canvas id="chartTemperatura"></canvas>
                 </div>
                 <div id="graphicUmidade">
-                    <span>Umidade %</span>
+                    <span>Umidade Relativa <br> do Ar %</span>
+                    <div class="descricao">
+                        <div id="traco"></div>
+                        <div class="limites">Limites</div>
+                        <div id="tracoRegistrosUmid"></div>
+                        <div class="registros">Registros</div>
+                    </div>
                     <img src="../imgs/icone-dashboard.png" alt="Umidade" class="kpiIcon">
                     <canvas id="chartUmidade"></canvas>
                 </div>
@@ -118,7 +112,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.1.0/dist/chartjs-plugin-annotation.min.js"></script>
-    <script src="../scripts/script-dashboard.js"></script>
+    <script src="../scripts/script-sensor1.js"></script>
 </body>
 
 </html>
