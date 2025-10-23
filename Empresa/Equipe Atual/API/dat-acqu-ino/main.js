@@ -21,8 +21,8 @@ const serial = async (
     let poolBancoDados = mysql.createPool(
         {
             host: '127.0.0.1',
-            user: 'v3t',
-            password: 'P@ssw0rd',
+            user: 'arduino',
+            password: 'V3T@123projeto',
             database: 'v3t',    
             port: 3307
         }
@@ -76,6 +76,10 @@ const serial = async (
             await poolBancoDados.execute(
                 'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 3)',
                 [Temperatura-25, Umidade-30, hora]
+            );
+            await poolBancoDados.execute(
+                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 4)',
+                [Temperatura-10, Umidade-15, hora]
             );
         }
 

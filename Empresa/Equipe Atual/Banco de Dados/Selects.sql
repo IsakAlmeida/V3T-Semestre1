@@ -6,12 +6,12 @@ SELECT
 	s.idSensor as 'ID Sensor:',
 	CASE 
 		WHEN r.Temperatura > 25 THEN CONCAT('Acima do Limite! ',r.Temperatura,'°C')
-		WHEN r.Temperatura > 15 THEN CONCAT('Abaixo do Limite! ',r.Temperatura,'°C')
+		WHEN r.Temperatura < 15 THEN CONCAT('Abaixo do Limite! ',r.Temperatura,'°C')
 		ELSE CONCAT('Ideal ',r.Temperatura,'°C')
 	END as 'Status Temperatura (°C):',
 	CASE
 		WHEN r.Umidade > 60 THEN CONCAT('Acima do Limte! ',r.Umidade,'%')
-        WHEN r.Umidade > 50 THEN CONCAT('Abaixo do Limte! ',r.Umidade,'%')
+        WHEN r.Umidade < 50 THEN CONCAT('Abaixo do Limte! ',r.Umidade,'%')
         ELSE CONCAT('Ideal ', r.Umidade,'%')
 	END as 'Status Umidade (%):',
 	r.dtHora as 'Hora da Leitura:',
@@ -29,12 +29,12 @@ SELECT
 s.idSensor as 'ID Sensor:',
 	CASE 
 		WHEN r.Temperatura > 25 THEN CONCAT('Acima do Limite! ',r.Temperatura,'°C')
-		WHEN r.Temperatura > 15 THEN CONCAT('Abaixo do Limite! ',r.Temperatura,'°C')
+		WHEN r.Temperatura < 15 THEN CONCAT('Abaixo do Limite! ',r.Temperatura,'°C')
 		ELSE CONCAT('Ideal ',r.Temperatura,'°C')
 	END as 'Status Temperatura (°C):',
 	CASE
-		WHEN r.Umidade > 60 THEN CONCAT('Acima do Limte! ',r.Umidade,'%')
-        WHEN r.Umidade > 50 THEN CONCAT('Abaixo do Limte! ',r.Umidade,'%')
+		WHEN r.Umidade > 50 THEN CONCAT('Acima do Limte! ',r.Umidade,'%')
+        WHEN r.Umidade < 30 THEN CONCAT('Abaixo do Limte! ',r.Umidade,'%')
         ELSE CONCAT('Ideal ', r.Umidade,'%')
 	END as 'Status Umidade (%):',
 	r.dtHora as 'Hora da Leitura:',
@@ -43,9 +43,10 @@ s.idSensor as 'ID Sensor:',
 FROM Registro as r
 		JOIN Sensor as s ON r.fkSensor = s.idSensor
 		JOIN Empresa as e ON s.fkEmpresa = e.idEmpresa
-WHERE e.idEmpresa = 1 AND s.idSensor = 3
+WHERE e.idEmpresa = 3 AND s.idSensor = 3
 	ORDER BY r.dtHora ASC;
     
+
 -- 3º SELECT: EXIBE UMA VISÃO MACRO DE TODAS OS USUÁRIOS CADASTRADOS E SUAS RESPECTIVAS EMPRESAS, PODENDO NICHAR E CRIAR UMA PESQUISA ESPECIFICA POR EMPRESA(BASTA TIRAR OS COMENTÁRIOS DO WHERE)
 
 SELECT 

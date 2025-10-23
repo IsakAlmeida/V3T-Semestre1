@@ -15,6 +15,10 @@ INSERT INTO Empresa (RazaoSocial, NomeEmpresa, CNPJ, Email, Telefone,Token, fkEn
 ('Green Future S.A.', 'Green Future', '98765432000155', 'contato@greenfuture.com.br', '4131234567','GR553123', 2),
 ('Food Solutions LTDA.', 'Food Solutions', '12345678111111', 'contato@foodsolutions.com', '1132547698','FO113254', 3);
 
+-- PADRÃO DO TOKEN: 2 PRIMEIROS CARACTERES INICIAIS DA EMPRESA
+-- 					3º e 4º FINAL DO CNPJ
+-- 					RESTANTE, PRIMEIROS NUMEROS DO TELEFONE (FORA DDD)
+
 INSERT INTO Usuario (NomeUsuario, Email, Senha, fkEmpresa) VALUES
 ('Reginaldo Oliveira','reginaldo.o@techsolutions.com.br','Regi@tech123',1),
 ('Matheus Fernandes','matheus.f@techsolutions.com.br','Math@tech123',1),
@@ -30,6 +34,5 @@ INSERT INTO Sensor (StatusSensor,dtInstalacao,Locall,fkEmpresa) VALUES
 ('Ativo','2025-07-20','Reservatório 2', 3);
 
 
-select * from Sensor;
 
 
