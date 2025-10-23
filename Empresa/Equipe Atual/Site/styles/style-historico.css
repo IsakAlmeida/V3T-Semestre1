@@ -150,131 +150,40 @@ body, html {
   background-color: #00BF63;
 }
 
-/* =======================================
-   KPIS (CARDS DE INDICADORES)
-======================================= */
-.kpiContainer {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 0 40px;
+/*DIV Cabeçalho Histórico*/
+#div-historico{
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+    z-index: 1; 
+    padding: 15px 20px 20px 20px; 
+    margin-left: 250px;
 }
-
-.kpiCard {
-  display: flex;
-  align-items: center;
-  flex: 1 1 20%;
-  min-width: 200px;
-  height: 40px;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+.cabecalho-historico{
+    background-color: #21593B;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 150px;
+    font-weight: bold;
+    border-radius: 30px;
+    list-style: none;
+    color: white;
+    font-size: 20px;
+    width: 80%;
+    margin-left: 300px;
 }
-
-.kpiIcon {
-  width: 60px;
-  margin-right: 20px;
-}
-
-.kpiContent {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.5;
-}
-
-.kpiTitle {
-  font-size: 14px;
-  color: #555;
-}
-
-.kpiValue {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-}
-
-.statusModerado .kpiValue {
-  color: #FFC107;
-}
-
-.statusCritico .kpiValue {
-  color: #b92929;
-}
-
-/* =======================================
-   GRÁFICOS E ALERTAS
-======================================= */
-.graphics {
-  padding: 0 40px;
-  margin-top: 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.graficosDuplos {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  width: 100%;
-}
-
-#graphicTemperatura,
-#graphicUmidade,
-#graphicAlertas {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  position: relative;
-  box-sizing: border-box;
-}
-
-#graphicTemperatura .kpiIcon,
-#graphicUmidade .kpiIcon,
-#graphicAlertas .kpiIcon {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-
-#graphicTemperatura > span,
-#graphicUmidade > span,
-#graphicAlertas > span {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-}
-
-#chartTemperatura,
-#chartUmidade,
-#chartAlertas {
-  margin-top: 30px;
-}
-
-#graphicTemperatura,
-#graphicUmidade {
-  flex: 1;
-  min-width: 0;
-}
-
-#graphicTemperatura canvas,
-#graphicUmidade canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-#graphicAlertas {
-  min-height: 280px;
-  margin: 20px 0;
-}
-
-canvas {
-  width: 100%;
-  display: block;
+.dados-sensor{
+    background-color: #f4f7fe;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 150px;
+    font-weight: bold;
+    border-radius: 30px;
+    list-style: none;
+    width: 82%;
+    margin-left: 300px;
 }

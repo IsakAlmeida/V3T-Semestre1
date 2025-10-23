@@ -7,7 +7,7 @@
     <link rel="icon" href="../imgs/logo-redonda.png" type="image/png">
     <link rel="stylesheet" href="../styles/style-historico.css">
 
-    <title>Dashboard - V3T</title>
+    <title>Histórico - V3T</title>
 </head>
 
 <body>
@@ -58,20 +58,21 @@
     <div class="pageDashboard">
         <ul class="title">
             <li>
-                <span>DashBoard</span>
+                <span>Histórico</span>
             </li>
             <li>
-                <select id="selectSensor">
-                    <option value="">Selecione...</option>
+                <select id="selectSensor">                
                     <option value="1">Sensor 1</option>
                     <option value="2">Sensor 2</option>
                 </select>
             </li>
             <li>
-                <button onclick="analise()">Mostrar gráficos</button>
+                <button onclick="carregarHistorico()">Pesquisar</button>
             </li>
         </ul>    
     </div>
+    <div id="div_historico" >
+        
     </div>
     <script src="../scripts/script-historico.js"></script>
 </body>
