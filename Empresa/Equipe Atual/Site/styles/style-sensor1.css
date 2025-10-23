@@ -3,7 +3,8 @@
 ======================================= */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap');
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -28,7 +29,7 @@ body, html {
 }
 
 .headerLeft li span {
-  color: #333;
+  color: #a3aed0;
   font-weight: 500;
 }
 
@@ -47,13 +48,17 @@ body, html {
 .logoV3T {
   text-align: center;
   font-size: 18px;
-  padding: 20px 0 130px 0;
+  padding: 30px 0 130px 0;
 }
 
 .logoV3T img {
   display: block;
   margin: 0 auto;
   max-width: 80%;
+}
+
+.logoV3T li span {
+  color: #333;
 }
 
 /* =======================================
@@ -67,7 +72,6 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: #a3aed0;
   padding-left: 20px;
   margin-bottom: 25px;
   cursor: pointer;
@@ -77,7 +81,7 @@ body, html {
   text-decoration: none;
 }
 
-.headerLeft a:hover {
+.headerLeft span:hover {
   color: #232020;
 }
 
@@ -111,7 +115,7 @@ body, html {
   justify-content: flex-start;
   list-style: none;
   margin: 20px 40px 15px 40px;
-  padding: 20px;
+  padding: 15px;
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
@@ -125,29 +129,6 @@ body, html {
   font-size: 24px;
   font-weight: bold;
   color: #333;
-}
-
-#selectSensor {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.pageDashboard .title li button {
-  padding: 8px 15px;
-  border: none;
-  border-radius: 4px;
-  background-color: #21593B;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-.pageDashboard .title li button:hover {
-  transform: scale(1.1);
-  background-color: #00BF63;
 }
 
 /* =======================================
@@ -167,7 +148,7 @@ body, html {
   flex: 1 1 20%;
   min-width: 200px;
   height: 40px;
-  padding: 20px;
+  padding: 25px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -180,27 +161,39 @@ body, html {
 
 .kpiContent {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.kpiText {
+  display: flex;
   flex-direction: column;
-  line-height: 1.5;
+  line-height: 1.3;
 }
 
 .kpiTitle {
-  font-size: 14px;
+  font-size: 16px;
   color: #555;
 }
 
+.kpiStatusIdeal {
+  font-size: 22px;
+  font-weight: bold;
+  color: #21593B;
+}
+
+.kpiStatusModerado {
+  font-size: 22px;
+  font-weight: bold;
+  color: #eecd27;
+}
+
+
 .kpiValue {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
   color: #333;
-}
-
-.statusModerado .kpiValue {
-  color: #FFC107;
-}
-
-.statusCritico .kpiValue {
-  color: #b92929;
 }
 
 /* =======================================
@@ -240,9 +233,9 @@ body, html {
   right: 5px;
 }
 
-#graphicTemperatura > span,
-#graphicUmidade > span,
-#graphicAlertas > span {
+#graphicTemperatura>span,
+#graphicUmidade>span,
+#graphicAlertas>span {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -277,4 +270,32 @@ body, html {
 canvas {
   width: 100%;
   display: block;
+}
+
+.descricao {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 6px;
+  margin: 0 65px 5px;
+}
+
+
+.limites {
+  text-align: end;
+}
+
+#traco {
+  background-color: rgba(208, 94, 24, 1);
+  width: 20px;
+  height: 4px;
+  border-radius: 30px;
+}
+
+#tracoRegistrosTemp, 
+#tracoRegistrosUmid {
+  background-color: #004830;
+  width: 20px;
+  height: 4px;
+  border-radius: 30px;
 }
