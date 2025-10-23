@@ -62,4 +62,3 @@ fkSensor INT,
 	CONSTRAINT fkRegistrosSensor FOREIGN KEY(fkSensor)
 		REFERENCES Sensor (idSensor)
 );
-
