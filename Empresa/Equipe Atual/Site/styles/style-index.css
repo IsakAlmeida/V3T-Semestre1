@@ -176,22 +176,22 @@ a:nth-of-type(4):hover {
     justify-content: space-between;
     margin-top: 50px;
 }
-#subdiv-kpis-situacao-atual-dashboard ,
-#subdiv-kpis-status-dashboard  {
+#subdiv-kpi-temp-atual-dashboard ,
+#subdiv-kpi-umi-atual-dashboard  {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-#subdiv-kpis-situacao-atual-dashboard img,
-#subdiv-kpis-status-dashboard img {
+#subdiv-kpi-temp-atual-dashboard img,
+#subdiv-kpi-umi-atual-dashboard img {
 
-    width: 250px;
-    height: 85px;
+    width: 600px;
+    height: auto;
     border-radius: 20px;
-    margin-bottom: 40px;
-    margin-top: 70px;
+    margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 /* Código para a parte de vantagens */
