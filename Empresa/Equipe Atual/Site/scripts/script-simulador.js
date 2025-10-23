@@ -17,8 +17,5 @@ function simular(){
         // inserindo dados na div de resuiltado da simulação 
         valor_prejuizo.innerHTML = `${perda_anual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}).replaceAll('R$', '').trim()}`
         valor_ganho.innerHTML = `${ganho.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}).replaceAll('R$', '').trim()}`
-
-        iptQtdMateria.value = '';
-        iptValor.value = '';
     }
 }
