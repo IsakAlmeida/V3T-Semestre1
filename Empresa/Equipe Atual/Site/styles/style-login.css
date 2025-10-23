@@ -141,7 +141,7 @@ body {
 
 /* ===== MENSAGENS DE ERRO - VALIDAÇÕES ===== */
 .msg_erro{
-  font-size: 0.65rem;
+  font-size: 0.85rem;
   color: rgb(198, 5, 5);
   text-align: left;
   padding: 0px 20px;
