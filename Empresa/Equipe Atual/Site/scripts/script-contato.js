@@ -55,7 +55,7 @@ function numCpnj() {
 
     if (cnpj == "") {
         erro = `Preencha o campo CNPJ`;
-    } else if (cnpj.length < 14) {
+    } else if (cnpj.length < 14 || cnpj.length>14) {
         erro = `Insira um CPNJ valido`;
     }
 
@@ -71,11 +71,27 @@ function numCpnj() {
 function mail() {
     email = iptEmail.value.trim();
     let erro = "";
+    let contArroba = 0;
+    let contPonto = 0;
 
     if (email == "") {
         erro = `Preencha o campo Email`
-    } else if (email.indexOf("@") == -1) {
-        erro = `Insira um email válido que contenha @`;
+    } else {
+        for(let i=0; i<email.length;i++){
+            if(email[i]=='.'){
+                contPonto++;
+            }
+            if(email[i]=='@'){
+                contArroba++;
+            }
+        }
+        if(contPonto<1){
+            erro = `O email deve conter ponto<br>(Ex: email@email.com)`
+        }if(contArroba != 1){
+            erro = `O email deve conter apenas um @<br>(Ex: email@email.com)`
+        }if(email.length>45){
+            erro = 'O email pode ter no máximo 45 caracteres<br>(Ex: email@email.com)'
+        }
     }
 
     if (erro != "") {
@@ -94,7 +110,7 @@ function tel() {
 
     if (telefone == '') {
         erro = `Preencha o campo Telefone`
-    } else if (telefone.length < 15) {
+    } else if (telefone.length != 15 ) {
         erro = `Informe um número válido igual ao exemplo`;
     }
 
@@ -204,7 +220,7 @@ function clickCep() {
 
     if (cep == "") {
         erro = `Preencha o campo CEP`;
-    } else if (cep.length < 8) {
+    } else if (cep.length != 8) {
         erro = `O Campo CEP está errado`;
     }
     if (erro != "") {
