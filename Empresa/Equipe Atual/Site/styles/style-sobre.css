@@ -276,3 +276,7 @@ footer li:hover{
 footer a {
     font-weight: normal;
 }
+footer a:hover {
+    color: #66a07a;
+    border-radius: 20px;
+}
