@@ -3,7 +3,8 @@
 ======================================= */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap');
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -151,39 +152,43 @@ body, html {
 }
 
 /*DIV Cabeçalho Histórico*/
-#div-historico{
-    display: flex;
-    flex-direction: column;
-    position: relative; 
-    z-index: 1; 
-    padding: 15px 20px 20px 20px; 
-    margin-left: 250px;
+#div-historico {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  box-sizing: border-box;
+  min-height: 280px;
+  margin: 20px 0;
 }
-.cabecalho-historico{
-    background-color: #21593B;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 150px;
-    font-weight: bold;
-    border-radius: 30px;
-    list-style: none;
-    color: white;
-    font-size: 20px;
-    width: 80%;
-    margin-left: 300px;
+
+.cabecalho-historico {
+  background-color: #21593B;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 150px;
+  font-weight: bold;
+  border-radius: 30px;
+  list-style: none;
+  color: white;
+  font-size: 20px;
+  width: 80%;
+  margin-left: 300px;
 }
-.dados-sensor{
-    background-color: #f4f7fe;
-    padding: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 150px;
-    font-weight: bold;
-    border-radius: 30px;
-    list-style: none;
-    width: 82%;
-    margin-left: 300px;
+
+.dados-sensor {
+  background-color: #f4f7fe;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 150px;
+  font-weight: bold;
+  border-radius: 30px;
+  list-style: none;
+  width: 82%;
+  margin-left: 300px;
 }
