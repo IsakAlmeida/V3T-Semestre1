@@ -288,8 +288,8 @@ footer{
 footer ul{
     list-style: none;
 }
-footer li:hover{
-    text-decoration: underline;
+footer a:hover{
+    color: #66a07a;
     border-radius: 20px;
     font-weight: normal;
 }
