@@ -236,14 +236,15 @@ button:hover {
 }    
 
 .div-msg a {
-    color: #004D2D;
+    color: #FFFF;
     padding: 0 2px;
     text-decoration: underline;
 }
 
 .info-refs {
-    color: #004D2D;
+    color: #FFFF;
     font-size: 17px; 
+    font-weight: 500;
 }
 
 .div-btn {
@@ -253,12 +254,13 @@ button:hover {
 }
 
 .destaque {
-    color: #004D2D;
+    color: #FFFF;
     font-weight: 600;
 }
 
 .asterisco {
-    color: #004D2D;
+    color: #FFFF;
+    font-weight: 500;
 }
 
 /* Estilização do Footer */
