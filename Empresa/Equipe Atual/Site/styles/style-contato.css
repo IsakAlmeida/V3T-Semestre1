@@ -1,23 +1,23 @@
 /*Importando fonte Montserrat*/
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /*Padronizando body*/
-body{
+body {
     width: 100%;
     margin: 0px;
-    font-family: 'Montserrat', sans-serif;  
+    font-family: 'Montserrat', sans-serif;
 }
 
-/*Código para o header*/
+/* Estilização do Header*/
 .header {
     width: 100%;
-    height: 95px;
+    height: 100px;
     margin: 0px;
     display: flex;
     background-color: white;
@@ -25,6 +25,7 @@ body{
     position: fixed;
     transition: 0.3s;
 }
+
 .header ul {
     list-style: none;
     display: flex;
@@ -60,6 +61,7 @@ body{
     background-color: #00BF63;
 }
 
+/*Hover sublinhando apenas os direcionadores*/
 a {
     color: black;
     font-weight: bold;
@@ -81,21 +83,25 @@ a:nth-of-type(3):hover {
 a:nth-of-type(4):hover {
     text-decoration: underline;
 }
+
 .banner {
-    width: 100vw; 
-    height: 23vh; 
+    width: 100vw;
+    height: 23vh;
 }
+
 .banner img {
     display: block;
-    width: 100%; 
-    height: 150%; 
-    object-fit: cover; 
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
 }
-.sectionContato{
+
+.sectionContato {
     height: 420px;
     display: flex;
     flex-direction: row;
@@ -103,15 +109,17 @@ main{
     justify-content: space-around;
     margin: 0 2rem;
 }
-.divTextoContato h2{
+
+.divTextoContato h2 {
     color: #21593B;
     font-size: 50px;
     text-align: left;
     padding-left: 3rem;
     font-family: 'Montserrat', sans-serif;
 }
-.divTextoContato p{
-    margin-top: 20px;    
+
+.divTextoContato p {
+    margin-top: 20px;
     align-self: center;
     text-align: left;
     width: 80%;
@@ -120,12 +128,14 @@ main{
     padding-left: 3rem;
     font-family: 'Montserrat', sans-serif;
 }
-.sectionContato img{
+
+.sectionContato img {
     padding-right: 5rem;
     width: 340px;
-    
+
 }
-.sectionForm{
+
+.sectionForm {
     background-color: #66A07A;
     border-radius: 10px;
     margin: 0 10% 10% 10%;
@@ -133,11 +143,13 @@ main{
     display: flex;
     flex-direction: column;
     box-shadow: 20px 20px 20px #211b15;
-    
-    
+
+
 
 }
-.sectionForm h2,h3 {
+
+.sectionForm h2,
+h3 {
     color: #FFFFFFFF;
     display: flex;
     flex-direction: column;
@@ -146,127 +158,147 @@ main{
     font-size: 40px;
     margin: 5px;
     font-family: 'Montserrat', sans-serif;
-    
+
 
 }
-.formEmpresa{
+
+.formEmpresa {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     padding-left: 3.5rem;
-    
+
 }
 
-.validacaoEmpresa{
- display: flex;
+.validacaoEmpresa {
+    display: flex;
     flex-direction: column;
     border-radius: 10px;
     padding-left: 3rem;
     font-family: 'Montserrat', sans-serif;
-    
+
 }
 
-.formEmpresa input[type= "text"]{
-    border: 2px solid #FFFFFFFF;
-    border-radius: 10px;
+.formEmpresa input[type="text"] {
+    border: none;
+    border-radius: 20px;
     margin: 7px;
     height: 45px;
     width: 95%;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
+    padding: 1rem;
 }
 
-input::placeholder{
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #21593B inset;
+}
+
+input::placeholder {
     padding-left: 1rem;
 }
 
-#formEndereco{
+#formEndereco {
     align-items: center;
     border-radius: 10px;
 }
 
-.iptEndereco{
-display: flex;
-align-items: center;
-padding-left: 3.5rem;
+.iptEndereco {
+    display: flex;
+    align-items: center;
+    padding-left: 3.5rem;
 
 }
 
-#formEndereco input[type= "text"]{
-    border: 2px solid #FFFFFFFF;
-    border-radius: 10px;
+#formEndereco input[type="text"] {
+    border: none;
+    border-radius: 20px;
     margin: 15px 5px 15px 5px;
     height: 45px;
     width: 92%;
     font-size: 1rem;
+    padding: 1rem;
 
 }
 
-button{
-    background-color: #004D2D;
-    padding: 0.8rem;
-    color: #FFFFFF;
-    font-size: 20px;
-    text-align: center;
-    border-radius: 40px;
-    cursor: pointer; 
-    width: 40%;
-    margin: 0 0 3rem 2rem;
-    font-family: 'Montserrat', sans-serif;
+button {
+    width: 300px;
+    height: 60px;
+    font-size: 19px;
+    border-radius: 20px;
     border: none;
-    transition: all 0.2s ease;
+    background-color: #21593B;
+    color: white;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
 }
-button:hover{
+
+button:hover {
+    transform: scale(1.1);
     background-color: #00BF63;
-    transform: scale(1.02);
 }
-#botao{
+
+#botao {
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
-.validacaoEndereco{
+
+.validacaoEndereco {
     display: flex;
     flex-direction: column;
     width: 50%;
     font-family: 'Montserrat', sans-serif;
 }
 
-.validacaoEndereco .msgEndereco{
+.validacaoEndereco .msgEndereco {
     padding-left: 3rem;
 }
 
-/* Código para o footer */
-footer{
+/* Estilização do Footer */
+footer {
     display: flex;
     flex: 1;
     justify-content: space-between;
     margin-left: 50px;
     margin-right: 50px;
+    margin-top: 20px;
     padding-left: 15px;
     padding-right: 100px;
-
+    font-size: 15px;
 }
 
-#img-footer{
+#img-footer {
     width: 90px;
-    height: auto;
+    height: 75px;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
-footer ul{
+#img-home-footer {
+    align-self: center;
+}
+
+footer ul {
     list-style: none;
 }
-footer li:hover{
-    scale: 105%;
-    text-decoration: underline;
+
+footer a:hover {
+    color: #66a07a;
     border-radius: 20px;
+    font-weight: normal;
 }
 
-#marca-footer{
-    font-size: 15px;
+#marca-footer {
+    font-size: 10px;
     justify-self: center;
-    padding-top: 10px;
+}
+
+footer a {
+    font-weight: normal;
 }
