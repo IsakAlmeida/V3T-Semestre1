@@ -79,7 +79,7 @@ function login() {
     // if simulando um cadastro
     var email = ipt_email.value;
     var senha = ipt_senha.value;
-    if (email == 'fernanda@sptech' && senha == '123456789') {
+    if (email == 'fernanda@foodsolutions.com' && senha == '12345678') {
         alert('Login realizado com sucesso! Bem vindo a V3T.');
         window.location.href = "dashboard.html";
     } else {
