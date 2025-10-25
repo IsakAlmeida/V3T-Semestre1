@@ -1,6 +1,6 @@
-var temperatura = [22, 24, 21, 25, 23, 22, 26, 20]; 
-var umidade = [30, 28, 35, 40, 46, 53, 45, 32]; 
-var alertas = [12, 19, 3, 5, 2, 3, 8, 6, 8, 0,];
+var temperatura = [24, 27, 25, 23, 20, 23, 26, 25]; 
+var umidade = [50, 52, 53, 57, 54, 57, 63, 70]; 
+var alertas = [11, 17, 6, 2, 8, 3, 8, 2, 4, 1,];
 
 var ctxTemperatura = document.getElementById('chartTemperatura');
 var ctxUmidade = document.getElementById('chartUmidade');
