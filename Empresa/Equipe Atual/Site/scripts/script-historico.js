@@ -68,7 +68,7 @@ var dados = [`<table>
           <td>Reservatório 2</td>
           <td>15°C</td>
           <td class="dado_umidade">55%</td>
-          <td>10:30AM 08/09/2025</td>
+          <td>02:30AM 08/09/2025</td>
         </tr>
         <tr class="dados_registro">
           <td>2</td>
