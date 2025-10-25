@@ -106,6 +106,9 @@ html {
 /* =======================================
    BARRA SUPERIOR DE CONTROLE
 ======================================= */
+.pageDashboard{
+  margin-bottom: 25px;
+}
 .pageDashboard .title {
   display: flex;
   align-items: center;
@@ -162,7 +165,49 @@ html {
   min-height: 280px;
   margin: 20px 0;
 }
-
+table{
+  background-color: #fafafa;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-weight: bold;
+  border-radius: 30px;
+  list-style: none;
+  color: white;
+  font-size: 20px;
+  width: 80%;
+  margin-left: 300px;
+  align-items: center;
+}
+tr{
+  background-color: #f4f7fe;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  gap: 250px;
+  padding: 5px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  
+}
+#cabecalho-table{
+  background-color: #21593B;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 230px;
+  padding: 20px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  justify-self: center;
+}
+.dados-registro{
+  color: black;
+  
+}
 .cabecalho-historico {
   background-color: #21593B;
   padding: 20px;
@@ -178,6 +223,13 @@ html {
   width: 80%;
   margin-left: 300px;
 }
+td{
+  color: black;
+}
+.dado_temperatura, .dado_umidade{
+  color: red;
+}
+
 
 .dados-sensor {
   background-color: #f4f7fe;
@@ -191,4 +243,11 @@ html {
   list-style: none;
   width: 82%;
   margin-left: 300px;
+}
+#msg-padrao{
+  margin-left: 850px;
+  margin-top: 500px;
+  color: #dce4f8;
+  font-weight: 900;
+  font-size: 40px;
 }

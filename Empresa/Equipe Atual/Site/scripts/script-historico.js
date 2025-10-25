@@ -1,194 +1,118 @@
-
+var dados = [`<table>
+        <tr id="cabecalho-table">
+          <th>ID:</th>
+          <th>Local:</th>
+          <th>Temperatura(°C):</th>
+          <th>Umidade(%):</th>
+          <th>Data:</th>
+        </tr>
+        <tr class="dados_registro">
+          <td>1</td>
+          <td>Reservatório 1</td>
+          <td class="dado_temperatura">33°C</td>
+          <td class="dado_umidade">55%</td>
+          <td>10:30AM 10/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>1</td>
+          <td>Reservatório 1</td>
+          <td class="dado_temperatura">32°C</td>
+          <td>45%</td>
+          <td>11:30AM 09/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>1</td>
+          <td>Reservatório 1</td>
+          <td>22°C</td>
+          <td class="dado_umidade">65%</td>
+          <td>03:20AM 09/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>1</td>
+          <td>Reservatório 1</td>
+          <td class="dado_temperatura">34°C</td>
+          <td>35%</td>
+          <td>11:40AM 08/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>1</td>
+          <td>Reservatório 1</td>
+          <td class="dado_temperatura">28°C</td>
+          <td>46%</td>
+          <td>12:0PM 07/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>1</td>
+          <td>Reservatório 1</td>
+          <td class="dado_temperatura">26°C</td>
+          <td>34%</td>
+          <td>10:45AM 10/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>1</td>
+          <td>Reservatório 1</td>
+          <td>23°C</td>
+          <td class="dado_umidade">63%</td>
+          <td>10:30AM 10/09/2025</td>
+        </tr>
+      </table>`,`<table>
+        <tr id="cabecalho-table">
+          <th>ID:</th>
+          <th>Local:</th>
+          <th>Temperatura(°C):</th>
+          <th>Umidade(%):</th>
+          <th>Data:</th>
+        </tr>
+        <tr class="dados_registro">
+          <td>2</td>
+          <td>Reservatório 2</td>
+          <td>15°C</td>
+          <td class="dado_umidade">55%</td>
+          <td>10:30AM 08/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>2</td>
+          <td>Reservatório 2</td>
+          <td>19°C</td>
+          <td class="dado_umidade">62%</td>
+          <td>03:45AM 05/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>2</td>
+          <td>Reservatório 2</td>
+          <td>20°C</td>
+          <td class="dado_umidade">55%</td>
+          <td>02:50AM 04/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>2</td>
+          <td>Reservatório 2</td>
+          <td>16°C</td>
+          <td class="dado_umidade">68%</td>
+          <td>03:45AM 03/09/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>2</td>
+          <td>Reservatório 2</td>
+          <td>19°C</td>
+          <td class="dado_umidade">65%</td>
+          <td>04:25AM 28/08/2025</td>
+        </tr>
+        <tr class="dados_registro">
+          <td>2</td>
+          <td>Reservatório 2</td>
+          <td>22°C</td>
+          <td class="dado_umidade">54%</td>
+          <td>03:45AM 26/08/2025</td>
+        </tr>
+      </table>`];
 
 function carregarHistorico(){
     let sensor = selectSensor.value;
     if(sensor == 1){
-        div_historico.innerHTML = `<ul class="cabecalho-historico">
-            <li>ID:</li>
-            <li>Local:</li>
-            <li>Temperatura (°C):</li>
-            <li>Umidade (%):</li>
-            <li>Data:</li>
-        </ul>
-        <ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>35ºC</li>
-            <li>46%</li>
-            <li>11:50AM 15/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>35ºC</li>
-            <li>46%</li>
-            <li>02:50AM 15/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>33ºC</li>
-            <li>45%</li>
-            <li>09:50AM 10/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>32ºC</li>
-            <li>47%</li>
-            <li>12:50AM 08/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>28ºC</li>
-            <li>55%</li>
-            <li>08:50PM 05/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>26ºC</li>
-            <li>44%</li>
-            <li>05:25AM 05/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>27ºC</li>
-            <li>40%</li>
-            <li>12:40AM 03/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>25ºC</li>
-            <li>66%</li>
-            <li>09:43AM 02/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>30ºC</li>
-            <li>48%</li>
-            <li>10:35AM 30/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>33ºC</li>
-            <li>45%</li>
-            <li>08:50PM 28/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>29ºC</li>
-            <li>50%</li>
-            <li>07:20AM 28/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>26ºC</li>
-            <li>47%</li>
-            <li>11:50AM 25/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>27ºC</li>
-            <li>40%</li>
-            <li>12:10AM 17/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 1</li>
-            <li>31ºC</li>
-            <li>39%</li>
-            <li>10:30AM 10/08/25</li>
-        </ul>
-    </div>`
-    }else if(sensor==2){
-        div_historico.innerHTML = `<ul class="cabecalho-historico">
-            <li>ID:</li>
-            <li>Local:</li>
-            <li>Temperatura (°C):</li>
-            <li>Umidade (%):</li>
-            <li>Data:</li>
-        </ul>
-        <ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>35ºC</li>
-            <li>46%</li>
-            <li>11:50AM 15/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>35ºC</li>
-            <li>46%</li>
-            <li>02:50AM 15/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>33ºC</li>
-            <li>45%</li>
-            <li>09:50AM 10/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>32ºC</li>
-            <li>47%</li>
-            <li>12:50AM 08/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>28ºC</li>
-            <li>55%</li>
-            <li>08:50PM 05/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>26ºC</li>
-            <li>44%</li>
-            <li>05:25AM 05/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>27ºC</li>
-            <li>40%</li>
-            <li>12:40AM 03/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>25ºC</li>
-            <li>66%</li>
-            <li>09:43AM 02/09/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>30ºC</li>
-            <li>48%</li>
-            <li>10:35AM 30/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>33ºC</li>
-            <li>45%</li>
-            <li>08:50PM 28/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>29ºC</li>
-            <li>50%</li>
-            <li>07:20AM 28/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>26ºC</li>
-            <li>47%</li>
-            <li>11:50AM 25/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>27ºC</li>
-            <li>40%</li>
-            <li>12:10AM 17/08/25</li>
-        </ul><ul class="dados-sensor">
-            <li>1</li>
-            <li>Reservatório 2</li>
-            <li>31ºC</li>
-            <li>39%</li>
-            <li>10:30AM 10/08/25</li>
-        </ul>
-    </div>`
+        div_historico.innerHTML = dados[0];
+    }else if(sensor == 2){
+        div_historico.innerHTML = dados[1];
     }
 }
+
