@@ -145,7 +145,7 @@ html {
   flex: 1 1 20%;
   min-width: 200px;
   height: 40px;
-  padding: 25px;
+  padding: 35px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -163,6 +163,23 @@ html {
   width: 100%;
 }
 
+.indicadorContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.indicadorTemperatura {
+  margin: 45px 60px 0;
+  width: 430px;
+  height: 400px;
+}
+
+.indicadorUmidade {
+  margin-top: 20px;
+  width: 430px;
+  height: 400px;
+}
+
 .kpiText {
   display: flex;
   flex-direction: column;
@@ -177,7 +194,7 @@ html {
 .kpiStatusIdeal {
   font-size: 22px;
   font-weight: bold;
-  color: #21593B;
+  color: #90e301;
 }
 
 .kpiStatusModerado {
@@ -188,7 +205,10 @@ html {
 
 
 .kpiValue {
-  font-size: 26px;
+  position: absolute;
+  top: 52%;
+  left: 43%;
+  font-size: 24px;
   font-weight: bold;
   color: #333;
 }
