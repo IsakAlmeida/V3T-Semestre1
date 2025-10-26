@@ -1,11 +1,11 @@
 # 🌱 V3T – Monitoramento de Temperatura e Umidade no Armazenamento de Matéria-Prima para Impressão 3D de Proteína Vegetal
 
-![Logo](./Banner.jpg)
+![Logo](/Banner.jpg)
 
 
 ## 📌 Sobre o Projeto
 
-Este repositório contém o desenvolvimento de uma solução **IoT (Internet of Things)** para monitoramento de **temperatura e umidade** em reservatórios industriais utilizados no armazenamento da **biotinta** (matéria-prima) para **impressão 3D de proteína de origem vegetal**.
+Este repositório contém o desenvolvimento de uma solução **IoT (Internet of Things)** para monitoramento de **temperatura e umidade** em reservatórios industriais utilizados no armazenamento da **biotinta** (matéria-prima) para **impressão 3D a base de proteína extraída da soja**.
 
 Nosso objetivo é **assegurar a qualidade, segurança e rastreabilidade** dos alimentos produzidos, reduzindo perdas por variações ambientais e contribuindo para um modelo alimentar mais sustentável.
 
