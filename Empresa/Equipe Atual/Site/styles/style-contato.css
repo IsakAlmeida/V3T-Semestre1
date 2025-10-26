@@ -138,7 +138,7 @@ main {
 .sectionForm {
     background-color: #66A07A;
     border-radius: 10px;
-    margin: 0 10% 10% 10%;
+    margin: 0 14% 14% 14%;
     padding: 0.8rem;
     display: flex;
     flex-direction: column;
@@ -188,6 +188,7 @@ h3 {
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     padding: 1rem;
+    transition: 0.9s;
 }
 
 input:focus {
@@ -219,6 +220,7 @@ input::placeholder {
     width: 92%;
     font-size: 1rem;
     padding: 1rem;
+    transition: 0.9s;
 
 }
 

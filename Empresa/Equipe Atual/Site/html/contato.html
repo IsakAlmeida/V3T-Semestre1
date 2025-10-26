@@ -50,20 +50,20 @@
     <section class="sectionForm">
       <h2>Preencha os dados <br>da sua empresa:</h2>
       <div class="formEmpresa">
-        <input type="text" name="razao" placeholder="Razão Social" id="iptRazao" onkeyup="social()">
+        <input type="text" name="razao" placeholder="Razão Social" id="iptRazao" onkeyup="social()" maxlength="45">
          <div class="validacaoEmpresa" id="divRazao" style="color: white;"></div>
         <br>
-        <input type="text" name="nomeFantasia" placeholder="Nome Fantasia" id="iptNome" onkeyup="nomeFan()">
+        <input type="text" name="nomeFantasia" placeholder="Nome Fantasia" id="iptNome" onkeyup="nomeFan()" maxlength="50">
          <div class="validacaoEmpresa" id="divNome" style="color: white;"></div>
         <br>
-        <input type="text" name="CNPJ" placeholder="CNPJ" id="iptCNPJ" onkeyup="numCpnj()" >
-         <div class="validacaoEmpresa" id="divCnpj" style="color: white;"></div>
+        <input type="text" name="CNPJ" placeholder="CNPJ" id="iptCNPJ" onkeyup="numCpnj()" maxlength="14">
+         <div class="validacaoEmpresa" id="divCnpj" style="color: white;">Apenas números</div>
         <br>
-        <input type="text" name="email" placeholder="Email" id="iptEmail" onkeyup="mail()">
+        <input type="text" name="email" placeholder="Email" id="iptEmail" onkeyup="mail()" maxlength="45">
          <div class="validacaoEmpresa" id="divEmail" style="color: white;"></div>
         <br>
-        <input type="text" name="telefone" placeholder="Telefone" id="iptTelefone" onkeyup="tel()">
-         <div class="validacaoEmpresa" style="color: white;">Ex: (xx) xxxx-xxxx</div>
+        <input type="text" name="telefone" placeholder="Telefone" id="iptTelefone" onkeyup="tel()" maxlength="11">
+         <div class="validacaoEmpresa" style="color: white;">Apenas números</div>
          <div class="validacaoEmpresa" id="divTelefone" style="color: white;"></div><br>
         <br><br>
       </div>
@@ -71,34 +71,34 @@
       <div id="formEndereco">
         <div class="iptEndereco">
         <div class="validacaoEndereco">
-        <input type="text" name="rua" placeholder="Rua" id="iptRua" onkeyup="lugar()">
+        <input type="text" name="rua" placeholder="Rua" id="iptRua" onkeyup="lugar()" maxlength="50">
          <div class="msgEndereco" id="divRua" style="color: white;"></div>
          </div>
          <div class="validacaoEndereco">
-        <input type="text" name="num" placeholder="N°" id="iptNum" onkeyup="numeracao()">
+        <input type="text" name="num" placeholder="N°" id="iptNum" onkeyup="numeracao()" maxlength="8">
          <div class="msgEndereco" id="divNum" style="color: white;"></div>
         </div>
          </div>
         <div class="iptEndereco">
           <div class="validacaoEndereco">
-        <input type="text" name="bairro" placeholder="Bairro" id="iptBairro" onkeyup="bar()">
+        <input type="text" name="bairro" placeholder="Bairro" id="iptBairro" onkeyup="bar()" maxlength="50">
          <div class="msgEndereco" id="divBairro" style="color: white;"></div>
          </div>
          <div class="validacaoEndereco">
-        <input type="text" name="cidade" placeholder="Cidade" id="iptCidade" onkeyup="city()">
+        <input type="text" name="cidade" placeholder="Cidade" id="iptCidade" onkeyup="city()" maxlength="50">
          <div class="msgEndereco" id="divCidade" style="color: white;"></div>
          </div>
         </div>
 
         <div class="iptEndereco">
         <div class="validacaoEndereco">
-        <input type="text" name="UF" placeholder="UF" id="iptUF" onkeyup="unidade()">
+        <input type="text" name="UF" placeholder="UF" id="iptUF" onkeyup="unidade()" maxlength="2">
          <div class="msgEndereco" id="divUF" style="color: white;"></div>
          </div>
          <div class="validacaoEndereco">
-        <input type="text" name="CPF" placeholder="CEP" id="iptCEP" onkeyup="clickCep()">
-         <div class="msgEndereco" id="divCEP" style="color: white;"></div>
-         </div>
+        <input type="text" name="CPF" placeholder="CEP" id="iptCEP" onkeyup="clickCep()" maxlength="8">
+         <div class="msgEndereco" id="divCEP" style="color: white;">CEP deve conter 8 dígitos numéricos</div>
+         </div> 
         </div>
 
         <br><br>

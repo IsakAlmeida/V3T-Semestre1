@@ -17,8 +17,6 @@ function social() {
 
     if (razao == '') {
         erro = `Preencha o campo Razão Social`;
-    } else if (razao.length < 2) {
-        erro = `Insira um nome valido (mínimo 2 caracteres)`; 
     }
 
     if (erro != "") {
@@ -36,9 +34,7 @@ function nomeFan() {
 
     if (nome == '') {
         erro = `Preencha o campo Nome Fantasia`;
-    } else if (nome.length < 2) {
-        erro = `Insira um nome valido (mínimo 2 caracteres)`;
-    }
+    } 
 
     if (erro != "") {
         divNome.innerHTML = `${erro}`;
@@ -55,8 +51,8 @@ function numCpnj() {
 
     if (cnpj == "") {
         erro = `Preencha o campo CNPJ`;
-    } else if (cnpj.length < 14 || cnpj.length>14) {
-        erro = `Insira um CPNJ valido`;
+    } else if (cnpj.length < 14) {
+        erro = `CNPJ deve conter 14 digitos`;
     }
 
     if (erro != "") {
@@ -110,7 +106,7 @@ function tel() {
 
     if (telefone == '') {
         erro = `Preencha o campo Telefone`
-    } else if (telefone.length != 15 ) {
+    } else if (telefone.length != 11 ) {
         erro = `Informe um número válido igual ao exemplo`;
     }
 
@@ -129,9 +125,8 @@ function lugar() {
 
     if (rua == "") {
         erro = `Preencha o campo Rua`;
-    } else if (rua.length < 2) {
-        erro = `Informe uma rua válida`
-    }
+    } 
+    
     if (erro != "") {
         divRua.innerHTML = `${erro}`;
         chkLugar = false;
@@ -147,7 +142,7 @@ function numeracao() {
 
     if (num == "") {
         erro = `Preencha o campo N° `;
-    } else if (num <= 0 || num % 1 != 0) {
+    } else if (num <= 0) {
         erro = `Preencha um número válido`;
     }
 
@@ -166,10 +161,8 @@ function bar() {
 
     if (bairro == "") {
         erro = `Preencha o campo Bairro`;
-    } else if (bairro.length < 2) {
-        erro = `Insira um nome valido (mínimo 2 caracteres)`;
-    }
-
+    } 
+    
     if (erro != "") {
         divBairro.innerHTML = `${erro}`;
         chkBar = false;
@@ -185,9 +178,7 @@ function city() {
 
     if (cidade == "") {
         erro = `Preencha o campo Cidade`;
-    } else if (cidade.length < 2) {
-        erro = `Insira um nome valido (mínimo 2 caracteres)`;
-    }
+    } 
 
     if (erro != "") {
         divCidade.innerHTML = `${erro}`;
