@@ -1,6 +1,6 @@
 # 🌱 V3T – Monitoramento de Temperatura e Umidade no Armazenamento de Matéria-Prima para Impressão 3D de Proteína Vegetal
 
-![Logo](/Banner.jpg)
+![Logo](./Banner.jpg)
 
 
 ## 📌 Sobre o Projeto
