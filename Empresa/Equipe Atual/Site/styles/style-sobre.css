@@ -245,6 +245,7 @@ footer{
     padding-left: 15px;
     padding-right: 100px;
     font-size: 15px;
+    text-align: left;
 }
 
 #img-footer{
@@ -260,6 +261,8 @@ footer{
 
 footer ul{
     list-style: none;
+    text-align: left;
+    justify-content: left;
 }
 footer li:hover{
     scale: 105%;
@@ -275,8 +278,13 @@ footer li:hover{
 
 footer a {
     font-weight: normal;
+    justify-self: left;
 }
 footer a:hover {
     color: #66a07a;
     border-radius: 20px;
+}
+div3-footer{
+    display: flex;
+    justify-content: flex-start;
 }
