@@ -43,10 +43,14 @@
                 <div class="paragrafos_e_inputs">
                     <p class="titulo">Faça login para acessar seus dados em tempo real: </p>
 
-                    <input type="text" id="ipt_email" placeholder="Email" onkeyup="onkey_email()">
+                    <div class="msg_informacao"> Email: </div>
+
+                    <input type="text" id="ipt_email" onkeyup="onkey_email()">
+                    
                     <div class="msg_erro" id="div_msg_email"> </div>
+                    <div class="msg_informacao">Senha: </div>
                     <div class="div_senha">
-                        <input type="password" id="ipt_senha" placeholder="Senha" onkeyup="onkey_senha()">
+                        <input type="password" id="ipt_senha" onkeyup="onkey_senha()">
                         <img src="../imgs/olho-aberto-senha.png" alt="Mostrar senha" class="olho-senha"
                             onclick="mostrarSenha('ipt_senha', this)">
                     </div>

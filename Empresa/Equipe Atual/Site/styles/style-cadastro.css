@@ -102,7 +102,7 @@ body {
   background-color: #F5F5F5;
   border-radius: 12px;
   box-shadow: 15px 15px 9px rgba(0, 0, 0, 0.5);
-  width: 480px;
+  width: 500px;
   padding: 40px 50px;
   display: flex;
   flex-direction: column;
@@ -139,27 +139,35 @@ body {
 
 /* ===== MENSAGENS DE ERRO - VALIDAÇÕES ===== */
 .msg_erro{
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: rgb(198, 5, 5);
   text-align: left;
   padding: 0px 20px 20px;
 }
 
 /* ===== INPUTS ===== */
+.msg_informacao{
+  font-size: 1rem;
+  color: rgb(56, 48, 48);
+  text-align: left;
+  padding: 10px;
+}
+
 input {
   width: 100%;
   padding: 14px;
   margin-bottom: 14px;
   border: none;
+  box-shadow: 0 0 0 2px #21593B inset;
   border-radius: 20px;
   background-color: #fff;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: 0.9s;
 }
 
 input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #21593B inset;
+    box-shadow: 0 0 0 2px #00BF63 inset;
 }
 
 .div_senha {
@@ -172,6 +180,7 @@ input:focus {
   padding: 14px 40px 14px 14px; /* espaço à direita pro ícone */
   margin-bottom: 14px;
   border: none;
+  box-shadow: 0 0 0 2px #21593B inset;
   border-radius: 20px;
   background-color: #fff;
   font-size: 0.95rem;
@@ -180,7 +189,7 @@ input:focus {
 
 .div_senha input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #21593B inset;
+    box-shadow: 0 0 0 2px #00BF63 inset;
 }
 
 .olho-senha {

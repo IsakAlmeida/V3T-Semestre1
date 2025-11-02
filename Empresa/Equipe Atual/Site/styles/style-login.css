@@ -88,7 +88,7 @@ body {
 
 /* ===== FUNDO ===== */
 .fundo_cadastro {
-    min-height: 100vh;
+    min-height: 120vh;
     background-image: url(../imgs/fundo_cadastro.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -104,12 +104,12 @@ body {
     background-color: #F5F5F5;
     border-radius: 12px;
     box-shadow: 15px 15px 9px rgba(0, 0, 0, 0.5);
-    width: 480px;
+    width: 500px;
     padding: 40px 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 90px;
+    margin-top: 100px;
 }
 
 /* ===== TEXTOS ===== */
@@ -141,18 +141,27 @@ body {
 
 /* ===== MENSAGENS DE ERRO - VALIDAÇÕES ===== */
 .msg_erro{
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: rgb(198, 5, 5);
   text-align: left;
-  padding: 0px 20px;
+  padding: 0px 20px 20px;
 }
 
 /* ===== INPUTS ===== */
+
+.msg_informacao{
+  font-size: 1rem;
+  color: rgb(56, 48, 48);
+  text-align: left;
+  padding: 10px;
+}
+
 input {
     width: 100%;
     padding: 14px;
     margin-bottom: 14px;
     border: none;
+    box-shadow: 0 0 0 2px #21593B inset;
     border-radius: 20px;
     background-color: #fff;
     font-size: 0.95rem;
@@ -161,7 +170,7 @@ input {
 
 input:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #21593B inset;
+    box-shadow: 0 0 0 2px #00BF63 inset;
 }
 
 .div_senha {
@@ -176,13 +185,13 @@ input:focus {
     border: none;
     border-radius: 20px;
     background-color: #fff;
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: 0.3s;
 }
 
 .div_senha input:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #21593B inset;
+    box-shadow: 0 0 0 2px #00BF63 inset;
 }
 
 .olho-senha {
