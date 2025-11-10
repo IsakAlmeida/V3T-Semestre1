@@ -38,12 +38,15 @@ INSERT INTO Reservatorio (nome, locall, fkEmpresa) VALUES
 ('Sala 3', 'Primeiro andar', 3),
 ('Sala 2', 'Primeiro andar', 3);
 
-INSERT INTO Sensor (statusSensor, dtInstalacao, fkReservatorio) VALUES
-('Ativo','2025-09-10', 1),
-('Ativo','2025-09-10', 2),
-('Ativo','2025-09-11',3),
-('Ativo','2025-07-20', 3);
+INSERT INTO Limite (tempMaxCelsius, tempMinCelsius, umidadeMaxPorcentagem, umidadeMinPorcentagem) VALUES
+(25, 15, 50, 30);
 
+INSERT INTO Sensor (statusSensor, dtInstalacao, fkReservatorio, fkLimite) VALUES
+('Ativo','2025-09-10', 1, 1),
+('Ativo','2025-09-10', 2, 1),
+('Ativo','2025-09-11',3, 1),
+('Ativo','2025-07-20', 3, 1);
 
+SELECT * FROM Sensor s JOIN Limite l ON s.fkLimite = l.idLimite
 
 

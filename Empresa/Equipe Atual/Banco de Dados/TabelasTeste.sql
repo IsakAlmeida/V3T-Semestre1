@@ -68,16 +68,6 @@ fkEmpresa INT,
 		REFERENCES Empresa (idEmpresa)
 );
 
--- SENSOR: Registra os dispositivos instalados, incluindo status (ativo, em manutenção ou desativado), data de instalação e local.
-CREATE TABLE Sensor(
-idSensor INT PRIMARY KEY AUTO_INCREMENT,
-statusSensor VARCHAR(13),
-	CONSTRAINT chkStatus CHECK(statusSensor IN('Ativo', 'Em manutenção', 'Desativado')),
-dtInstalacao DATE,
-fkReservatorio INT,
-	CONSTRAINT fkSensorReservatorio FOREIGN KEY(fkReservatorio)
-		REFERENCES Reservatorio (idReservatorio)
-);
 
 -- LIMITE: Armazena o limite de temperatura e umidade para controle.
 CREATE TABLE Limite(
@@ -88,6 +78,33 @@ umidadeMaxPorcentagem INT,
 umidadeMinPorcentagem INT
 );
 
+-- SENSOR: Registra os dispositivos instalados, incluindo status (ativo, em manutenção ou desativado), data de instalação e local.
+CREATE TABLE Sensor(
+idSensor INT PRIMARY KEY AUTO_INCREMENT,
+statusSensor VARCHAR(13),
+	CONSTRAINT chkStatus CHECK(statusSensor IN('Ativo', 'Em manutenção', 'Desativado')),
+dtInstalacao DATE,
+fkReservatorio INT,
+	CONSTRAINT fkSensorReservatorio FOREIGN KEY(fkReservatorio)
+		REFERENCES Reservatorio (idReservatorio),
+FkLimite INT,
+	CONSTRAINT fkSensorLimite FOREIGN KEY (fkLimite)
+		REFERENCES Limite (idLimite)
+);
+
+
+-- HISTÓRICO DE ALERTA: Armazena informações sobre alertas de temperaturas e umidades fora de padrão.
+CREATE TABLE historicoAlerta(
+idHistoricoAlerta INT PRIMARY KEY AUTO_INCREMENT,
+temperaturaCelsius DECIMAL(4,2),
+umidadePorcentagem INT,
+dtHora DATETIME,
+fkLimite INT,
+	CONSTRAINT fkHistoricoAlertaLimite FOREIGN KEY (fkLimite)
+		REFERENCES Limite (idLimite)
+);
+
+
 -- REGISTROS: Armazena as leituras coletadas pelos sensores, como temperatura, umidade e data/hora do registro.
 CREATE TABLE Registro(
 idRegistro INT PRIMARY KEY AUTO_INCREMENT,
@@ -97,24 +114,12 @@ dtHora DATETIME,
 fkSensor INT,
 	CONSTRAINT fkRegistroSensor FOREIGN KEY(fkSensor)
 		REFERENCES Sensor (idSensor),
-fkLimite INT,
-	CONSTRAINT fkRegistroLimite FOREIGN KEY (fkLimite)
-		REFERENCES Limite (idLimite)
+FkHistoricoAlerta INT,
+	CONSTRAINT fkRegistroHistoricoAlerta FOREIGN KEY (fkHistoricoAlerta)
+		REFERENCES historicoAlerta (idHistoricoAlerta)
 );
 
--- HISTÓRICO DE ALERTA: Armazena informações sobre alertas de temperaturas e umidades fora de padrão.
-CREATE TABLE historicoAlerta(
-idHistoricoAlerta INT PRIMARY KEY AUTO_INCREMENT,
-temperaturaCelsius DECIMAL(4,2),
-umidadePorcentagem INT,
-dtHora DATETIME,
-fkSensor INT,
-	CONSTRAINT fkHistoricoAlertaSensor FOREIGN KEY(fkSensor)
-		REFERENCES Sensor (idSensor),
-fkLimite INT,
-	CONSTRAINT fkHistoricoAlertaLimite FOREIGN KEY (fkLimite)
-		REFERENCES Limite (idLimite)
-);
+
 
 
 
