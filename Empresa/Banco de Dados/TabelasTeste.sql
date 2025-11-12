@@ -19,7 +19,7 @@ cep CHAR(8) NOT NULL,
 uf CHAR(2),
 numero VARCHAR(8),
 complemento VARCHAR(45),
-fkEmpresa INT,
+fkEmpresa INT UNIQUE,
 	CONSTRAINT fkEnderecoEmpresa FOREIGN KEY (fkEmpresa)
 		REFERENCES Empresa (idEmpresa)
 );
@@ -27,7 +27,8 @@ fkEmpresa INT,
 -- CONTATO: Armazena informações de contato e responsáveis por uma empresa.
 CREATE TABLE Contato(
 idContato INT PRIMARY KEY AUTO_INCREMENT,
-email VARCHAR(45) CONSTRAINT chkEmailContato CHECK(Email LIKE '%@%.%'),
+email VARCHAR(45) ,
+CONSTRAINT chkEmailContato CHECK(Email LIKE '%@%.%'),
 telefone CHAR(11),
 responsavel VARCHAR(45),
 fkEmpresa INT, 
@@ -35,11 +36,25 @@ fkEmpresa INT,
 		REFERENCES Empresa (idEmpresa)
 );
 
+CREATE TABLE Token (
+idToken INT PRIMARY KEY AUTO_INCREMENT,
+dtCriacao DATE,
+dtVencimento DATE,
+status VARCHAR(8),
+	CONSTRAINT chkStatus
+		CHECK (status IN ('Expirado','Ativo')),
+fkEmpresa INT, 
+	FOREIGN KEY (fkEmpresa)
+		REFERENCES 	empresa(idEmpresa)
+);
+
 
 -- NÍVEL DE ACESSO: Contém informações sobre o nível de acesso de cada usuário.
 CREATE TABLE nivelAcesso(
 idNivelAcesso INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(45),
+tipo VARCHAR(13),
+	CONSTRAINT chkTipo
+		CHECK (tipo IN ('Administrador','Visualizador')),
 descricao VARCHAR(200)
 );
 
@@ -68,6 +83,39 @@ fkEmpresa INT,
 		REFERENCES Empresa (idEmpresa)
 );
 
+-- SENSOR: Registra os dispositivos instalados, incluindo status (ativo, em manutenção ou desativado), data de instalação e local.
+CREATE TABLE Sensor(
+idSensor INT PRIMARY KEY AUTO_INCREMENT,
+statusSensor VARCHAR(13),
+	CONSTRAINT chkStatus CHECK(statusSensor IN('Ativo', 'Em manutenção', 'Desativado')),
+dtInstalacao DATE,
+fkReservatorio INT,
+	CONSTRAINT fkSensorReservatorio FOREIGN KEY(fkReservatorio)
+		REFERENCES Reservatorio (idReservatorio)
+);
+
+-- CAPTURA: Armazena as leituras coletadas pelos sensores, como temperatura, umidade e data/hora da captura.
+CREATE TABLE Captura(
+idCaptura INT PRIMARY KEY AUTO_INCREMENT,
+temperaturaCelsius DECIMAL(5,2),
+umidadePorcentagem INT,
+dtHora DATETIME,
+fkSensor INT,
+	CONSTRAINT fkCapturaSensor FOREIGN KEY(fkSensor)
+		REFERENCES Sensor (idSensor)
+);
+
+-- HISTÓRICO DE ALERTA: Armazena informações sobre alertas de temperaturas e umidades fora de padrão.
+CREATE TABLE HistoricoAlerta(
+idHistoricoAlerta INT PRIMARY KEY AUTO_INCREMENT,
+fkCaptura INT,
+	FOREIGN KEY (fkCaptura)
+		REFERENCES Captura(idCaptura),
+fkLimite INT,
+	CONSTRAINT fkHistoricoAlertaLimite FOREIGN KEY (fkLimite)
+		REFERENCES Limite (idLimite)
+);
+
 
 -- LIMITE: Armazena o limite de temperatura e umidade para controle.
 CREATE TABLE Limite(
@@ -78,46 +126,30 @@ umidadeMaxPorcentagem INT,
 umidadeMinPorcentagem INT
 );
 
--- SENSOR: Registra os dispositivos instalados, incluindo status (ativo, em manutenção ou desativado), data de instalação e local.
-CREATE TABLE Sensor(
-idSensor INT PRIMARY KEY AUTO_INCREMENT,
-statusSensor VARCHAR(13),
-	CONSTRAINT chkStatus CHECK(statusSensor IN('Ativo', 'Em manutenção', 'Desativado')),
-dtInstalacao DATE,
-fkReservatorio INT,
-	CONSTRAINT fkSensorReservatorio FOREIGN KEY(fkReservatorio)
-		REFERENCES Reservatorio (idReservatorio),
-FkLimite INT,
-	CONSTRAINT fkSensorLimite FOREIGN KEY (fkLimite)
-		REFERENCES Limite (idLimite)
-);
-
-
--- HISTÓRICO DE ALERTA: Armazena informações sobre alertas de temperaturas e umidades fora de padrão.
-CREATE TABLE historicoAlerta(
-idHistoricoAlerta INT PRIMARY KEY AUTO_INCREMENT,
-temperaturaCelsius DECIMAL(4,2),
-umidadePorcentagem INT,
-dtHora DATETIME,
+CREATE TABLE Status (
+idStatus INT PRIMARY KEY AUTO_INCREMENT,
+tipo VARCHAR(8),
+	CONSTRAINT chkTipo
+		CHECK (tipo IN ('Moderado', 'Crítico')),
 fkLimite INT,
-	CONSTRAINT fkHistoricoAlertaLimite FOREIGN KEY (fkLimite)
-		REFERENCES Limite (idLimite)
+	FOREIGN KEY (fkLimite)
+		REFERENCES Limite(idLimite)
+);
+
+CREATE TABLE Biotinta (
+idBiotinta INT PRIMARY KEY AUTO_INCREMENT,
+materiaPrima VARCHAR(45),
+fkLimite INT,
+	FOREIGN KEY (fkLimite)
+		REFERENCES Limite(idLimite)
 );
 
 
--- REGISTROS: Armazena as leituras coletadas pelos sensores, como temperatura, umidade e data/hora do registro.
-CREATE TABLE Registro(
-idRegistro INT PRIMARY KEY AUTO_INCREMENT,
-temperaturaCelsius DECIMAL(5,2),
-umidade INT,
-dtHora DATETIME,
-fkSensor INT,
-	CONSTRAINT fkRegistroSensor FOREIGN KEY(fkSensor)
-		REFERENCES Sensor (idSensor),
-FkHistoricoAlerta INT,
-	CONSTRAINT fkRegistroHistoricoAlerta FOREIGN KEY (fkHistoricoAlerta)
-		REFERENCES historicoAlerta (idHistoricoAlerta)
-);
+
+
+
+
+
 
 
 
