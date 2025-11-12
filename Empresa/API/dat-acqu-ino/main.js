@@ -66,19 +66,19 @@ const serial = async (
         
             // este insert irá inserir os dados na tabela "Registro", assim como simulações de situações de alerta
             await poolBancoDados.execute(
-                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 1)',
+                'INSERT INTO Captura (temperaturaCelsius, umidadePorcentagem, dtHora, fkSensor) VALUES (?, ?, ?, 1)',
                 [Temperatura, Umidade, hora]
             );
             await poolBancoDados.execute(
-                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 2)',
+                'INSERT INTO Captura (temperaturaCelsius, umidadePorcentagem, dtHora, fkSensor) VALUES (?, ?, ?, 2)',
                 [Temperatura+10, Umidade+20, hora]
             );
             await poolBancoDados.execute(
-                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 3)',
+                'INSERT INTO Captura (temperaturaCelsius, umidadePorcentagem, dtHora, fkSensor) VALUES (?, ?, ?, 3)',
                 [Temperatura-25, Umidade-30, hora]
             );
             await poolBancoDados.execute(
-                'INSERT INTO Registro (Temperatura,Umidade, dtHora, fkSensor) VALUES (?, ?, ?, 4)',
+                'INSERT INTO Captura (temperaturaCelsius, umidadePorcentagem, dtHora, fkSensor) VALUES (?, ?, ?, 4)',
                 [Temperatura-10, Umidade-15, hora]
             );
         }
