@@ -1,3 +1,4 @@
+
 CREATE DATABASE v3t;
 USE v3t;
 
@@ -41,11 +42,11 @@ idToken INT PRIMARY KEY AUTO_INCREMENT,
 dtCriacao DATE,
 dtVencimento DATE,
 status VARCHAR(8),
-	CONSTRAINT chkStatus
+	CONSTRAINT chkStatusToken
 		CHECK (status IN ('Expirado','Ativo')),
 fkEmpresa INT, 
 	FOREIGN KEY (fkEmpresa)
-		REFERENCES 	empresa(idEmpresa)
+		REFERENCES 	Empresa(idEmpresa)
 );
 
 
@@ -53,7 +54,7 @@ fkEmpresa INT,
 CREATE TABLE nivelAcesso(
 idNivelAcesso INT PRIMARY KEY AUTO_INCREMENT,
 tipo VARCHAR(13),
-	CONSTRAINT chkTipo
+	CONSTRAINT chkTipoAcesso
 		CHECK (tipo IN ('Administrador','Visualizador')),
 descricao VARCHAR(200)
 );
@@ -105,17 +106,6 @@ fkSensor INT,
 		REFERENCES Sensor (idSensor)
 );
 
--- HISTÓRICO DE ALERTA: Armazena informações sobre alertas de temperaturas e umidades fora de padrão.
-CREATE TABLE HistoricoAlerta(
-idHistoricoAlerta INT PRIMARY KEY AUTO_INCREMENT,
-fkCaptura INT,
-	FOREIGN KEY (fkCaptura)
-		REFERENCES Captura(idCaptura),
-fkLimite INT,
-	CONSTRAINT fkHistoricoAlertaLimite FOREIGN KEY (fkLimite)
-		REFERENCES Limite (idLimite)
-);
-
 
 -- LIMITE: Armazena o limite de temperatura e umidade para controle.
 CREATE TABLE Limite(
@@ -124,6 +114,17 @@ tempMaxCelsius DECIMAL(4,2),
 tempMinCelsius DECIMAL(4,2),
 umidadeMaxPorcentagem INT,
 umidadeMinPorcentagem INT
+);
+
+-- HISTÓRICO DE ALERTA: Armazena informações sobre alertas de temperaturas e umidades fora de padrão.
+CREATE TABLE HistoricoAlerta(
+idHistoricoAlerta INT PRIMARY KEY AUTO_INCREMENT,
+fkCaptura INT,
+	FOREIGN KEY (fkCaptura)
+		REFERENCES Captura(idCaptura),
+fkLimite INT,
+	CONSTRAINT fkHistoricoAlertaLimite FOREIGN KEY (fkLimite)
+		REFERENCES Limite(idLimite)
 );
 
 CREATE TABLE Status (
