@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    
-   <header class="header">
+
+    <header class="header">
         <div class="div-img">
             <a href="index.html"><img class="img-header" src="../imgs/logo-preta.png" alt="logo_V3T"></a>
         </div>
@@ -36,45 +36,48 @@
             </ul>
         </div>
     </header>
-    
+
     <main>
         <div class="fundo_cadastro">
             <div class="quadrado_com_sombra">
                 <div class="paragrafos_e_inputs">
                     <p class="titulo"> Insira suas informações pessoais para criar sua conta </p>
                     <p class="subtitulo">Você ja tem uma conta? <a href="login.html" class="entrar">Entrar</a> </p>
-                    
+
                     <div class="msg_informacao"> Nome: </div>
                     <input type="text" id="ipt_nome" onkeyup="onkey_nome()">
-                    <div class="msg_erro" id="div_msg_nome"></div> 
+                    <div class="msg_erro" id="div_msg_nome"></div>
 
-                    
+
                     <div class="msg_informacao"> Email: </div>
                     <input type="text" id="ipt_email" onkeyup="onkey_email()">
 
                     <div class="msg_erro" id="div_msg_email"></div>
 
-                    
+
                     <div class="msg_informacao"> Senha: </div>
                     <div class="div_senha">
                         <input type="password" id="ipt_senha" onkeyup="onkey_senha()">
-                        <img src="../imgs/olho-aberto-senha.png" alt="Mostrar senha" class="olho-senha" onclick="mostrarSenha('ipt_senha', this)">
+                        <img src="../imgs/olho-aberto-senha.png" alt="Mostrar senha" class="olho-senha"
+                            onclick="mostrarSenha('ipt_senha', this)">
                     </div>
                     <div class="msg_erro" id="div_msg_senha"></div>
 
-                    
+
                     <div class="msg_informacao"> Confirmação de senha: </div>
                     <div class="div_senha">
                         <input type="password" id="ipt_confirmacaoSenha" onkeyup="onkey_conf_senha()">
-                        <img src="../imgs/olho-aberto-senha.png" alt="Mostrar senha" class="olho-senha" onclick="mostrarSenha('ipt_confirmacaoSenha', this)">
+                        <img src="../imgs/olho-aberto-senha.png" alt="Mostrar senha" class="olho-senha"
+                            onclick="mostrarSenha('ipt_confirmacaoSenha', this)">
                     </div>
                     <div class="msg_erro" id="div_msg_conf_senha"></div>
 
-                    
+
                     <div class="msg_informacao"> Token da Empresa: </div>
                     <input type="text" id="ipt_token" onkeyup="onkey_token()">
                     <div class="msg_erro" id="div_msg_token"></div>
-                    <p class="subtitulo b">Não tem o Token? Entre em <a href="contato.html" class="entrar">contato</a> </p>
+                    <p class="subtitulo b">Não tem o Token? Entre em <a href="contato.html" class="entrar">contato</a>
+                    </p>
 
                     <button class="botao" onclick="cadastrar()">Cadastrar</button>
                 </div>
