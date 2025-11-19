@@ -201,11 +201,12 @@ h3 {
     font-family: 'Montserrat', sans-serif;
     padding: 1rem;
     transition: 0.9s;
+    box-shadow: 0 0 0 2px #21593B inset;
 }
 
 input:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #21593B inset;
+    outline: none;
+    box-shadow: 0 0 0 2px #00BF63 inset;
 }
 
 input::placeholder {
@@ -233,6 +234,7 @@ input::placeholder {
     font-size: 1rem;
     padding: 1rem;
     transition: 0.9s;
+    box-shadow: 0 0 0 2px #21593B inset;
 
 }
 
