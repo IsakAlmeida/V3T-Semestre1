@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Financeira - V3T</title>
+  </head>
+
+  <body>
+    <h1><u>Calculadora Financeira - V3T</u></h1>
+    <p>
+      Nossa calculadora financeira tem como principal objetivo ajudar você a
+      entender melhor como o sistema de monitoramento de temperatura e umidade
+      pode impactar em seus resultados.<br />
+      Entenda agora como podemos te ajudar nos seus negócios!
+    </p>
+    <hr />
+    <b>INFORME OS DADOS:</b><br /><br />
+
+    Qual o armazenamento mensal(Kg)? <br />
+    <input type="text" id="ipt_qdade_insumo" /> <br /><br />
+    Qual o preço médio por kilograma(Kg)? <br />
+    <input type="text" id="ipt_custo_insumo" /> <br /><br />
+    Qual a porcentagem da perda(%)? <br />
+    <input type="text" id="ipt_perda_atual" /> <br /><br />
+
+    <button onclick="calcular()">Calcular</button>
+    <br />
+    <hr />
+    <div id="div_msg"></div>
+  </body>
+  <script>
+    function calcular() {
+      // Variáveis Locais dos Inputs
+
+      var custo_insumo = Number(ipt_custo_insumo.value);
+      var qdade_insumo = Number(ipt_qdade_insumo.value);
+      var porc_perda = Number(ipt_perda_atual.value);
+
+      if (qdade_insumo <= 0 || ipt_qdade_insumo.value == "") {
+        alert("Insira dados válidos para o armazenamento!");
+        ipt_qdade_insumo.value = "";
+      } else if (custo_insumo <= 0 || ipt_custo_insumo.value == "") {
+        alert("Insira dados válidos para o preço médio!");
+        ipt_custo_insumo.value = "";
+      } else if (porc_perda <= 0 || porc_perda > 100 || ipt_perda_atual == "") {
+        alert("Insira dados válidos para porcentagem de perda!");
+        ipt_perda_atual.value = "";
+      } else {
+        if (porc_perda < 15) {
+          porc_perda_novo = (porc_perda * 2) / 3;
+        } else {
+          porc_perda_novo = (porc_perda * 4) / 5;
+        }
+
+        var custo_insumo_mensal = custo_insumo * qdade_insumo;
+
+        var prejuizo_mensal = custo_insumo_mensal * (porc_perda / 100);
+
+        var prejuizo_anual = prejuizo_mensal * 12;
+
+        var prejuizo_mensal_novo =
+          custo_insumo_mensal * (porc_perda_novo / 100);
+
+        var prejuizo_anual_novo = prejuizo_mensal_novo * 12;
+
+        var qdade_insumo_anual = qdade_insumo * 12;
+
+        var custo_insumo_anual = qdade_insumo_anual * custo_insumo;
+
+        var economia_mensal = prejuizo_mensal - prejuizo_mensal_novo;
+
+        var economia_anual = prejuizo_anual - prejuizo_anual_novo;
+
+        div_msg.innerHTML = `<br><br><b>CENÁRIO ATUAL</b><br>
+                                Com a <b>perda atual</b> de <b style= "color:red">${porc_perda.toFixed(
+                                  1
+                                )}%</b>.: <br>
+                                O <b>prejuízo mensal atual</b> é de <b style= "color:red">R$${prejuizo_mensal.toFixed(
+                                  2
+                                )}</b>. <br>
+                                O <b>prejuízo anual atual</b> é de <b style= "color:red">R$${prejuizo_anual.toFixed(
+                                  2
+                                )}</b>.
+
+                                <br><br><b>CENÁRIO COM NOSSA SOLUÇÃO</b><br>
+                                Com nossa solução, a perda passaria de <b>${porc_perda.toFixed(
+                                  1
+                                )}%</b> para <b>${porc_perda_novo.toFixed(
+          1
+        )}%</b>:<br>
+                                O <b>prejuízo mensal</b> reduziria para <b style= "color:green">R$${prejuizo_mensal_novo.toFixed(
+                                  2
+                                )}</b>. <br>
+                                O <b>prejuízo anual</b> reduziria para <b style= "color:green">R$${prejuizo_anual_novo.toFixed(
+                                  2
+                                )}</b>. <br><br>
+
+                                Isso geraria uma <b style= "color:green">economia mensal</b> de <b style= "color:green">R$${economia_mensal.toFixed(
+                                  2
+                                )}</b>.<br>
+                                Isso geraria uma <b style= "color:green">economia anual</b> de <b style= "color:green">R$${economia_anual.toFixed(
+                                  2
+                                )}</b>.<br><br>
+                                <b>Vire agora nosso cliente e comece já a reduzir suas perdas!</b><br>
+                                <button onclick = 'alert("Contratou.")'>Contratar</button>`;
+
+        ipt_custo_insumo.value = "";
+        ipt_qdade_insumo.value = "";
+        ipt_perda_atual.value = "";
+      }
+    }
+  </script>
+</html>

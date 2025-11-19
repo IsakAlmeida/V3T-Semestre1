@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../imgs/logo-redonda.png" type="image/png">
+  <link rel="stylesheet" href="../styles/style-contato.css">
+  <script src="../scripts/script-contato.js"></script>
+  <title>Contato - V3T</title>
+</head>
+
+<body>
+  <header class="header">
+        <div class="div-img">
+            <a href="index.html"><img class="img-header" src="../imgs/logo-preta.png" alt="logo_V3T"></a>
+        </div>
+        <div class="div-nav">
+            <ul>
+                <a href="simulador.html">
+                    <li>Simulador Financeiro</li>
+                </a>
+                <a href="sobre.html">
+                    <li>Sobre</li>
+                </a>
+                <a href="contato.html">
+                    <li>Contato</li>
+                </a>
+                <a href="cadastro.html">
+                    <li>Cadastro </li>
+                </a>
+                <a href="login.html">
+                    <li class="btn-login">LOGIN </li>
+                </a>
+            </ul>
+        </div>
+    </header>
+  <section class="banner">
+    <img src="../imgs/banner-contato.png" alt="banner">
+  </section>
+  <main>
+    <section class="sectionContato">
+      <div class="divTextoContato">
+        <h2>Entre em contato <br>conosco!</h2>
+        <p>Preencha seus dados para adquirir nossa solução e tornar a análise e controle do armazenamento de biotinta
+          muito mais <b style="color: #21593B;">simples</b> e <b style="color: #21593B;">eficiente</b>.</p>
+      </div>
+      <img src="../imgs/contato.png" alt="icone contato">
+    </section>
+    <section class="sectionForm">
+      <h2>Preencha os dados <br>da sua empresa:</h2>
+      <div class="formEmpresa">
+        <input type="text" name="razao" placeholder="Razão Social" id="iptRazao" onkeyup="social()" maxlength="45">
+         <div class="validacaoEmpresa" id="divRazao" style="color: white;"></div>
+        <br>
+        <input type="text" name="nomeFantasia" placeholder="Nome Fantasia" id="iptNome" onkeyup="nomeFan()" maxlength="50">
+         <div class="validacaoEmpresa" id="divNome" style="color: white;"></div>
+        <br>
+        <input type="text" name="CNPJ" placeholder="CNPJ" id="iptCNPJ" onkeyup="numCpnj()" maxlength="14">
+         <div class="validacaoEmpresa" id="divCnpj" style="color: white;">Apenas números</div>
+        <br>
+        <input type="text" name="email" placeholder="Email" id="iptEmail" onkeyup="mail()" maxlength="45">
+         <div class="validacaoEmpresa" id="divEmail" style="color: white;"></div>
+        <br>
+        <input type="text" name="telefone" placeholder="Telefone" id="iptTelefone" onkeyup="tel()" maxlength="11">
+         <div class="validacaoEmpresa" style="color: white;">Apenas números</div>
+         <div class="validacaoEmpresa" id="divTelefone" style="color: white;"></div><br>
+        <br><br>
+      </div>
+      <h3>Endereço:</h3>
+      <div id="formEndereco">
+        <div class="iptEndereco">
+        <div class="validacaoEndereco">
+        <input type="text" name="rua" placeholder="Rua" id="iptRua" onkeyup="lugar()" maxlength="50">
+         <div class="msgEndereco" id="divRua" style="color: white;"></div>
+         </div>
+         <div class="validacaoEndereco">
+        <input type="text" name="num" placeholder="N°" id="iptNum" onkeyup="numeracao()" maxlength="8">
+         <div class="msgEndereco" id="divNum" style="color: white;"></div>
+        </div>
+         </div>
+        <div class="iptEndereco">
+          <div class="validacaoEndereco">
+        <input type="text" name="bairro" placeholder="Bairro" id="iptBairro" onkeyup="bar()" maxlength="50">
+         <div class="msgEndereco" id="divBairro" style="color: white;"></div>
+         </div>
+         <div class="validacaoEndereco">
+        <input type="text" name="cidade" placeholder="Cidade" id="iptCidade" onkeyup="city()" maxlength="50">
+         <div class="msgEndereco" id="divCidade" style="color: white;"></div>
+         </div>
+        </div>
+
+        <div class="iptEndereco">
+        <div class="validacaoEndereco">
+        <input type="text" name="UF" placeholder="UF" id="iptUF" onkeyup="unidade()" maxlength="2">
+         <div class="msgEndereco" id="divUF" style="color: white;"></div>
+         </div>
+         <div class="validacaoEndereco">
+        <input type="text" name="CPF" placeholder="CEP" id="iptCEP" onkeyup="clickCep()" maxlength="8">
+         <div class="msgEndereco" id="divCEP" style="color: white;">CEP deve conter 8 dígitos numéricos</div>
+         </div> 
+        </div>
+
+        <br><br>
+      </div>
+      <div id="botao">
+        <button onclick="enviar()">Enviar!</button>
+      </div>
+    </section>
+
+  </main>
+  
+    <footer>
+    <a href="../html/index.html" id="img-home-footer"><img src="../imgs/logo-verdeescuro-fundobranco.png" alt="Logo V3T" id="img-footer"></a>
+    <div id="div1-footer">
+      <ul>
+        <p><b>Mais do nosso site</b></p><br>
+        <li><a href="../html/simulador.html">Simulador Financeiro</a></li>
+        <li><a href="../html/sobre.html">Sobre Nós</a></li>
+        <li><a href="../html/contato.html">Contato</a></li>
+      </ul>
+    </div>
+
+    <div id="div2-footer">
+      <ul>
+        <p><b>Saiba mais</b></p><br>
+        <li><a
+            href="https://www.embrapa.br/visao-de-futuro/transformacoes-rapidas-no-consumo-e-na-agregacao-de-valor/sinal-e-tendencia/aumento-da-importancia-das-proteinas-alternativas-a-carne">Proteína
+            alternativa</a></li>
+        <li><a
+            href="https://3dlab.com.br/impressao-3d-de-comida/?srsltid=AfmBOooqwgMb7ZuDx3uhClRiOgEhGKT9kPjeFid3_zjOZZejUufb4y94">Impressão
+            3D de alimentos</a></li>
+      </ul>
+    </div>
+
+    <div id="div3-footer">
+      <p><b>Crie ou entre na sua conta já!</b></p><br>
+      <ul>
+        <li><a href="../html/login.html">Login</a></li>
+        <li><a href="../html/cadastro.html">Cadastro</a></li>
+      </ul>
+    </div>
+  </footer>
+  <p id="marca-footer"><b>2025 - V3T</b></p>
+</body>
+
+</html>

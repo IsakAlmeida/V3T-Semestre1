@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro - V3T</title>
+</head>
+
+<body>
+    <img src="Captura de tela 2025-09-18 092458.png" alt="logo_V3T" width="100"></img>
+    <h1><span style="color: #21593B ;">Simulador Financeiro</span></h1>
+    <hr>
+    Calcule o potencial financeiro dos sensores monitoramento na sua operação e
+    <br>
+    descubra como otimizar resultados com eficiência e sustentabilidade.
+    <br>
+    <b><i>Insira seus dados e confira o impacto da V3T!</i></b>
+    <br><br>
+    Quantidade de matéria-prima produzida por dia (em Kg):
+    <br><input id="iptQtdMateria"><br><br>
+    Valor de venda por Kg:
+    <br><input id="iptValor">
+    <br><br>
+    <button onclick="simular()" style="background-color: #5fe76a;"><b style="color: #21593B;">SIMULE AQUI</b></button>
+    <br><br>
+    <hr>
+    <div id="divMsg"></div>
+</body>
+<script>
+    function simular() {
+        var materia_prima = Number(iptQtdMateria.value);
+        var valor = Number(iptValor.value);
+
+        var perda_anual = (materia_prima * valor * 365) * 0.15;
+        var ganho = perda_anual * 0.3;
+
+        if (iptQtdMateria.value == '' || materia_prima <= 0) {
+            alert('Insira valores válidos para a matéria-prima')
+            iptQtdMateria.value == ' ';
+        } else if (iptValor.value = '' || valor <= 0) {
+            alert('Insira valores válidos para venda por KG')
+            iptValor.value = ' ';
+        } else {
+            divMsg.innerHTML = `Considerando estimativas de mercado, empresas perdem em média <b style="color: red;">15%</b> de sua produção sem monitoramento adequado. Ou seja, o prejuízo é de <b style="color: red;">R$${perda_anual.toFixed(2)}</b> no ano.
+            <br><br>
+            Com a <b style="color: #21593B;">V3T</b> você irá reduzir em até <b style="color: green;">30%</b> a perda, resultando em <b style="color: green;">R$${ganho.toFixed(2)}</b> de ganho!
+            <br><br>
+            <b><i>Cada mês sem monitoramento representa dinheiro perdido.
+            <br>
+            Invista agora e transforme prejuízo em LUCRO com a <span style="color: #21593B ;">V3T</span></i></b>
+            <br><br>
+            <button onclick = 'alert("Contratou.")' style="background-color: #5fe76a;"><b style="color: #21593B;">CONTRATAR</button>`;
+        }
+        iptQtdMateria.value = '';
+        iptValor.value = '';
+    }
+</script>
+
+</html>

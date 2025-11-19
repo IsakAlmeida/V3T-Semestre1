@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+
+<body>
+    <img src="logo-V3T.jpg" alt="Logo V3T" width="200">
+    <h1>Simulador Financeiro</h1>
+    <p>Descubra quanto a sua empresa pode economizar no armazenamento de carnes vegetais,<br> reduzindo perdas de carnes
+        e transformando
+        desperdício em economia com nosso sistema de controle de temperatura e umidade.</p>
+    <p><b>Preencha os campos abaixo</b></p>
+    Qual a quantidade de carne vegetal que você tem em estoque? <br>
+    <input id="iptQtd"> (kg)
+    <br><br>
+    Qual a porcentagem de perda de carne vegetal do seu estoque? <br>
+    <input id="iptPorcen"> (%)
+    <br><br>
+    <button onclick="calcular()">Simule aqui</button>
+    <br><br>
+    <div id="divMsg"></div>
+    
+</body>
+<script>
+    function calcular() {
+        // declaração das variaveis
+        var qtd = Number(iptQtd.value);
+        var porcentagem = Number(iptPorcen.value);
+        var valorKg = 312;  // valor estimulado de um kg
+
+        // transformando as variaveis 
+        // Valores mensais
+        var qtdSemEconomia = qtd / porcentagem;
+        var valorSemEconomia = qtdSemEconomia * valorKg;
+
+        var porcenComEconomia = 50;
+        var qtdComEconomia = qtdSemEconomia * (porcenComEconomia / 100);
+        var valorComEconomia = qtdComEconomia * valorKg;
+
+        // valores anuais
+        var qtdAnualSem = qtdSemEconomia * 12;
+        var valorAnualSem = valorSemEconomia * 12;
+        var qtdAnualCom = qtdComEconomia * 12;
+        var valorAnualCom = valorComEconomia * 12;
+        var EconomiaValor = valorAnualSem - valorAnualCom;
+        var qtdEconomia = qtdAnualSem - qtdAnualCom;
+
+        if(iptQtd.value == "" || iptPorcen.value == ""){
+            divMsg.innerHTML = `<span style = "color: red;">Preencha todos os campos</span>`;
+            
+        }else if(qtd <= 0  || porcentagem <= 0){
+            divMsg.innerHTML = `<span style = "color: red;">Informe valores validos</span>`;
+        }else{
+            divMsg.innerHTML = `<b>Sem o nosso sistema:</b><br>
+            Seu estoque tem uma perda mensal de ${qtdSemEconomia.toFixed(2)}kg de carne vegetal, que representa ${porcentagem}% do total.<br>
+            <span style ="color: red;">Perda financeira mensal: R$${valorSemEconomia.toFixed(2)}<br> Perda financeira anual: R$${valorAnualSem.toFixed(2)}<br> Desperdício anual de estoque: ${qtdAnualSem.toFixed(2)}</span><br><br>
+            <b>Com o nosso sistema:</b><br>
+            Com o nosso sistema de monitoramento, você vai reduzir o seu desperdício em ${qtdComEconomia.toFixed(2)}Kg mensais, transformando o que seria perda em lucro de:<br>
+            <span style ="color: green;">Economia financeira mensal: R$${valorComEconomia.toFixed(2)}<br> Economia financeira anual: R$${EconomiaValor.toFixed(2)}<br> Estoque aproveitado anualmente: ${qtdEconomia.toFixed(2)}Kg.</span>`
+        }
+
+    }
+
+</script>
+
+</html>

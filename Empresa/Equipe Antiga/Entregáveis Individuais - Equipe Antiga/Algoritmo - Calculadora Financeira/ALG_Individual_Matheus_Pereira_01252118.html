@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira - FoodTech</title>
+</head>
+<body>
+    <h1>Calculadora Financeira - FoodTech</h1>
+    <p>
+        Nossa calculadora financeira tem como principal objetivo ajudar você a entender melhor o impacto das falhas no sistema de monitoramento de temperatura em seu negócio. <br>
+        Com base nas informações fornecidas, calculamos quanto sua organização poderia perder nessas situações e, a partir disso, mostramos como reduzir esses riscos. <br>
+        Nosso propósito é apoiar sua empresa na mitigação dessas falhas, garantindo maior segurança operacional e potencializando seus lucros. <br><br>
+        <button onclick="contato()">Fale Conosco</button>
+    </p> <hr>
+    Digite o alimento que sua empresa realiza a impressão 3D <br>
+    <input type="text" id="ipt_alimento"> <br><br>
+    Quantos kilos é armazenado desse alimento? <br>
+    <input type="text" id="ipt_kilos"> <br><br>
+    Qual o preço médio por kilo que esse alimento é vendido? <br>
+    <input type="text" id="ipt_preco"> <br><br>
+    <button onclick="congelado()">Alimento é Congelado</button>
+    <button onclick="naocongelado()">Alimento é Não-Congelado</button> <br><br>
+    <div id="msg"></div>
+</body>
+<script>    
+    function contato(){
+        alert ('Nome Empresarial: FoodTech S.A\nContato: (11) 99999-9999\nEmail: foodtechSA@gmail.com\nCPNJ: 03.208.630/0001-44');
+    }
+    function congelado(){
+        var ax_kilos = Number(ipt_kilos.value);
+        var ax_preco = Number(ipt_preco.value);
+        var precoKilo = ax_kilos * ax_preco;
+        var prejuizo = (ax_kilos * ax_preco) * 0.14;
+
+        msg.innerHTML = `O alimento <b>${ipt_alimento.value}</b> deve ser armazenado em uma faixa de temperatura controlada entre <b>+2 °C e +7 °C</b>`;
+        msg.innerHTML += `<br>No seu estoque atual, você possui <b>${ax_kilos} Kg</b> desse produto, com um preço médio de venda de <b>R$ ${ax_preco}</b>, Caso todo o lote fosse comercializado, o lucro estimado seria de <b>R$ ${precoKilo.toFixed(2)}</b>`;
+        msg.innerHTML += `<br>Entretanto, considerando que em média <b>14% dos alimentos</b> são perdidos devido a falhas de temperatura, sua empresa teria um prejuízo aproximado de <b style='color: red';>R$ ${prejuizo.toFixed(2)}</b>`;
+
+        ipt_alimento.value = '';
+        ipt_kilos.value = '';
+        ipt_preco.value = '';
+    }
+
+    function naocongelado(){
+        var ax_kilos = Number(ipt_kilos.value);
+        var ax_preco = Number(ipt_preco.value);
+        var precoKilo = ax_kilos * ax_preco;
+        var prejuizo = (ax_kilos * ax_preco) * 0.15;
+
+        if (ipt_alimento.value == 'Soja') {
+
+            prejuizoSoja = (ax_kilos * ax_preco) * 0.3;
+
+            msg.innerHTML = `O alimento <b>${ipt_alimento.value}</b> deve ser armazenado em uma faixa de temperatura controlada entre <b>+10 °C e +25 °C</b>`;
+            msg.innerHTML += `<br>No seu estoque atual, você possui <b>${ax_kilos} Kg</b> desse produto, com um preço médio de venda de <b>R$ ${ax_preco}</b>, Caso todo o lote fosse comercializado, o lucro estimado seria de <b>R$ ${precoKilo.toFixed(2)}</b>`;
+            msg.innerHTML += `<br>Entretanto, considerando que em média <b>30% dos alimentos</b> são perdidos devido a falhas de temperatura, sua empresa teria um prejuízo aproximado de <b style='color: red';>R$ ${prejuizoSoja.toFixed(2)}</b>`;
+        } else {
+            msg.innerHTML = `O alimento <b>${ipt_alimento.value}</b> deve ser armazenado em uma faixa de temperatura controlada entre <b>+7 °C e +10 °C</b>`;
+            msg.innerHTML += `<br>No seu estoque atual, você possui <b>${ax_kilos} Kg</b> desse produto, com um preço médio de venda de <b>R$ ${ax_preco}</b>, Caso todo o lote fosse comercializado, o lucro estimado seria de <b>R$ ${precoKilo.toFixed(2)}</b>`;
+            msg.innerHTML += `<br>Entretanto, considerando que em média <b>15% dos alimentos</b> são perdidos devido a falhas de temperatura, sua empresa teria um prejuízo aproximado de <b style='color: red';>R$ ${prejuizo.toFixed(2)}</b>`;
+        }
+        
+        ipt_alimento.value = '';
+        ipt_kilos.value = '';
+        ipt_preco.value = '';
+    }
+</script>
+</html>

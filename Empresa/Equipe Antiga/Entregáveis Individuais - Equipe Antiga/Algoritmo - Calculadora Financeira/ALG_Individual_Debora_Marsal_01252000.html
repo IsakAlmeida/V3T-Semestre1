@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+
+<body>
+    <h1>Calculadora Financeira</h1>
+
+    Informe o custo do insumo (por Kg): R$ <input id="ipt_custo_insumo"><br><br>
+    Informe a quantidade (por Kg) de insumo utilizada por mês:<input id="ipt_qdade_insumo"><br><br>
+    Informe a % de perda atual: <input id="ipt_perda_atual"><br><br>
+    Informe a % de perda estimada (projeção): <input id="ipt_perda_novo"><br><br>
+
+    <button onclick="calcular()">Calcular</button><br><br>
+
+    <div id="div_msg"></div>
+
+    <script>
+
+        function calcular() {
+            var custo_insumo = Number(ipt_custo_insumo.value);
+            var qdade_insumo = Number(ipt_qdade_insumo.value);
+            var porc_perda = Number(ipt_perda_atual.value);
+            var porc_perda_novo = Number(ipt_perda_novo.value);
+
+            var custo_insumo_mensal = custo_insumo * qdade_insumo;
+
+            var prejuizo_mensal = custo_insumo_mensal * (porc_perda/100);
+
+            var prejuizo_anual = prejuizo_mensal * 12;
+
+            var prejuizo_mensal_novo = custo_insumo_mensal * (porc_perda_novo/100);
+
+            var prejuizo_anual_novo = prejuizo_mensal_novo * 12;
+
+            var qdade_insumo_anual = qdade_insumo * 12;
+
+            var custo_insumo_anual = qdade_insumo_anual * custo_insumo;
+
+            var economia = custo_insumo_anual - prejuizo_mensal_novo;
+
+            div_msg.innerHTML = `<br><br>CENÁRIO ATUAL<br><br>
+                                Com a <b>perda atual</b> de ${porc_perda.toFixed(1)}%: <br>
+                                O <b>prejuízo mensal atual</b> é de R$${prejuizo_mensal.toFixed(2)}. <br>
+                                O <b>prejuízo anual atual</b> é de R$${prejuizo_anual.toFixed(2)}.
+                                <br><br>CENÁRIO COM NOSSA SOLUÇÃO<br><br>
+                                Considerando a <b>perda projetada</b> de ${porc_perda_novo.toFixed(1)}%:<br>
+                                O <b>prejuízo mensal projetado</b> reduziria para R$${prejuizo_mensal_novo.toFixed(2)}. <br>
+                                O <b>prejuízo anual projetado</b> reduziria para R$${prejuizo_anual_novo.toFixed(2)}. <br><br>
+                                Isso geraria uma <b>economia anual<b/> de R$${economia.toFixed(2)}.`
+                                
+
+        }
+    </script>
+
+</body>
+
+</html>

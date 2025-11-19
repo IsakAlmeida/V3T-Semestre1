@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V3T SF</title>
+</head>
+<body>
+    <h1><b>Simulador de Oportunidades - V3T</b></h1>
+    <h3>Descubra já</h3>
+    <hr>
+
+    Qual  a quantidade de armazenamento mensal da matéria-prima (biotinta) em litros: 
+    <input type="text" id="iptLitro">
+    <br><br>
+
+    Qual o preço médio da matéria-prima (biotinta) por litro: 
+    <input type="text" id="iptPreco">
+    <br><br>
+
+    Qual a porcentagem de perda atual mensal da matéria-prima (biotinta) : 
+    <input type="text" id="iptPerda">
+    <br><br>
+
+    <button onclick="calculo()">Calcular</button>
+    <br><br>
+    <hr>
+
+    <div id="divText"></div> 
+
+    <script>
+        function calculo() {
+            var axLitro = Number(iptLitro.value);
+            var axPreco = Number(iptPreco.value);
+            var axPerda = Number(iptPerda.value);
+
+            var axPerdaTotal = ((axPerda / 100) * axLitro) - axLitro;
+            var axContaLucro = axLitro * axPreco;
+            var axContaPrejuizoMensal = ((axLitro - axPerdaTotal) * axPreco) - axContaLucro;
+            var axContaPrejuizoAnual = axContaPrejuizoMensal * 12;
+
+            var axRecuperacaoValor = axContaPrejuizoMensal - ((50 / 100) * axContaPrejuizoMensal);
+            var axRecAnual = axRecuperacaoValor * 12;
+            var axRecuperacaoPorcent = axPerda / 2;
+
+            if (axLitro = '' || axLitro < 0) {
+                alert('Insira uma quantidade para realização do cálculo');
+            } else if (axPreco = '' || axPreco < 0) {
+                alert('Insira o preço médio da matéria-prima (biotinta) para realiazação do cálculo');
+            } else if (axPerda = '' < 0) {
+                alert('Insira a porcentagem de perda para a realização do cálculo');
+            } else {
+                divText.innerHTML = `
+                    CENÁRIO ATUAL 
+                    <br>
+                    Atualmente você está <b>perdendo</b> <span style="color: red;">${iptPerda.value}%</span> de matéria-prima (biotinta) por mês, 
+                    o que representa <span style="color: red;">R$${axContaPrejuizoMensal.toFixed(2)}</span> por mês 
+                    e <span style="color: red;">R$${axContaPrejuizoAnual.toFixed(2)}</span> anualmente
+                    <br><br>
+                    COM A NOSSA SOLUÇÃO
+                    <br>
+                    Com a nossa solução essa <b>perda pode cair</b> para <span style="color: green;">${axRecuperacaoPorcent}%</span>,
+                    recuperando <span style="color: green;">R$${axRecuperacaoValor}</span> por mês, o que se traduz em <span style="color: green;">R$${axRecAnual}</span> ao longo do ano 
+                    <br><br>
+                    <h3><i>O que ameaça pode virar uma oportunidade: transforme seu caminho!</i></h3>
+                `;
+
+                iptLitro.value = '';
+                iptPerda.value = '';
+                iptPreco.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

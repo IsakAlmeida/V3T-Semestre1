@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+   
+    <h2>Calculadora</h2>
+    Valor Investido = <input id="ipt_investido"><br>
+    Quantidade de produtos= <input id="ipt_produto"><br>
+    Produtos descartados= <input id="ipt_descartado"><br>
+    <button onclick="prejuizo()">Calcular sem o Sensor</button> <br>
+    <button onclick="beneficios()">Calcular com o Sensor</button><br>
+    <div id="msg"></div>
+</body>
+<script>
+    function prejuizo() {
+        var ax_investido = Number(ipt_investido.value)
+        var ax_produto = Number(ipt_produto.value)
+        var ax_descartado = Number(ipt_descartado.value)
+        
+        var valor_produto = ax_investido / ax_produto
+        var total_prejuizo = valor_produto * ax_descartado
+
+        var prctgm_perdida = ax_descartado * 100 / ax_produto
+
+        msg.innerHTML = `Sem o sensor ocorrem perdas de ${prctgm_perdida.toFixed(1)}% equivalendo a R$<span style="color: red;">${total_prejuizo.toFixed(0)}</span> totais de prejuízo.`
+    }
+    function beneficios() {
+        var ax_investido = Number(ipt_investido.value)
+        var ax_produto = Number(ipt_produto.value)
+        var ax_descartado = Number(ipt_descartado.value)
+
+        var diferenca_produto = ax_produto - ax_descartado
+        var valor_produto = ax_investido / ax_produto
+        var valor_restante = valor_produto * diferenca_produto
+
+        var total_economizado = ax_descartado * 0.80
+        var total_percentual = total_economizado / 100
+        var valor_economizado = (total_economizado + diferenca_produto) * valor_produto;
+        var valor_economia = valor_economizado - valor_restante
+        
+        msg.innerHTML = `Com o sensor ocorrem reduções de até ${total_percentual.toFixed(1)}% economizando R$<span style="color: green;">${valor_economia.toFixed(2)}</span>`
+
+
+    }
+</script>
+</html>
