@@ -7,7 +7,7 @@ function buscarPorId(id) {
 }
 
 function listar() {
-  var instrucaoSql = `SELECT id, razao_social, cnpj, codigo_ativacao FROM empresa`;
+  var instrucaoSql = `SELECT e.*,t.* from Empresa e JOIN Token t ON e.idEmpresa = t.fkEmpresa WHERE t.status = 'Ativo';`;
 
   return database.executar(instrucaoSql);
 }
