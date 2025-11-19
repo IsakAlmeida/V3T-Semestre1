@@ -162,6 +162,18 @@ h3 {
 
 }
 
+.formEmpresa span{
+    padding-left: 1.1rem;
+    color: #FFFFFFFF;
+    font-weight: bold;
+}
+
+.iptEndereco span{
+    padding-left: 1.1rem;
+    color: #FFFFFFFF;
+    font-weight: bold;
+}
+
 .formEmpresa {
     display: flex;
     flex-direction: column;
