@@ -1,4 +1,4 @@
-
+DROP DATABASE v3t;
 CREATE DATABASE v3t;
 USE v3t;
 
@@ -39,6 +39,7 @@ fkEmpresa INT,
 
 CREATE TABLE Token (
 idToken INT PRIMARY KEY AUTO_INCREMENT,
+codigo CHAR(8) NOT NULL UNIQUE,
 dtCriacao DATE,
 dtVencimento DATE,
 status VARCHAR(8),
@@ -55,7 +56,7 @@ CREATE TABLE nivelAcesso(
 idNivelAcesso INT PRIMARY KEY AUTO_INCREMENT,
 tipo VARCHAR(13),
 	CONSTRAINT chkTipoAcesso
-		CHECK (tipo IN ('Administrador','Visualizador')),
+		CHECK (tipo IN ('Administrador','Visualizador', 'Suporte')),
 descricao VARCHAR(200)
 );
 
