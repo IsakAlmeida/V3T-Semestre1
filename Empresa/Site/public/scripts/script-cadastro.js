@@ -1,3 +1,5 @@
+let listaEmpresasCadastradas = [];
+
 // === Função para mostrar icone de olho e senha no input de senha ===
 function mostrarSenha(idInput, icone) {
     const input = document.getElementById(idInput);
@@ -140,7 +142,7 @@ function onkey_token() {
         chktoken = true;
     }
 }
-let listaEmpresasCadastradas = [];
+
 function cadastrar(){
     onkey_nome();
     onkey_email();
@@ -167,7 +169,7 @@ function cadastrar(){
         // Verificando se o código de ativação é de alguma empresa cadastrada
     for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
       if (listaEmpresasCadastradas[i].codigo == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
+        var idEmpresaVincular = listaEmpresasCadastradas[i].idEmpresa
         console.log("Código de ativação válido.");
         break;
       } else {
@@ -175,7 +177,7 @@ function cadastrar(){
         mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
       }
     }
-
+    
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
