@@ -31,8 +31,8 @@ function mostrarSenha(idInput, icone) {
 }
 
 //=== Função Entrar/Login ===
-    var chkemail = false;
-    var chksenha = false;
+var chkemail = false;
+var chksenha = false;
 
 function onkey_email() {
     email = ipt_email.value.trim();
@@ -40,7 +40,7 @@ function onkey_email() {
 
     if (email == '') {
         erro = `Preencha o campo Email`;
-    }  else if (email.indexOf("@") == -1) {
+    } else if (email.indexOf("@") == -1) {
         erro = `Insira um email válido que contenha @`;
     }
 
@@ -60,11 +60,11 @@ function onkey_senha() {
     if (senha == '') {
         erro = `Preencha o campo Senha`;
     } else if (senha.indexOf("0") == -1 && senha.indexOf("1") == -1 && senha.indexOf("2") == -1 &&
-            senha.indexOf("3") == -1 && senha.indexOf("4") == -1 && senha.indexOf("5") == -1 &&
-            senha.indexOf("6") == -1 && senha.indexOf("7") == -1 && senha.indexOf("8") == -1 &&
-            senha.indexOf("9") == -1){
-                erro = 'A senha deve conter pelo menos um número!';
-            }
+        senha.indexOf("3") == -1 && senha.indexOf("4") == -1 && senha.indexOf("5") == -1 &&
+        senha.indexOf("6") == -1 && senha.indexOf("7") == -1 && senha.indexOf("8") == -1 &&
+        senha.indexOf("9") == -1) {
+        erro = 'A senha deve conter pelo menos um número!';
+    }
 
     if (erro != "") {
         div_msg_senha.innerHTML = `${erro}`;
@@ -79,11 +79,47 @@ function login() {
     // if simulando um cadastro
     var email = ipt_email.value;
     var senha = ipt_senha.value;
-    if (email == 'fernanda@foodsolutions.com' && senha == '12345678') {
-        alert('Login realizado com sucesso! Bem vindo a V3T.');
-        window.location.href = "dashboard.html";
-    } else {
-        div_msg_login.innerHTML = ' Email ou senhas invalidos, tente novamente!';
-    }
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: email,
+            senhaServer: senha
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.RESERVATORIOS = JSON.stringify(json.reservatorios)
+
+                setTimeout(function () {
+                    window.location = "./dashboard.html";
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
 }
 

@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var reservatorioModel = require("../models/reservatorioModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -20,18 +20,19 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
+                        reservatorioModel.buscarReservatoriosPorEmpresa(resultadoAutenticar[0].empresaId)
+                            .then((resultadoReservatorio) => {
+                                if (resultadoReservatorio.length > 0) {
                                     res.json({
-                                        id: resultadoAutenticar[0].id,
+                                        id: resultadoAutenticar[0].idUsuario,
                                         email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
+                                        nome: resultadoAutenticar[0].nomeUsuario,
                                         senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
+                                        reservatorios: resultadoReservatorio,
+                                        fkEmpresa: resultadoAutenticar[0].empresaId
                                     });
                                 } else {
-                                    res.status(204).json({ aquarios: [] });
+                                    res.status(204).json({ reservatorios: [] });
                                 }
                             })
                     } else if (resultadoAutenticar.length == 0) {
