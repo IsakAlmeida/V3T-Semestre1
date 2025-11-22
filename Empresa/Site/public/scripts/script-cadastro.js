@@ -143,6 +143,8 @@ function onkey_token() {
     }
 }
 
+// ------------------WEB-DATA-VIZ-----------------
+
 function cadastrar(){
     onkey_nome();
     onkey_email();
@@ -173,8 +175,7 @@ function cadastrar(){
         console.log("Código de ativação válido.");
         break;
       } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+        div_msg_cadastro.innerHTML = "(Mensagem de erro para código inválido)";
       }
     }
     
@@ -197,9 +198,9 @@ function cadastrar(){
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          
 
-          mensagem_erro.innerHTML =
+          div_msg_cadastro.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
@@ -223,11 +224,6 @@ function cadastrar(){
 
 
 
-
-// ------------------WEB-DATA-VIZ-----------------
-
-
-
   // Listando empresas cadastradas 
   function listar() {
     fetch("/empresas/listar", {
@@ -247,6 +243,4 @@ function cadastrar(){
       });
   }
 
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+  
