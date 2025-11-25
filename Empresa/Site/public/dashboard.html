@@ -16,7 +16,7 @@
             <a href="index.html">
                 <img src="../imgs/logo-dashboard.png" alt="Logo V3T">
             </a>
-            <span>Olá, Fernanda!</span>
+            <span>Olá, <span id="nomeUsuario">Usuário</span></span>
         </li>
         <li class="buttonDashboard ativo">
             <a>
@@ -56,11 +56,6 @@
         </li>
     </ul>
     <div class="pageDashboard">
-        <ul class="title">
-            <li>
-                <span>Macro</span>
-            </li>
-        </ul>
         <div class="kpiContainer">
             <a href="../html/sensor1.html" class="kpiCard">
                 <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Atual" class="kpiIcon">
@@ -75,27 +70,20 @@
                 </div>
             </a>
         </div>
+        <ul class="title">
+            <li>
+                <span>Macro</span>
+            </li>
+        </ul>
         <div class="graphics">
             <div class="graficosDuplos">
                 <div id="graphicTemperatura">
                     <span>Temperatura °C</span>
-                    <div class="descricao">
-                        <div id="traco"></div>
-                        <div class="limites">Sensor 1</div>
-                        <div id="tracoRegistrosTemp"></div>
-                        <div class="registros">Sensor 2</div>
-                    </div>
                     <img src="../imgs/icone-dashboard.png" alt="Temperatura" class="kpiIcon">
                     <canvas id="chartTemperatura"></canvas>
                 </div>
                 <div id="graphicUmidade">
                     <span>Umidade Relativa <br> do Ar %</span>
-                    <div class="descricao">
-                        <div id="traco"></div>
-                        <div class="limites">Sensor 1</div>
-                        <div id="tracoRegistrosUmid"></div>
-                        <div class="registros">Sensor 2</div>
-                    </div>
                     <img src="../imgs/icone-dashboard.png" alt="Umidade" class="kpiIcon">
                     <canvas id="chartUmidade"></canvas>
                 </div>

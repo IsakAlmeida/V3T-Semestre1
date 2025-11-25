@@ -101,7 +101,8 @@ function login() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
-                sessionStorage.RESERVATORIOS = JSON.stringify(json.reservatorios)
+                sessionStorage.RESERVATORIOS = JSON.stringify(json.reservatorios);
+                sessionStorage.ID_EMPRESA = json.fkEmpresa;
 
                 setTimeout(function () {
                     window.location = "./dashboard.html";
