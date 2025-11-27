@@ -91,7 +91,7 @@ idSensor INT PRIMARY KEY AUTO_INCREMENT,
 statusSensor VARCHAR(13),
 	CONSTRAINT chkStatus CHECK(statusSensor IN('Ativo', 'Em manutenção', 'Desativado')),
 dtInstalacao DATE,
-fkReservatorio INT,
+fkReservatorio INT UNIQUE,
 	CONSTRAINT fkSensorReservatorio FOREIGN KEY(fkReservatorio)
 		REFERENCES Reservatorio (idReservatorio)
 );
@@ -117,16 +117,6 @@ umidadeMaxPorcentagem INT,
 umidadeMinPorcentagem INT
 );
 
--- HISTÓRICO DE ALERTA: Armazena informações sobre alertas de temperaturas e umidades fora de padrão.
-CREATE TABLE HistoricoAlerta(
-idHistoricoAlerta INT PRIMARY KEY AUTO_INCREMENT,
-fkCaptura INT,
-	FOREIGN KEY (fkCaptura)
-		REFERENCES Captura(idCaptura),
-fkLimite INT,
-	CONSTRAINT fkHistoricoAlertaLimite FOREIGN KEY (fkLimite)
-		REFERENCES Limite(idLimite)
-);
 
 CREATE TABLE Status (
 idStatus INT PRIMARY KEY AUTO_INCREMENT,
@@ -136,6 +126,17 @@ tipo VARCHAR(8),
 fkLimite INT,
 	FOREIGN KEY (fkLimite)
 		REFERENCES Limite(idLimite)
+);
+
+-- HISTÓRICO DE ALERTA: Armazena informações sobre alertas de temperaturas e umidades fora de padrão.
+CREATE TABLE HistoricoAlerta(
+idHistoricoAlerta INT PRIMARY KEY AUTO_INCREMENT,
+fkCaptura INT,
+	FOREIGN KEY (fkCaptura)
+		REFERENCES Captura(idCaptura),
+fkStatus INT,
+	CONSTRAINT fkHistoricoAlertaLimite FOREIGN KEY (fkStatus)
+		REFERENCES Status(idStatus)
 );
 
 CREATE TABLE Biotinta (
