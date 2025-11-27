@@ -1,0 +1,158 @@
+/* =======================================
+   FONTES E RESET
+======================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap');
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* =======================================
+   MENU LATERAL
+======================================= */
+.headerLeft {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+.headerLeft li span {
+    color: #333;
+    font-weight: 500;
+}
+
+.headerLeft li.ativo {
+    border-right: 3px solid #21593B;
+}
+
+.headerLeft li.ativo span {
+    color: #21593B;
+    font-weight: bold;
+}
+
+/* =======================================
+   ITENS DO MENU
+======================================= */
+.buttonDashboard,
+.buttonSensores,
+.buttonPerfil,
+.buttonConfiguracoes,
+.buttonLogout {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #a3aed0;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.headerLeft a {
+    text-decoration: none;
+}
+
+.headerLeft a:hover {
+    color: #232020;
+}
+
+.buttonDashboard img,
+.buttonSensores img,
+.buttonPerfil img,
+.buttonConfiguracoes img,
+.buttonLogout img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+#container {
+    width: 80%;
+    margin: 50px auto;
+    margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container h3 {
+    margin-right: auto;
+    margin-left: 250px;
+}
+
+h1 {
+    color: #21593B;
+}
+
+textarea[type="text"] {
+    padding-left: 20px;
+    padding-top: 18px;
+    font-size: 16px;
+    border-radius: 40px;
+    font-family: 'Montserrat', sans-serif;
+    border: 2px solid #0000003c;
+    transition: 0.9s;
+    resize: none;
+    width: 700px;
+    min-height: 200px;
+    overflow: hidden;
+    
+}
+
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #00BF63 inset;
+}
+
+
+select,
+button {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ===== BOTÃO ===== */
+button {
+  width: 50%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 20px;
+  background-color: #21593B;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #00BF63;
+  transform: scale(1.03);
+}
+
+#resposta {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #eff8fb;
+    border: 1px solid #21593B;
+    color: #21593B;
+    text-align: left;
+    display: none;
+}
