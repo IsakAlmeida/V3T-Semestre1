@@ -87,6 +87,7 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(to right, #21593B, #00BF63);
 }
 
 #container h3 {
@@ -98,19 +99,22 @@ h1 {
     color: #21593B;
 }
 
-textarea[type="text"] {
-    padding-left: 20px;
-    padding-top: 18px;
-    font-size: 16px;
-    border-radius: 40px;
-    font-family: 'Montserrat', sans-serif;
-    border: 2px solid #0000003c;
-    transition: 0.9s;
+#pesquisa {
+    width: 500px;
+    padding: 8px;
     resize: none;
-    width: 700px;
-    min-height: 200px;
     overflow: hidden;
-    
+}
+
+textarea[type="text"] {
+    width: 500px;
+    padding: 10px 8px 1px 8px;;
+    border: none;
+    box-shadow: 0 0 0 2px #21593B inset;
+    border-radius: 40px;
+    background-color: #fff;
+    font-size: 20px;
+    transition: 0.9s;
 }
 
 textarea:focus {
@@ -129,21 +133,21 @@ button {
 
 /* ===== BOTÃO ===== */
 button {
-  width: 50%;
-  padding: 12px 0;
-  border: none;
-  border-radius: 20px;
-  background-color: #21593B;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
+    width: 50%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 20px;
+    background-color: #21593B;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
-  background-color: #00BF63;
-  transform: scale(1.03);
+    background-color: #00BF63;
+    transform: scale(1.03);
 }
 
 #resposta {
