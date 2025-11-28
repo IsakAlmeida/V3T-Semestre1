@@ -16,6 +16,22 @@ function buscarReservatoriosPorEmpresa(req, res) {
   });
 }
 
+function buscarHistoricoPorReservatorio(req, res){
+  var reservatorioId = req.params.reservatorioId;
+
+  reservatorioModel.buscarHistoricoPorReservatorio(reservatorioId).then((resultado) => {
+    if (resultado.length > 0) {
+      res.status(200).json(resultado);
+    } else {
+      res.status(204).json([]);
+    }
+  }).catch(function (erro) {
+    console.log(erro);
+    console.log("Houve um erro ao buscar os reservatorios: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
 
 function cadastrar(req, res) {
   var idUsuario = req.body.idUsuario;
@@ -41,5 +57,6 @@ function cadastrar(req, res) {
 
 module.exports = {
   buscarReservatoriosPorEmpresa,
-  cadastrar
+  cadastrar,
+  buscarHistoricoPorReservatorio
 }

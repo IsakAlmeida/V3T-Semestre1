@@ -8,6 +8,13 @@ function buscarReservatoriosPorEmpresa(empresaId) {
   return database.executar(instrucaoSql);
 }
 
+function buscarHistoricoPorReservatorio(reservatorioId){
+  var instrucaoSql = `select * from vw_alertas_historico WHERE idReservatorio = ${reservatorioId};`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 function cadastrar(empresaId) {
   
   var instrucaoSql = `INSERT INTO Reservatorio (fkEmpresa) VALUES (${empresaId})`;
@@ -19,5 +26,6 @@ function cadastrar(empresaId) {
 
 module.exports = {
   buscarReservatoriosPorEmpresa,
-  cadastrar
+  cadastrar,
+  buscarHistoricoPorReservatorio
 }

@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../imgs/logo-redonda.png" type="image/png" />
-    <link rel="stylesheet" href="../styles/style-historico.css" />
+    <link rel="stylesheet" href="./styles/style-historico.css" />
 
     <title>Histórico - V3T</title>
   </head>
 
-  <body>
+  <body onload="listarReservatorios()">
     <ul class="headerLeft">
       <li class="logoV3T">
         <a href="index.html">
           <img src="../imgs/logo-dashboard.png" alt="Logo V3T" />
         </a>
-        <span>Olá, Fernanda!</span>
+        <span>Olá, <span id="nome_usuario">Usuario</span>!</span>
       </li>
       <li class="buttonDashboard">
         <a href="../html/dashboard.html">
@@ -63,23 +63,18 @@
           <span>Histórico de Alertas</span>
         </li>
         <li>
-          <select id="selectSensor">
-            <option value="" selected disabled>Selecione...</option>
-            <option value="1">Sensor 1</option>
-            <option value="2">Sensor 2</option>
+          <select id="select_reservatorio">
           </select>
         </li>
         <li>
           <button onclick="carregarHistorico()">Pesquisar</button>
         </li>
-        <li style="display: flex; flex-direction: row; align-items: center; gap: 10px;  ">
-          <div style="background-color: red; width: 15px; height: 15px; border-radius: 100%; margin-left: 800px;"></div>Fora do Limite
-        </li>
+        
       </ul>
     </div>
     <div id="div_historico">
-      <span id="msg-padrao">Selecione o Sensor</span>
+      <span id="msg-padrao">Selecione um reservatório.</span>
     </div>
-    <script src="../scripts/script-historico.js"></script>
+    <script src="./scripts/script-historico.js"></script>
   </body>
 </html>

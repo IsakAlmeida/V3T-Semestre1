@@ -11,4 +11,8 @@ router.post("/cadastrar", function (req, res) {
   reservatorioController.cadastrar(req, res);
 })
 
+router.get("/historico/:reservatorioId", function (req, res) {
+  reservatorioController.buscarHistoricoPorReservatorio(req, res);
+});
+
 module.exports = router;

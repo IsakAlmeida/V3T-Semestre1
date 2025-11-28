@@ -5,11 +5,6 @@ SHOW TABLES;
 
 SELECT * FROM HistoricoAlerta;
 
-Insert into HistoricoAlerta (fkCaptura, fkLimite) VALUES(
-(select idCaptura from Captura order by dthora DESC LIMIT 1),2
-);
-
-
 
 INSERT INTO nivelAcesso VALUES 
 (default,'Administrador','Tem o papel de administrar configurações de usuário'),
@@ -44,22 +39,19 @@ INSERT INTO Usuario (nomeUsuario, email, senha, fkEmpresa, fkNivelAcesso) VALUES
 ('Julia Araripe','ju.araripe@foodsolutions.com','jul@@456',3, 2);
 
 INSERT INTO Reservatorio (nome, locall, fkEmpresa) VALUES
-('Sala A2', 'Segundo andar', 1),
-('Sala 1', 'Sala 1', 2),
+('RE1', 'Segundo andar', 1),
+('RE2', 'Terceiro andar', 1),
 ('Sala 3', 'Primeiro andar', 3),
 ('Sala 2', 'Primeiro andar', 3);
 
 INSERT INTO Limite (tempMaxCelsius, tempMinCelsius, umidadeMaxPorcentagem, umidadeMinPorcentagem) VALUES
 (25, 15, 50, 30),
-(24,16, 49,31);
-
-
-desc Status;
+(21,19, 41,39);
 
 
 INSERT INTO Status (tipo, fkLimite) VALUES
-('Crítico', 2),
-('Moderado', 1);
+('Crítico', 1),
+('Moderado', 2);
 
 INSERT INTO Sensor (statusSensor, dtInstalacao, fkReservatorio) VALUES
 ('Ativo','2025-09-10', 1),

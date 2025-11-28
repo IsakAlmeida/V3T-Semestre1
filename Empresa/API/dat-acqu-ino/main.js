@@ -64,23 +64,48 @@ const serial = async (
         // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
         
-            // este insert irá inserir os dados na tabela "Registro", assim como simulações de situações de alerta
+            // este insert irá inserir os dados na tabela "Captura", assim como simulações de situações de alerta
             await poolBancoDados.execute(
-                'INSERT INTO Captura (temperaturaCelsius, umidadePorcentagem, dtHora, fkSensor) VALUES (?, ?, ?, 1)',
+                'INSERT INTO Captura (temperaturaCelsius, umidadePorcentagem, dtHora, fkSensor) VALUES (?, ?, ?, 1); ',
                 [Temperatura, Umidade, hora]
             );
+            if(Temperatura >=25 || Temperatura <=15 || Umidade>=50 || Umidade<=30){
+                await poolBancoDados.execute(
+                'INSERT INTO HistoricoAlerta (fkCaptura, fkStatus) VALUES((select idCaptura from Captura order by dthora DESC LIMIT 1),1);')
+            }else if(Temperatura != 20 || Umidade!=40){
+                //if para ver se uma captura é moderada
+                await poolBancoDados.execute(
+                'INSERT INTO HistoricoAlerta (fkCaptura, fkStatus) VALUES((select idCaptura from Captura order by dthora DESC LIMIT 1),2);'
+            );
+            }
             await poolBancoDados.execute(
                 'INSERT INTO Captura (temperaturaCelsius, umidadePorcentagem, dtHora, fkSensor) VALUES (?, ?, ?, 2)',
-                [Temperatura+10, Umidade+20, hora]
+                [Temperatura+3, Umidade+6, hora]
             );
+            if((Temperatura+3) >=25 || (Temperatura+3) <=15 || (Umidade+6)>=50 || (Umidade+6)<=30){
+                await poolBancoDados.execute(
+                'INSERT INTO HistoricoAlerta (fkCaptura, fkStatus) VALUES((select idCaptura from Captura order by dthora DESC LIMIT 1),1);')
+            }else if((Temperatura+3) !=20 || (Umidade+6) !=40){
+                //if para ver se uma captura é moderada
+                await poolBancoDados.execute(
+                'INSERT INTO HistoricoAlerta (fkCaptura, fkStatus) VALUES((select idCaptura from Captura order by dthora DESC LIMIT 1),2);'
+            );
+            }
             await poolBancoDados.execute(
                 'INSERT INTO Captura (temperaturaCelsius, umidadePorcentagem, dtHora, fkSensor) VALUES (?, ?, ?, 3)',
-                [Temperatura-25, Umidade-30, hora]
+                [Temperatura-5, Umidade-4, hora]
             );
-            await poolBancoDados.execute(
-                'INSERT INTO Captura (temperaturaCelsius, umidadePorcentagem, dtHora, fkSensor) VALUES (?, ?, ?, 4)',
-                [Temperatura-10, Umidade-15, hora]
+            if((Temperatura-5) >=25 || (Temperatura-5) <=15 || (Umidade-4)>=50 || (Umidade-4)<=30){
+                await poolBancoDados.execute(
+                'INSERT INTO HistoricoAlerta (fkCaptura, fkStatus) VALUES((select idCaptura from Captura order by dthora DESC LIMIT 1),1);')
+            }else if((Temperatura-5) !=20 || (Umidade-4) !=40){
+                //if para ver se uma captura é moderada
+                await poolBancoDados.execute(
+                'INSERT INTO HistoricoAlerta (fkCaptura, fkStatus) VALUES((select idCaptura from Captura order by dthora DESC LIMIT 1),2);'
             );
+            }
+            
+
         }
 
     });

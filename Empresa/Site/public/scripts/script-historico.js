@@ -1,118 +1,93 @@
-var dados = [`<table>
-        <tr id="cabecalho-table">
-          <th>ID:</th>
-          <th>Local:</th>
-          <th>Temperatura(°C):</th>
-          <th>Umidade(%):</th>
-          <th>Data:</th>
-        </tr>
-        <tr class="dados_registro">
-          <td>1</td>
-          <td>Reservatório 1</td>
-          <td class="dado_temperatura">33°C</td>
-          <td class="dado_umidade">55%</td>
-          <td>10:30AM 10/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>1</td>
-          <td>Reservatório 1</td>
-          <td class="dado_temperatura">32°C</td>
-          <td>45%</td>
-          <td>11:30AM 09/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>1</td>
-          <td>Reservatório 1</td>
-          <td>22°C</td>
-          <td class="dado_umidade">65%</td>
-          <td>03:20AM 09/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>1</td>
-          <td>Reservatório 1</td>
-          <td class="dado_temperatura">34°C</td>
-          <td>35%</td>
-          <td>11:40AM 08/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>1</td>
-          <td>Reservatório 1</td>
-          <td class="dado_temperatura">28°C</td>
-          <td>46%</td>
-          <td>12:0PM 07/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>1</td>
-          <td>Reservatório 1</td>
-          <td class="dado_temperatura">26°C</td>
-          <td>34%</td>
-          <td>10:45AM 10/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>1</td>
-          <td>Reservatório 1</td>
-          <td>23°C</td>
-          <td class="dado_umidade">63%</td>
-          <td>10:30AM 10/09/2025</td>
-        </tr>
-      </table>`,`<table>
-        <tr id="cabecalho-table">
-          <th>ID:</th>
-          <th>Local:</th>
-          <th>Temperatura(°C):</th>
-          <th>Umidade(%):</th>
-          <th>Data:</th>
-        </tr>
-        <tr class="dados_registro">
-          <td>2</td>
-          <td>Reservatório 2</td>
-          <td>15°C</td>
-          <td class="dado_umidade">55%</td>
-          <td>02:30AM 08/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>2</td>
-          <td>Reservatório 2</td>
-          <td>19°C</td>
-          <td class="dado_umidade">62%</td>
-          <td>03:45AM 05/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>2</td>
-          <td>Reservatório 2</td>
-          <td>20°C</td>
-          <td class="dado_umidade">55%</td>
-          <td>02:50AM 04/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>2</td>
-          <td>Reservatório 2</td>
-          <td>16°C</td>
-          <td class="dado_umidade">68%</td>
-          <td>03:45AM 03/09/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>2</td>
-          <td>Reservatório 2</td>
-          <td>19°C</td>
-          <td class="dado_umidade">65%</td>
-          <td>04:25AM 28/08/2025</td>
-        </tr>
-        <tr class="dados_registro">
-          <td>2</td>
-          <td>Reservatório 2</td>
-          <td>22°C</td>
-          <td class="dado_umidade">54%</td>
-          <td>03:45AM 26/08/2025</td>
-        </tr>
-      </table>`];
+var reservatoriosBD = [];
+var historicoBD = [];
+nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-function carregarHistorico(){
-    let sensor = selectSensor.value;
-    if(sensor == 1){
-        div_historico.innerHTML = dados[0];
-    }else if(sensor == 2){
-        div_historico.innerHTML = dados[1];
-    }
+function listarReservatorios() {
+  fetch(`/reservatorio/${sessionStorage.ID_EMPRESA}`, {
+    method: "GET",
+  })
+    .then(function (resposta) {
+      resposta.json().then((reservatorios) => {
+        reservatorios.forEach((reservatorio) => {
+          reservatoriosBD.push(reservatorio);
+        });
+        carregarReservatorios();
+      });
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
 }
 
+function carregarReservatorios() {
+  select_reservatorio.innerHTML =
+    "<option value='#' disabled selected>Selecione</option>";
+
+  if (reservatoriosBD.length < 1) {
+    select_reservatorio.innerHTML +=
+      "<option value='#'>Nenhum destino encontrado.</option>";
+  } else {
+    reservatoriosBD.forEach((reservatorio) => {
+      select_reservatorio.innerHTML += `<option value='${reservatorio.idReservatorio}'>${reservatorio.nome}</option>`;
+    });
+  }
+}
+
+function carregarHistorico() {
+  let reservatorioId = select_reservatorio.value;
+  if (reservatorioId == "#") {
+    alert("Selecione um Reservatório para prosseguir");
+  } else {
+    fetch(`/reservatorio/historico/${reservatorioId}`, {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        historicoBD = [];
+        resposta.json().then((alertas) => {
+          alertas.forEach((alerta) => {
+            historicoBD.push(alerta);
+          });
+          plotarHistorico();
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function plotarHistorico() {
+    div_historico.innerHTML =
+      "";
+
+    if (historicoBD.length < 1) {
+      div_historico.innerHTML +=
+        '<span id="msg-padrao">Não existem registros para esse reservatório.</span>';
+    } else {
+      div_historico.innerHTML = `
+      <div id="dados_reservatorio">
+        <h3>Dados Reservatório:</h3>
+        <span>Nome Reservatório: ${historicoBD[0].nome}</span>
+        <span>Local: ${historicoBD[0].locall}</span>
+      </div>
+      <table id="tabela_alertas">
+        <tr id="cabecalho-table">
+          <th>Temperatura(°C):</th>
+          <th>Umidade(%):</th>
+          <th>Data:</th>
+          <th>Classificação:</th>
+        </tr>
+      </table>
+      `
+      historicoBD.forEach((alerta) => {
+        tabela_alertas.innerHTML += `
+        <tr class="dados_registro">
+          <td class="${alerta.temperaturaCelsius>=25 ? 'critico': alerta.temperaturaCelsius>20 ? 'moderado': ''}">${alerta.temperaturaCelsius}ºC</td>
+          <td class="${alerta.umidadePorcentagem>50 ? 'dado_umidade': ''}">${alerta.umidadePorcentagem}%</td>
+          <td class="dado_horas">${(alerta.dtHora).substring(0,19)}</td>
+          <td>${alerta.tipo}</td>
+        </tr>
+        `;
+      });
+    }
+  }
+}
