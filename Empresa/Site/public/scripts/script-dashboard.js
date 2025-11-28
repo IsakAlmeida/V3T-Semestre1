@@ -39,7 +39,7 @@ function buscarDadosSensor() {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    dadosSensor.push(resposta);
+                    dadosSensor.push(resposta.reverse());
                     if (dadosSensor.length == sensores.length) {
                         plotarGrafico();
                     }

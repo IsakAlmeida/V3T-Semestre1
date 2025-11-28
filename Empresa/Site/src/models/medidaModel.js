@@ -44,6 +44,7 @@ function buscarDadosSensor(idSensor) {
 
     var instrucaoSql = `SELECT temperaturaCelsius, umidadePorcentagem, dtHora FROM Captura
 	WHERE fkSensor = ${idSensor}
+    ORDER BY dtHora DESC
     LIMIT 10;`
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
