@@ -1,6 +1,6 @@
-  window.onload = () => {
-        listarSensores();
-    };
+window.onload = () => {
+    listarSensores();
+};
 var nome = sessionStorage.NOME_USUARIO;
 nomeUsuario.innerHTML = nome;
 
@@ -12,22 +12,22 @@ var idEmpresa = sessionStorage.ID_EMPRESA;
 
 
 var sensores = [];
-function listarSensores(){
+function listarSensores() {
     fetch(`/medidas/buscarSensores/${idEmpresa}`, { cache: 'no-store' }).then(function (response) {
-    if (response.ok) {
-        response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            sensores = resposta;
-            buscarDadosSensor();
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                sensores = resposta;
+                buscarDadosSensor();
 
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
-    } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-    }
-})
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
 }
 
 var dadosSensor = [];
@@ -40,6 +40,9 @@ function buscarDadosSensor() {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     dadosSensor.push(resposta);
+                    if (dadosSensor.length == sensores.length) {
+                        plotarGrafico();
+                    }
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -50,107 +53,67 @@ function buscarDadosSensor() {
             });
     }
 
-    plotarGrafico();
 }
 
 function plotarGrafico() {
-    var temperaturas = [];
-    var umidades = [];
-    var horas = [];
-    for (let i = 0; i < dadosSensor.length; i++) {
-        temperaturas.push(dadosSensor[i].temperaturaCelsius);
-        umidades.push(dadosSensor[i].umidadePorcentagem);
-        horas.push(dadosSensor[i].dtHora);
-    }
-    console.log(temperaturas);
-    console.log(umidades);
-    console.log(horas);
+    var labels = [];
+    var reservatorios = [];
+    var reservatoriosParse = JSON.parse(sessionStorage.RESERVATORIOS);
+    var cores = ["#004830", "#2E7D57", "#5BB98C"];
 
+    for (let i = 0; i < sensores.length; i++) {
+        reservatorios.push(reservatoriosParse[i].nome);
+    }
+
+    for (let i = 0; i < dadosSensor[0].length; i++) {
+        var data = new Date(dadosSensor[0][i].dtHora);
+        var hora = data.toLocaleTimeString("pt-BR", {hour: "2-digit", minute: "2-digit"}); // formata para HH:MM
+        labels.push(hora);
+    }
+
+
+    var datasetsTemperatura = [];
+    var datasetsUmidade = [];
+
+    for (let i = 0; i < sensores.length; i++) {
+        var tempSensor = [];
+        var umidSensor = [];
+
+        for (let index = 0; index < dadosSensor[i].length; index++) {
+            tempSensor.push(dadosSensor[i][index].temperaturaCelsius);
+            umidSensor.push(dadosSensor[i][index].umidadePorcentagem);
+        }
+
+        datasetsTemperatura.push({
+            label: reservatorios[i],
+            data: tempSensor,
+            backgroundColor: cores[i],
+            borderWidth: 0,
+            borderRadius: 10,
+        });
+
+        datasetsUmidade.push({
+            label: reservatorios[i],
+            data: umidSensor,
+            backgroundColor: cores[i],
+            borderWidth: 0,
+            borderRadius: 10,
+        });
+    }
 
     new Chart(ctxTemperatura, {
         type: 'bar',
         data: {
-            labels: horas,
-            datasets: [{
-                label: '',
-                data: temperaturas,
-                backgroundColor: '#004830',
-                pointRadius: 5,
-                pointBorderWidth: 2,
-                borderRadius: 100,
-                tension: 0.4
-            }],
-        },
-        options: {
-            plugins: {
-                legend: {
-                    position: 'top',
-                    align: 'start',
-                    labels: {
-                        usePointStyle: true,
-                        boxWidth: 0
-                    }
-                },
-            },
-            scales: {
-                x: {
-                    grid: {
-                        display: false
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    min: 0,
-                    max: 40,
-                    grid: {
-                        display: false
-                    }
-                },
-            }
-        },
+            labels: labels,
+            datasets: datasetsTemperatura
+        }
     });
 
-    // GRÁFICO DE UMIDADE
     new Chart(ctxUmidade, {
         type: 'bar',
         data: {
-            labels: horas,
-            datasets: [{
-                label: '',
-                data: umidades,
-                backgroundColor: '#004830',
-                pointRadius: 5,
-                pointBorderWidth: 2,
-                borderRadius: 100,
-                tension: 0.4
-            }]
-        },
-        options: {
-            plugins: {
-                legend: {
-                    position: 'top',
-                    align: 'start',
-                    labels: {
-                        usePointStyle: true,
-                        boxWidth: 0
-                    }
-                },
-            },
-            scales: {
-                x: {
-                    grid: {
-                        display: false
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    min: 0,
-                    max: 100,
-                    grid: {
-                        display: false
-                    }
-                }
-            }
+            labels: labels,
+            datasets: datasetsUmidade
         }
     });
 }
