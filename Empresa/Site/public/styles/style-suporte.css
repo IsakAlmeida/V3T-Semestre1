@@ -79,22 +79,30 @@ html {
 }
 
 #container {
-    width: 80%;
-    margin: 50px auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.fundo-gradiante{
+    width: 100%;
+    height: 400px;
     background: linear-gradient(to right, #21593B, #00BF63);
 }
 
 #container h3 {
     margin-right: auto;
-    margin-left: 250px;
+    margin-left: 230px;
+    color: #fff;
+    font-weight: 500;
 }
 
 h1 {
-    color: #21593B;
+    font-size: 40px;
+    margin: 70px;
+    color: #fff;
 }
 
 #pesquisa {
@@ -103,10 +111,12 @@ h1 {
 }
 
 textarea[type="text"] {
+      margin-left: auto;
+    margin-right: auto;
     width: 700px;
     padding: 10px 8px 1px 8px;;
     border: none;
-    box-shadow: 0 0 0 2px #21593B inset;
+    outline: none;
     border-radius: 40px;
     background-color: #fff;
     font-size: 18px;
@@ -115,15 +125,14 @@ textarea[type="text"] {
     font-family: 'Montserrat', sans-serif;
 }
 
-textarea:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #00BF63 inset;
+.pergunta{
+    display: flex;
+    justify-content: flex-end;
 }
 
 .pergunta img {
-    position: absolute;
-    right: 28%;
-    top: 149px;
+    width: 30px;
+    margin: 10px;
     cursor: pointer;
 }
 
@@ -171,7 +180,7 @@ button:hover {
 .caixa{
     width: 200px;
     height: 200px;
-    background-color: #44464593;
+    background-color: #21593B;
     margin: 40px;
     display: flex;
     align-items: center;
@@ -202,5 +211,5 @@ button:hover {
 
 .caixa_flex{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
