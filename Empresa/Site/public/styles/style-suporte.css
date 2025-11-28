@@ -82,7 +82,6 @@ html {
 #container {
     width: 80%;
     margin: 50px auto;
-    margin-left: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,24 +101,31 @@ h1 {
 #pesquisa {
     width: 500px;
     padding: 8px;
-    resize: none;
-    overflow: hidden;
 }
 
 textarea[type="text"] {
-    width: 500px;
+    width: 700px;
     padding: 10px 8px 1px 8px;;
     border: none;
     box-shadow: 0 0 0 2px #21593B inset;
     border-radius: 40px;
     background-color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     transition: 0.9s;
+    resize: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
 textarea:focus {
     outline: none;
     box-shadow: 0 0 0 2px #00BF63 inset;
+}
+
+.pergunta img {
+    position: absolute;
+    right: 28%;
+    top: 149px;
+    cursor: pointer;
 }
 
 
