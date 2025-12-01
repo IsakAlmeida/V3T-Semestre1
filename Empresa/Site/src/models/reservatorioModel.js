@@ -9,7 +9,7 @@ function buscarReservatoriosPorEmpresa(empresaId) {
 }
 
 function buscarHistoricoPorReservatorio(reservatorioId){
-  var instrucaoSql = `select * from vw_alertas_historico WHERE idReservatorio = ${reservatorioId};`;
+  var instrucaoSql = `select * from vw_alertas_historico WHERE idReservatorio = ${reservatorioId} LIMIT 100;`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
