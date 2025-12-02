@@ -9,7 +9,7 @@ var ctxUmidade = document.getElementById('chartUmidade');
 var ctxAlertas = document.getElementById('chartAlertas');
 
 var idEmpresa = sessionStorage.ID_EMPRESA;
-
+var idReservatorio = sessionStorage.RESERVATORIOS.idReservatorio
 
 var sensores = [];
 function listarSensores() {
@@ -55,25 +55,28 @@ function buscarDadosSensor() {
 
 }
 
-function plotarGrafico() {
-    var labels = [];
-    var reservatorios = [];
-    var reservatoriosParse = JSON.parse(sessionStorage.RESERVATORIOS);
-    var cores = ["#004830", "#2E7D57", "#5BB98C"];
+var labels = [];
+var reservatorios = [];
+var reservatoriosParse = JSON.parse(sessionStorage.RESERVATORIOS);
+var cores = ["#004830", "#2E7D57", "#5BB98C"];
 
+var datasetsTemperatura = [];
+var datasetsUmidade = [];
+
+var graficoTemperatura;
+var graficoUmidade;
+
+function plotarGrafico() {
     for (let i = 0; i < sensores.length; i++) {
         reservatorios.push(reservatoriosParse[i].nome);
     }
 
     for (let i = 0; i < dadosSensor[0].length; i++) {
         var data = new Date(dadosSensor[0][i].dtHora);
-        var hora = data.toLocaleTimeString("pt-BR", {hour: "2-digit", minute: "2-digit"}); // formata para HH:MM
+        var hora = data.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }); // formata para HH:MM
         labels.push(hora);
     }
 
-
-    var datasetsTemperatura = [];
-    var datasetsUmidade = [];
 
     for (let i = 0; i < sensores.length; i++) {
         var tempSensor = [];
@@ -101,7 +104,7 @@ function plotarGrafico() {
         });
     }
 
-    new Chart(ctxTemperatura, {
+    graficoTemperatura = new Chart(ctxTemperatura, {
         type: 'bar',
         data: {
             labels: labels,
@@ -109,11 +112,67 @@ function plotarGrafico() {
         }
     });
 
-    new Chart(ctxUmidade, {
+    graficoUmidade = new Chart(ctxUmidade, {
         type: 'bar',
         data: {
             labels: labels,
             datasets: datasetsUmidade
         }
     });
+
+    atualizarGraficos();
 }
+
+var novoDado = [];
+
+function atualizarGraficos() {
+    novoDado = [];
+    var cont = 0;
+
+    for (let i = 0; i < sensores.length; i++) {
+        var idSensor = sensores[i].idSensor;
+
+        fetch(`/medidas/tempo-real-sensor/${idSensor}`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (novoRegistro) {
+                        novoDado[i] = novoRegistro[0];
+                        cont++;
+                        if (cont == sensores.length) {
+                            atualizarDadosGraficos();
+                        }
+                    });
+
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+}
+
+function atualizarDadosGraficos() {
+
+    labels.shift();
+    var data = new Date(novoDado[0].dtHora);
+    var hora = data.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    labels.push(hora);
+
+    for (let i = 0; i < sensores.length; i++) {
+
+        datasetsTemperatura[i].data.shift();
+        datasetsTemperatura[i].data.push(novoDado[i].temperaturaCelsius);
+
+        datasetsUmidade[i].data.shift();
+        datasetsUmidade[i].data.push(novoDado[i].umidadePorcentagem);
+    }
+
+    graficoTemperatura.update();
+    graficoUmidade.update();
+
+    setTimeout(atualizarGraficos, 30000);
+}
+
+
