@@ -103,10 +103,19 @@ function login() {
                 sessionStorage.ID_USUARIO = json.id;
                 sessionStorage.RESERVATORIOS = JSON.stringify(json.reservatorios);
                 sessionStorage.ID_EMPRESA = json.fkEmpresa;
+                sessionStorage.NIVEL_ACESSO = json.nivelAcesso;
+                console.log('Nivel de acesso')
+                console.log(json.nivelAcesso);
 
-                setTimeout(function () {
-                    window.location = "./dashboard.html";
-                }, 1000); // apenas para exibir o loading
+                if(sessionStorage.NIVEL_ACESSO == '3'){
+                    setTimeout(function () {
+                    window.location = "http://localhost:3001/";
+                }, 1000); // apenas para exibir o loading    
+                }else{
+                    setTimeout(function () {
+                        window.location = "./dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+                }
 
             });
 
