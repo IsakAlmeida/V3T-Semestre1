@@ -297,3 +297,9 @@ canvas {
     height: 4px;
     border-radius: 30px;
 }
+
+.supportIcon {
+    width: 35px;
+    position: absolute;
+    left: 93%;
+}
