@@ -73,7 +73,7 @@ function plotarGrafico() {
 
     for (let i = 0; i < dadosSensor[0].length; i++) {
         var data = new Date(dadosSensor[0][i].dtHora);
-        var hora = data.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }); // formata para HH:MM
+        var hora = data.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", second: "2-digit" }); // formata para HH:MM:SS
         labels.push(hora);
     }
 
@@ -109,7 +109,46 @@ function plotarGrafico() {
         data: {
             labels: labels,
             datasets: datasetsTemperatura
-        }
+        },
+        options: {
+            plugins: {
+                // ANOTAÇÕES DE RANGE PARA TEMPERATURA
+                annotation: {
+                    annotations: {
+                        tempAlertaMin: {
+                            type: 'line',
+                            yMin: 15,
+                            yMax: 15,
+                            borderColor: 'rgba(208, 94, 24, 1)',
+                            borderWidth: 2,
+                        },
+                        tempAlertaMax: {
+                            type: 'line',
+                            yMin: 25,
+                            yMax: 25,
+                            borderColor: 'rgba(208, 94, 24, 1)',
+                            borderWidth: 2,
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    min: 0, // Garante que a escala comece em 0
+                    max: 40, // Garante que o range (15 a 28) seja visível
+                    max: 40, // Garante que o range (15 a 25) seja visível
+                    grid: {
+                        display: false
+                    }
+                },
+            }
+        },
     });
 
     graficoUmidade = new Chart(ctxUmidade, {
@@ -117,15 +156,55 @@ function plotarGrafico() {
         data: {
             labels: labels,
             datasets: datasetsUmidade
-        }
+        },
+        options: {
+            plugins: {
+                // ANOTAÇÕES DE RANGE PARA UMIDADE
+                annotation: {
+                    annotations: {
+                        tempAlertaMin: {
+                            type: 'line',
+                            yMin: 30,
+                            yMax: 30,
+                            borderColor: 'rgba(208, 94, 24, 1)',
+                            borderWidth: 2,
+                        },
+                        tempAlertaMax: {
+                            type: 'line',
+                            yMin: 50,
+                            yMax: 50,
+                            borderColor: 'rgba(208, 94, 24, 1)',
+                            borderWidth: 2,
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    min: 0, // Garante que a escala comece em 0
+                    max: 80, // Garante que o range (30 a 50) seja visível
+                    max: 80, // Garante que o range (30 a 50) seja visível
+                    grid: {
+                        display: false
+                    }
+                },
+            }
+        },
     });
 
-    atualizarGraficos();
+    
+    buscarNovosDados();
 }
 
 var novoDado = [];
 
-function atualizarGraficos() {
+function buscarNovosDados() {
     novoDado = [];
     var cont = 0;
 
@@ -172,7 +251,7 @@ function atualizarDadosGraficos() {
     graficoTemperatura.update();
     graficoUmidade.update();
 
-    setTimeout(atualizarGraficos, 30000);
+    setTimeout(buscarNovosDados, 30000);
 }
 
 
