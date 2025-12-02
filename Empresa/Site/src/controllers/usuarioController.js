@@ -29,7 +29,8 @@ function autenticar(req, res) {
                                         nome: resultadoAutenticar[0].nomeUsuario,
                                         senha: resultadoAutenticar[0].senha,
                                         reservatorios: resultadoReservatorio,
-                                        fkEmpresa: resultadoAutenticar[0].empresaId
+                                        fkEmpresa: resultadoAutenticar[0].empresaId,
+                                        nivelAcesso : resultadoAutenticar[0].nivelAcesso
                                     });
                                 } else {
                                     res.status(204).json({ reservatorios: [] });
