@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../imgs/logo-redonda.png" type="image/png" />
+    <link rel="stylesheet" href="./styles/style-historico.css" />
+
+    <title>Histórico - V3T</title>
+  </head>
+
+  <body onload="listarReservatorios()">
+    <ul class="headerLeft">
+      <li class="logoV3T">
+        <a href="index.html">
+          <img src="../imgs/logo-dashboard.png" alt="Logo V3T" />
+        </a>
+        <span>Olá, <span id="nome_usuario">Usuario</span>!</span>
+      </li>
+      <li class="buttonDashboard">
+        <a href="dashboard.html">
+          <img src="../imgs/icone-chart.png" alt="Icone Dashboard" />
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="buttonSensores">
+        <a href="./sensor1.html">
+          <img src="../imgs/icone-sensor.png" alt="Icone Sensores" />
+          <span>Reservatórios</span>
+        </a>
+      </li>
+      <li class="buttonDashboard ativo">
+        <a href="historico.html">
+          <img src="../imgs/iconeHistoricoVerde.svg" alt="Icone Histórico" />
+          <span>Histórico</span>
+        </a>
+      </li>
+      <li class="buttonLogout">
+        <a href="index.html">
+          <img src="../imgs/icone-logout.png" alt="Icone Logout" />
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+    <div class="pageDashboard">
+      <ul class="title">
+        <li>
+          <span>Reservatórios</span>
+        </li>
+        <li>
+          <select id="select_reservatorio">
+          </select>
+        </li>
+        <li>
+          <button onclick="redirecionarReservatorio()">Pesquisar</button>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div id="div_historico">
+      <span id="msg-padrao">Selecione um reservatório.</span>
+    </div>
+    <script src="./scripts/script-reservatorio.js"></script>
+  </body>
+</html>

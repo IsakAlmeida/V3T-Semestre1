@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../imgs/logo-redonda.png" type="image/png">
-    <link rel="stylesheet" href="../styles/style-sensor1.css">
+    <link rel="stylesheet" href="../styles/style-reservatorio-pesquisado.css">
 
-    <title>Sensor1 - V3T</title>
+    <title>Reservatórios - V3T</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
             <a href="index.html">
                 <img src="../imgs/logo-dashboard.png" alt="Logo V3T">
             </a>
-            <span>Olá, Fernanda!</span>
+            <span>Olá, <span id="nomeUsuario">Usuário</span>!</span>
         </li>
         <li class="buttonDashboard">
             <a href="../html/dashboard.html">
@@ -58,7 +58,7 @@
     <div class="pageDashboard">
         <ul class="title">
             <li>
-                <span>Sensor 1</span>
+                <span id="nomeReservatorio">Sensor 1</span>
             </li>
         </ul>
         <div class="kpiContainer">
@@ -96,9 +96,7 @@
                     <div class="descricao">
                         <div id="traco"></div>
                         <div class="limites">Limites</div>
-                        <div id="tracoRegistrosTemp"></div>
-                        <div class="registros">Registros</div>
-                    </div>
+                    </div><br>
                     <img src="../imgs/icone-dashboard.png" alt="Temperatura" class="kpiIcon">
                     <canvas id="chartTemperatura"></canvas>
                 </div>
@@ -107,9 +105,7 @@
                     <div class="descricao">
                         <div id="traco"></div>
                         <div class="limites">Limites</div>
-                        <div id="tracoRegistrosUmid"></div>
-                        <div class="registros">Registros</div>
-                    </div>
+                    </div><br>
                     <img src="../imgs/icone-dashboard.png" alt="Umidade" class="kpiIcon">
                     <canvas id="chartUmidade"></canvas>
                 </div>
@@ -124,7 +120,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.1.0/dist/chartjs-plugin-annotation.min.js"></script>
-    <script src="../scripts/script-sensor1.js"></script>
+    <script src="../scripts/script-reservatorio-pesquisado.js"></script>
 </body>
 
 </html>
