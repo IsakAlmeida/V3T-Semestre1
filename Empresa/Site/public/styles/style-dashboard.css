@@ -271,23 +271,23 @@ canvas {
 }
 
 .descricao {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 6px;
-    margin: 0 65px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 6px;
+  margin: 0 65px 5px;
 }
 
 
 .limites {
-    text-align: end;
+  text-align: end;
 }
 
 #traco {
-    background-color: #004830;
-    width: 20px;
-    height: 4px;
-    border-radius: 30px;
+  background-color: rgba(208, 94, 24, 1);
+  width: 20px;
+  height: 4px;
+  border-radius: 30px;
 }
 
 #tracoRegistrosTemp,

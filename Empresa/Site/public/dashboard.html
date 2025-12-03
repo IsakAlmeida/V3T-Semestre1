@@ -45,7 +45,7 @@
     </ul>
     <div class="pageDashboard">
         <div class="kpiContainer">
-            <a href="../html/sensor1.html" class="kpiCard">
+            <a href="./sensor1.html" class="kpiCard">
                 <img src="../imgs/icone-dashboard.png" alt="kpi Temperatura Atual" class="kpiIcon">
                 <div class="kpiContent">
                     <span class="kpiValue"> Consulte os seus reservatórios</span>
@@ -60,11 +60,19 @@
         <div class="graphics">
             <div class="graficosDuplos">
                 <div id="graphicTemperatura">
+                    <div class="descricao">
+                        <div id="traco"></div>
+                        <div class="limites">Limites</div>
+                    </div>
                     <span>Temperatura °C</span><br>
                     <img src="../imgs/icone-dashboard.png" alt="Temperatura" class="kpiIcon">
                     <canvas id="chartTemperatura"></canvas>
                 </div>
                 <div id="graphicUmidade">
+                    <div class="descricao">
+                        <div id="traco"></div>
+                        <div class="limites">Limites</div>
+                    </div>
                     <span>Umidade Relativa <br> do Ar %</span><br>
                     <img src="../imgs/icone-dashboard.png" alt="Umidade" class="kpiIcon">
                     <canvas id="chartUmidade"></canvas>
