@@ -76,9 +76,20 @@ function onkey_senha() {
 }
 
 function login() {
+    aguardar();
     // if simulando um cadastro
     var email = ipt_email.value;
     var senha = ipt_senha.value;
+
+    if (email == "" || senha == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha os campos para fazer login.";
+            finalizarAguardar();
+            return false;
+        }
+         else {
+            sumirMensagem();
+        }
 
     fetch("/usuarios/autenticar", {
         method: "POST",
@@ -107,6 +118,8 @@ function login() {
                 console.log('Nivel de acesso')
                 console.log(json.nivelAcesso);
 
+                div_erros_login.innerHTML = '';
+
                 if(sessionStorage.NIVEL_ACESSO == '3'){
                     setTimeout(function () {
                     window.location = "http://localhost:3001/";
@@ -125,6 +138,7 @@ function login() {
 
             resposta.text().then(texto => {
                 console.error(texto);
+                finalizarAguardar(texto);
             });
         }
 
@@ -132,4 +146,8 @@ function login() {
         console.log(erro);
     })
 }
+
+function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
 

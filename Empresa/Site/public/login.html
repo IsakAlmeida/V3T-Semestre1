@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../imgs/logo-redonda.png" type="image/png">
     <link rel="stylesheet" href="../styles/style-login.css">
-    <script src="../scripts/script-login.js"></script>
     <title>Login - V3T</title>
 </head>
 
@@ -56,11 +55,21 @@
                     </div>
                     <div class="msg_erro" id="div_msg_senha">  </div>
     
-                    <p class="subtitulo"><a href="#"> Esqueceu sua senha? </a> </p>
+                    
+                    <div class="alerta_erro">
+                        <div class="card_erro" id="cardErro">
+                            <span id="mensagem_erro"></span>
+                        </div>
+                    </div>
                     <div class="msg_erro" id="div_msg_login"> </div>
                     <button onclick="login()" class="botao">Entrar</button>
 
                     <p class="subtitulo center">Ainda não é nosso parceiro? <a href="cadastro.html"> Faça seu cadastro!</a> </p>
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./imgs/loading.gif" id="loading-gif">
+                    </div>
+
+                <div id="div_erros_login"></div>
                 </div>
             </div>
     </main>
@@ -68,5 +77,5 @@
 </body>
 
 <script src="./scripts/script-login.js"> </script>
-
+<script src="./js/sessao.js"></script>
 </html>
