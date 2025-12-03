@@ -225,3 +225,19 @@ input:focus {
   background-color: #00BF63;
   transform: scale(1.03);
 }
+
+.loading-div {
+  width: 50px;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+#mensagem_erro, #div_erros_login{
+    display: flex;
+    justify-content: center;
+    color: red;
+    text-align: center;
+}

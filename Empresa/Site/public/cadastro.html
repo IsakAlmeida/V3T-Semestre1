@@ -76,11 +76,19 @@
                     <div class="msg_informacao"> Token da Empresa: </div>
                     <input type="text" id="ipt_token" onkeyup="onkey_token()">
                     <div class="msg_erro" id="div_msg_token"></div>
-                    <p class="subtitulo b">Não tem o Token? Entre em <a href="contato.html" class="entrar">contato</a>
-                    </p>
-
+                    
                     <button class="botao" onclick="cadastrar()">Cadastrar</button>
                     <div class="msg_erro" id="div_msg_cadastro" style="color: green; text-align: center; font-weight: 500; margin-top: 10px;"></div>
+                    <p style="justify-self: center;" class="subtitulo b">Não tem o Token? Entre em <a href="contato.html" class="entrar">contato</a></p>
+                    <div id="div_aguardar" class="loading-div">
+                      <img src="./assets/loading.gif" id="loading-gif" />
+                    </div>
+                    <div class="alerta_erro">
+                        <div class="card_erro" id="cardErro">
+                            <span id="mensagem_erro"></span>
+                        </div>
+                    </div>
+                    <div id="div_erros_login"></div>
                 </div>
             </div>
     </main>
@@ -88,5 +96,6 @@
 </body>
 
 <script src="./scripts/script-cadastro.js"> </script>
+<script src="./js/sessao.js"></script>
 
 </html>
