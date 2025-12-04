@@ -281,7 +281,6 @@ html {
 #graphicUmidade {
   flex: 1;
   min-width: 0;
-  height: 100vh;
 }
 
 #graphicTemperatura canvas,
