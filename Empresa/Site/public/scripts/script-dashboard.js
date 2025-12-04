@@ -251,7 +251,7 @@ function atualizarDadosGraficos() {
     graficoTemperatura.update();
     graficoUmidade.update();
 
-    setTimeout(buscarNovosDados, 30000);
+    setTimeout(buscarNovosDados, 10000);
 }
 
 

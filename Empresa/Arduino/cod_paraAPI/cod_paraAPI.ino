@@ -23,6 +23,6 @@ void loop() {
     Serial.print(";");
     Serial.println(umidade);
   }
-    delay(30000);
+    delay(10000);
 }
 
