@@ -277,3 +277,10 @@ td{
   font-weight: 900;
   font-size: 40px;
 }
+
+.supportIcon {
+  width: 35px;
+  position: absolute;
+  left: 8%;
+  top: 92%;
+}
