@@ -168,17 +168,13 @@ html {
   display: inline-block;
 }
 
-.indicadorTemperatura {
-  margin: 45px 60px 0;
-  width: 430px;
-  height: 400px;
+.indicadorTemperatura,.indicadorUmidade {
+  margin: 0px ;
+  width: 200px;
+  height: 130px;
 }
 
-.indicadorUmidade {
-  margin-top: 20px;
-  width: 430px;
-  height: 400px;
-}
+
 
 .kpiText {
   display: flex;
@@ -207,10 +203,22 @@ html {
 .kpiValue {
   position: absolute;
   top: 52%;
-  left: 43%;
+  left: 30%;
   font-size: 24px;
   font-weight: bold;
   color: #333;
+}
+#kpiUmidade{
+  margin-left: 18px;
+}
+.critico{
+  color: red;
+}
+.moderado{
+  color: orange;
+}
+.ideal{
+  color: green;
 }
 
 /* =======================================

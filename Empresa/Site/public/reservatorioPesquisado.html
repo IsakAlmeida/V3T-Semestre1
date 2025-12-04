@@ -19,13 +19,13 @@
             <span>Olá, <span id="nomeUsuario">Usuário</span>!</span>
         </li>
         <li class="buttonDashboard">
-            <a href="../html/dashboard.html">
+            <a href="./dashboard.html">
                 <img src="../imgs/icone-chart.png" alt="Icone Dashboard">
                 <span>Dashboard</span>
             </a>
         </li>
         <li class="buttonSensores ativo">
-            <a>
+            <a href="./reservatorio.html">
                 <img src="../imgs/iconeVerde-sensor.png" alt="Icone Sensores">
                 <span>Reservatórios</span>
             </a>
@@ -55,11 +55,11 @@
                 <div class="kpiContent">
                     <div class="kpiText">
                         <span class="kpiTitle">Temp. Atual</span>
-                        <span class="kpiStatusIdeal">Ideal</span>
+                        <span class="kpiStatusIdeal" id="categoriaTemperatura">Ideal</span>
                     </div>
                     <div class="indicadorContainer">
                         <img src="../imgs/temperatura.png" alt="Indicador de Temperatura" class="indicadorTemperatura">
-                        <span class="kpiValue">20 °C</span>
+                        <span class="kpiValue"><span id="kpiTemperatura">20</span> °C</span>
                     </div>
                 </div>
             </div>
@@ -68,11 +68,11 @@
                 <div class="kpiContent">
                     <div class="kpiText">
                         <span class="kpiTitle">Umid. Relativa do Ar Atual</span>
-                        <span class="kpiStatusModerado">Moderado</span>
+                        <span class="kpiStatusModerado" id="categoriaUmidade">Moderado</span>
                     </div>
                     <div class="indicadorContainer">
                         <img src="../imgs/umidade.png" alt="Indicador de Umidade" class="indicadorUmidade">
-                        <span class="kpiValue">32 %</span>
+                        <span class="kpiValue"><span id="kpiUmidade">20</span> %</span>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.1.0/dist/chartjs-plugin-annotation.min.js"></script>
-    <script src="../scripts/script-reservatorio-pesquisado.js"></script>
+    <script src="./scripts/script-reservatorio-pesquisado.js"></script>
 </body>
 
 </html>

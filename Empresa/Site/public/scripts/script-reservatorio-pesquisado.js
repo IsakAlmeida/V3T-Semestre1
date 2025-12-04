@@ -230,6 +230,32 @@ function atualizarDadosGraficos() {
     datasetsUmidade[0].data.shift();
     datasetsUmidade[0].data.push(novoDado[0].umidadePorcentagem);
 
+    kpiTemperatura.innerHTML = Number(novoDado[0].temperaturaCelsius).toFixed(1);
+    kpiUmidade.innerHTML = novoDado[0].umidadePorcentagem;
+
+    if(Number(novoDado[0].temperaturaCelsius)==20){
+        categoriaTemperatura.innerHTML = `Ideal`;
+        categoriaTemperatura.style.color = `green`;
+    }else if(Number(novoDado[0].temperaturaCelsius)>25 || Number(novoDado[0].temperaturaCelsius)<15){
+        categoriaTemperatura.innerHTML = `Crítico`;
+        categoriaTemperatura.style.color = `red`;
+    }else{
+        categoriaTemperatura.innerHTML = `Moderado`;
+        categoriaTemperatura.style.color = `orange`;
+    }
+
+    if(Number(novoDado[0].umidadePorcentagem)==40){
+        categoriaUmidade.innerHTML = `Ideal`;
+        categoriaUmidade.style.color = 'green';
+    }else if(Number(novoDado[0].umidadePorcentagem)>50 || Number(novoDado[0].umidadeCelsius)<30){
+        categoriaUmidade.innerHTML = `Crítico`;
+        categoriaUmidade.style.color = 'red';
+        console.log("estou trocando a cor pra vermelho")
+    }else{
+        categoriaUmidade.innerHTML = `Moderado`;
+        categoriaUmidade.style.color = 'orange';
+    }
+
     graficoTemperatura.update();
     graficoUmidade.update();
 
