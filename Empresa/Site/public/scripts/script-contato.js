@@ -1,66 +1,25 @@
-var chkSocial = false;
-var chkNomeFan = false;
-var chkNumCpnj = false;
 var chkMail = false;
 var chkTel = false;
-var chkLugar = false;
-var chkNumeracao = false;
-var chkBar = false;
-var chkCity = false;
-var chkUnidade = false;
-var chkClickCep = false;
+var chkRes = false;
 
+var responsavel;
+var email;
+var telefone;
 
-function social() {
-    razao = iptRazao.value.trim();
+function nomeRes() {
+    responsavel = iptNomeRes.value.trim();
     let erro = "";
 
-    if (razao == '') {
-        erro = `Preencha o campo Razão Social`;
+    if (responsavel == '') {
+        erro = `Preencha o campo Nome Responsavél`;
     }
 
     if (erro != "") {
-        divRazao.innerHTML = `${erro}`;
-        chkSocial = false;
+        divRes.innerHTML = `${erro}`;
+        chkRes = false;
     } else {
-        divRazao.innerHTML = ``;
-        chkSocial = true;
-    }
-}
-
-function nomeFan() {
-    nome = iptNome.value.trim();
-    let erro = "";
-
-    if (nome == '') {
-        erro = `Preencha o campo Nome Fantasia`;
-    } 
-
-    if (erro != "") {
-        divNome.innerHTML = `${erro}`;
-        chkNomeFan = false;
-    } else {
-        divNome.innerHTML = ``;
-        chkNomeFan = true;
-    }
-}
-
-function numCpnj() {
-    cnpj = iptCNPJ.value.trim();
-    let erro = "";
-
-    if (cnpj == "") {
-        erro = `Preencha o campo CNPJ`;
-    } else if (cnpj.length < 14) {
-        erro = `CNPJ deve conter 14 digitos`;
-    }
-
-    if (erro != "") {
-        divCnpj.innerHTML = `${erro}`;
-        chkNumCpnj = false;
-    } else {
-        divCnpj.innerHTML = ``;
-        chkNumCpnj = true;
+        divRes.innerHTML = ``;
+        chkRes = true;
     }
 }
 
@@ -73,19 +32,19 @@ function mail() {
     if (email == "") {
         erro = `Preencha o campo Email`
     } else {
-        for(let i=0; i<email.length;i++){
-            if(email[i]=='.'){
+        for (let i = 0; i < email.length; i++) {
+            if (email[i] == '.') {
                 contPonto++;
             }
-            if(email[i]=='@'){
+            if (email[i] == '@') {
                 contArroba++;
             }
         }
-        if(contPonto<1){
+        if (contPonto < 1) {
             erro = `O email deve conter ponto<br>(Ex: email@email.com)`
-        }if(contArroba != 1){
+        } if (contArroba != 1) {
             erro = `O email deve conter apenas um @<br>(Ex: email@email.com)`
-        }if(email.length>45){
+        } if (email.length > 45) {
             erro = 'O email pode ter no máximo 45 caracteres<br>(Ex: email@email.com)'
         }
     }
@@ -106,7 +65,7 @@ function tel() {
 
     if (telefone == '') {
         erro = `Preencha o campo Telefone`
-    } else if (telefone.length != 11 ) {
+    } else if (telefone.length != 11) {
         erro = `Informe um número válido igual ao exemplo`;
     }
 
@@ -119,141 +78,53 @@ function tel() {
     }
 }
 
-function lugar() {
-    rua = iptRua.value.trim();
-    let erro = "";
-
-    if (rua == "") {
-        erro = `Preencha o campo Rua`;
-    } 
-    
-    if (erro != "") {
-        divRua.innerHTML = `${erro}`;
-        chkLugar = false;
-    } else {
-        divRua.innerHTML = ``;
-        chkLugar = true;
-    }
-}
-
-function numeracao() {
-    num = Number(iptNum.value.trim())
-    let erro = "";
-
-    if (num == "") {
-        erro = `Preencha o campo N° `;
-    } else if (num <= 0) {
-        erro = `Preencha um número válido`;
-    }
-
-    if (erro != "") {
-        divNum.innerHTML = `${erro}`
-        chkNumeracao = false;
-    } else {
-        divNum.innerHTML = ``;
-        chkNumeracao = true;
-    }
-}
-
-function bar() {
-    bairro = iptBairro.value.trim();
-    let erro = "";
-
-    if (bairro == "") {
-        erro = `Preencha o campo Bairro`;
-    } 
-    
-    if (erro != "") {
-        divBairro.innerHTML = `${erro}`;
-        chkBar = false;
-    } else {
-        divBairro.innerHTML = ``;
-        chkBar = true;
-    }
-}
-
-function city() {
-    cidade = iptCidade.value.trim();
-    let erro = "";
-
-    if (cidade == "") {
-        erro = `Preencha o campo Cidade`;
-    } 
-
-    if (erro != "") {
-        divCidade.innerHTML = `${erro}`;
-        chkCity = false;
-    } else {
-        divCidade.innerHTML = ``;
-        chkCity = true;
-    }
-}
-
-function unidade() {
-    uf = iptUF.value.trim();
-    let erro = "";
-
-    if (uf == "") {
-        erro = `Preencha o campo Cidade`;
-    }
-    if (erro != "") {
-        divUF.innerHTML = `${erro}`;
-        chkUnidade = false;
-    } else {
-        divUF.innerHTML = ``;
-        chkUnidade = true;
-    }
-}
-
-function clickCep() {
-    cep = iptCEP.value;
-    let erro = "";
-
-    if (cep == "") {
-        erro = `Preencha o campo CEP`;
-    } else if (cep.length != 8) {
-        erro = `O Campo CEP está errado`;
-    }
-    if (erro != "") {
-        divCEP.innerHTML = `${erro}`
-        chkClickCep = false;
-    } else {
-        divCEP.innerHTML = ``
-        chkClickCep = true;
-    }
-}
-
-function enviar(){
-    social();
-    nomeFan();
-    numCpnj();
+function validar() {
+    nomeRes();
     mail();
     tel();
-    lugar();
-    numeracao();
-    bar();
-    city();
-    unidade();
-    clickCep();
+    
+    const temErro = chkRes && chkMail && chkTel;
 
-    const temErro = chkSocial &&
-                        chkNomeFan &&
-                        chkNumCpnj &&
-                        chkMail &&
-                        chkTel &&
-                        chkLugar &&
-                        chkNumeracao &&
-                        chkBar &&
-                        chkCity &&
-                        chkUnidade &&
-                        chkClickCep;
+    return temErro;
 
+}
 
-    if (!temErro) {
+function enviar() {
+    if (!validar()) {
         alert("Verifique se todos os campos estão preenchidos!");
         return false;
     } else {
-        alert("Email enviado!! Iremos entrar em contato através do email");
+        
+        fetch("/contato/contatar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                responsavelVar: responsavel,
+                emailVar: email,
+                telefoneVar: telefone
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert("Dados enviados!! Iremos entrar em contato através do email");
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                } else {
+                    alert("Erro ao enviar os dados! Aguarde alguns minutos e tente novamente.")
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+            console.log(responsavelVar, emailVar, telefoneVar)
+        return false;
     }
 
 }

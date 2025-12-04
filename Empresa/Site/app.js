@@ -21,6 +21,7 @@ var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
 var reservatorioRouter = require("./src/routes/reservatorio");
 var empresasRouter = require("./src/routes/empresas");
+var contatoRouter = require("./src/routes/contato")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,6 +35,7 @@ app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
 app.use("/reservatorio", reservatorioRouter);
 app.use("/empresas", empresasRouter);
+app.use("/contato", contatoRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
