@@ -12,6 +12,7 @@ html {
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: 'Montserrat', sans-serif;
+    background-color: #f4f7fe;
 }
 
 /* =======================================
@@ -217,7 +218,6 @@ html {
     align-items: flex-start;
     gap: 20px;
     width: 100%;
-    margin-bottom: 60px;
 }
 
 #graphicTemperatura,
@@ -271,23 +271,23 @@ canvas {
 }
 
 .descricao {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 6px;
-  margin: 0 65px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 6px;
+    margin: 0 65px 5px;
 }
 
 
 .limites {
-  text-align: end;
+    text-align: end;
 }
 
 #traco {
-  background-color: rgba(208, 94, 24, 1);
-  width: 20px;
-  height: 4px;
-  border-radius: 30px;
+    background-color: rgba(208, 94, 24, 1);
+    width: 20px;
+    height: 4px;
+    border-radius: 30px;
 }
 
 #tracoRegistrosTemp,
@@ -299,8 +299,49 @@ canvas {
 }
 
 .supportIcon {
-  width: 35px;
-  position: absolute;
-  left: 8%;
-  top: 92%;
+    width: 35px;
+    position: absolute;
+    left: 8%;
+    top: 92%;
+}
+
+.cardsAlertas {
+    position: absolute;
+    gap: 25px;
+    height: 35%;
+    width: 23%;
+    top: 50%;
+    left: 74%;
+}
+
+.cardAlerta {
+    display: none;
+    position: relative;
+    background-color: #ff050545;
+    border-radius: 12px;
+    height: 45%;
+    width: 90%;
+    margin: 20px 0;
+    transition: 0.9s;
+}
+
+
+.cardAlerta img {
+    width: 30px;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+
+}
+
+.cardAlerta p {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.descricaoAlerta {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
 }
