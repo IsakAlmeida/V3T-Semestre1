@@ -262,10 +262,11 @@ function atualizarDadosGraficos() {
         } else {
             cardAlertaTemp.style.display = 'flex';
             StatusTemp.innerHTML = `Moderado`;
+            cardAlertaTemp.style.backgroundColor = 'yellow';
             if (i == 0) {
-                reservatorioTemp.innerHTML = `Reservatório 1`;
+                reservatorioTemp.innerHTML += `Reservatório 1`;
             } else {
-                reservatorioTemp.innerHTML = `Reservatório 2`;
+                reservatorioTemp.innerHTML += `<br>Reservatório 2`;
             }
         }
 
@@ -280,10 +281,11 @@ function atualizarDadosGraficos() {
         } else {
             cardAlertaUmid.style.display = 'flex';
             StatusUmid.innerHTML = `Moderado`;
+            cardAlertaUmid.style.backgroundColor = 'yellow';
              if (i == 0) {
-                reservatorioUmid.innerHTML = `Reservatório 1`;
+                reservatorioUmid.innerHTML += `Reservatório 1`;
             } else {
-                reservatorioUmid.innerHTML = `Reservatório 2`;
+                reservatorioUmid.innerHTML += `<br>Reservatório 2`;
             }
         }
     }
