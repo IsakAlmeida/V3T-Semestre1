@@ -314,7 +314,7 @@ canvas {
     left: 74%;
 }
 
-.cardAlerta {
+#cardAlerta {
     display: none;
     position: relative;
     background-color: #ff050545;
@@ -326,7 +326,7 @@ canvas {
 }
 
 
-.cardAlerta img {
+#cardAlerta img {
     width: 30px;
     position: absolute;
     top: 5%;
@@ -334,7 +334,7 @@ canvas {
 
 }
 
-.cardAlerta p {
+#cardAlerta p {
     font-size: 15px;
     font-weight: bold;
     margin: 10px;

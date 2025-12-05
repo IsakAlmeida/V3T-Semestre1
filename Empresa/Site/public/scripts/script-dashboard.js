@@ -198,7 +198,7 @@ function plotarGrafico() {
         },
     });
 
-    
+
     buscarNovosDados();
 }
 
@@ -246,6 +246,46 @@ function atualizarDadosGraficos() {
 
         datasetsUmidade[i].data.shift();
         datasetsUmidade[i].data.push(novoDado[i].umidadePorcentagem);
+
+        valorTemp.innerHTML = Number(novoDado[i].temperaturaCelsius).toFixed(1);
+        valorUmid.innerHTML = novoDado[i].umidadePorcentagem;
+
+
+        if (Number(novoDado[i].temperaturaCelsius) > 25 || Number(novoDado[i].temperaturaCelsius) < 15) {
+            cardAlerta.style.display = 'flex';
+            StatusTemp.innerHTML = `Crítico`;
+            if (i == 0) {
+                reservatorioTemp.innerHTML = `Reservatório 1`;
+            } else {
+                reservatorioTemp.innerHTML = `Reservatório 2`;
+            }
+        } else {
+            cardAlerta.style.display = 'flex';
+            StatusTemp.innerHTML = `Moderado`;
+            if (i == 0) {
+                reservatorioTemp.innerHTML = `Reservatório 1`;
+            } else {
+                reservatorioTemp.innerHTML = `Reservatório 2`;
+            }
+        }
+
+        if (Number(novoDado[i].umidadePorcentagem) > 50 || Number(novoDado[i].umidadeCelsius) < 30) {
+            cardAlerta.style.display = 'flex';
+            StatusUmid.innerHTML = `Crítico`;
+            if (i == 0) {
+                reservatorioUmid.innerHTML = `Reservatório 1`;
+            } else {
+                reservatorioUmid.innerHTML = `Reservatório 2`;
+            }
+        } else {
+            cardAlerta.style.display = 'flex';
+            StatusUmid.innerHTML = `Moderado`;
+             if (i == 0) {
+                reservatorioUmid.innerHTML = `Reservatório 1`;
+            } else {
+                reservatorioUmid.innerHTML = `Reservatório 2`;
+            }
+        }
     }
 
     graficoTemperatura.update();
