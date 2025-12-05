@@ -293,13 +293,13 @@ function atualizarDadosGraficos() {
                 `
             }
         
-            setInterval(limparCard,8000)
-    }
-
-
-    graficoTemperatura.update();
-    graficoUmidade.update();
-
+        }
+        
+        
+        graficoTemperatura.update();
+        graficoUmidade.update();
+        
+    setTimeout(limparCard,8000)
     setTimeout(buscarNovosDados, 10000);
 }
 
