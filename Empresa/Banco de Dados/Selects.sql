@@ -139,6 +139,34 @@ SELECT
     e.Token as 'Código de Acesso:',
     CONCAT(ende.Logradouro,', ',ende.Numero,' CEP: ',ende.CEP,' | ',ende.Cidade,'-',ende.UF ) as 'Endereço:'
 FROM Empresa as e
-	JOIN Endereco as ende ON e.fkEndereco = ende.idEndereco
+	JOIN Endereco as ende ON e.fkEndereco = ende.idEndereco;
 -- WHERE ende.UF = 'SP'
 -- ORDER BY ende.UF;           
+
+
+-- KPIs: DASHBOARD MACRO
+CREATE VIEW vw_kpis_macro AS
+SELECT DAY(c.dtHora) as dia,
+MAX(c.temperaturaCelsius) as maxTemp, 
+MIN(c.temperaturaCelsius) as minTemp, 
+MAX(c.umidadePorcentagem) maxUmid, 
+MIN(c.umidadePorcentagem) as minUmid, 
+COUNT(*) as numAlertas,
+r.fkEmpresa
+FROM HistoricoAlerta h
+JOIN Captura c ON c.idCaptura = h.fkCaptura
+JOIN Sensor s on c.fkSensor = s.idSensor
+JOIN Reservatorio r ON s.fkReservatorio = r.idReservatorio
+WHERE  DAY(c.dtHora) = DAY(current_date()) AND MONTH(c.dtHora) = MONTH(current_date())
+GROUP BY DAY(c.dtHora), r.fkEmpresa;
+
+-- HISTORICO: VIEW DE HISTORICO
+CREATE VIEW vw_alertas_historico AS
+SELECT r.idReservatorio, r.nome, r.locall, st.tipo,c.temperaturaCelsius, c.umidadePorcentagem, c.dtHora, e.idEmpresa 
+FROM HistoricoAlerta h
+JOIN Status st ON st.idStatus = h.fkStatus
+JOIN Captura c ON h.fkCaptura = c.idCaptura
+JOIN Sensor s ON s.idSensor = c.fkSensor
+JOIN Reservatorio r ON r.idReservatorio = s.fkReservatorio
+JOIN Empresa e ON e.idEmpresa = r.fkEmpresa
+ORDER BY c.dtHora DESC;
