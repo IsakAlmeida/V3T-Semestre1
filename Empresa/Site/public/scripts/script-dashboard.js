@@ -233,7 +233,7 @@ function buscarNovosDados() {
 }
 
 function atualizarDadosGraficos() {
-    section_cards = "";
+    
 
     labels.shift();
     var data = new Date(novoDado[0].dtHora);
@@ -248,13 +248,9 @@ function atualizarDadosGraficos() {
         datasetsUmidade[i].data.shift();
         datasetsUmidade[i].data.push(novoDado[i].umidadePorcentagem);
 
-        valorTemp.innerHTML = Number(novoDado[i].temperaturaCelsius).toFixed(1);
-        valorUmid.innerHTML = novoDado[i].umidadePorcentagem;
-
-        for(let i=0;i<novoDado.length;i++){
             if(Number(novoDado[i].temperaturaCelsius) > 25 || Number(novoDado[i].temperaturaCelsius)<15){
                 section_cards.innerHTML += `
-                <div id="cardAlertaTemp">
+                <div id="cardAlertaTemp" class="critico">
                     <img src="./imgs/warning.png">
                     <div class="descricaoAlerta">
                         <p>Temperatura está em: <span id="valorTemp">${novoDado[i].temperaturaCelsius}</span>°C!</p>
@@ -264,7 +260,7 @@ function atualizarDadosGraficos() {
                 </div>` 
             }else if(Number(novoDado[i].temperaturaCelsius)!=20){
                 section_cards.innerHTML += `
-                <div id="cardAlertaTemp">
+                <div id="cardAlertaTemp" class="moderado")>
                     <img src="./imgs/warning.png">
                     <div class="descricaoAlerta">
                         <p>Temperatura está em: <span id="valorTemp">${novoDado[i].temperaturaCelsius}</span>°C!</p>
@@ -275,7 +271,7 @@ function atualizarDadosGraficos() {
             }
             if(Number(novoDado[i].umidadePorcentagem) > 50 || Number(novoDado[i].umidadeCelsius) < 30){
                 section_cards.innerHTML += `
-                <div id="cardAlertaUmid">
+                <div id="cardAlertaUmid" class="critico">
                     <img src="./imgs/warning.png">
                     <div class="descricaoAlerta">
                         <p>Umidade está em: <span id="valorUmid">${novoDado[i].umidadePorcentagem}</span>%!</p>
@@ -286,7 +282,7 @@ function atualizarDadosGraficos() {
                 `
             }else if(Number(novoDado[i].umidadePorcentagem)!=40){
                 section_cards.innerHTML += `
-                <div id="cardAlertaUmid">
+                <div id="cardAlertaUmid" class="moderado">
                     <img src="./imgs/warning.png">
                     <div class="descricaoAlerta">
                         <p>Umidade está em: <span id="valorUmid">${novoDado[i].umidadePorcentagem}</span>%!</p>
@@ -296,9 +292,8 @@ function atualizarDadosGraficos() {
                 </div>
                 `
             }
-        }
-
-
+        
+            setInterval(limparCard,8000)
     }
 
 
@@ -306,6 +301,10 @@ function atualizarDadosGraficos() {
     graficoUmidade.update();
 
     setTimeout(buscarNovosDados, 10000);
+}
+
+function limparCard(){
+    section_cards.innerHTML = "";
 }
 
 

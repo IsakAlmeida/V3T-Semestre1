@@ -310,17 +310,16 @@ canvas {
     position: absolute;
     gap: 25px;
     height: 35%;
-    width: 30%;
-    top: 70%;
-    left: 67%;
+    width: 50%;
+    top: 74%;
+    left: 47%;
 }
 
 #cardAlertaTemp, #cardAlertaUmid {
-    display: none;
+    display: flex;
     position: relative;
-    background-color: #ff050545;
     border-radius: 12px;
-    height: 45%;
+    height: 40%;
     width: 90%;
     margin: 20px 0;
     transition: 0.9s;
@@ -345,4 +344,10 @@ canvas {
     display: flex;
     flex-direction: column;
     padding-top: 25px;
+}
+.critico{
+    background-color: #ff050545;
+}
+.moderado{
+    background-color: rgba(255, 167, 3, 0.329);
 }
