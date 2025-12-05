@@ -252,7 +252,7 @@ function atualizarDadosGraficos() {
 
 
         if (Number(novoDado[i].temperaturaCelsius) > 25 || Number(novoDado[i].temperaturaCelsius) < 15) {
-            cardAlerta.style.display = 'flex';
+            cardAlertaTemp.style.display = 'flex';
             StatusTemp.innerHTML = `Crítico`;
             if (i == 0) {
                 reservatorioTemp.innerHTML = `Reservatório 1`;
@@ -260,7 +260,7 @@ function atualizarDadosGraficos() {
                 reservatorioTemp.innerHTML = `Reservatório 2`;
             }
         } else {
-            cardAlerta.style.display = 'flex';
+            cardAlertaTemp.style.display = 'flex';
             StatusTemp.innerHTML = `Moderado`;
             if (i == 0) {
                 reservatorioTemp.innerHTML = `Reservatório 1`;
@@ -270,7 +270,7 @@ function atualizarDadosGraficos() {
         }
 
         if (Number(novoDado[i].umidadePorcentagem) > 50 || Number(novoDado[i].umidadeCelsius) < 30) {
-            cardAlerta.style.display = 'flex';
+            cardAlertaUmid.style.display = 'flex';
             StatusUmid.innerHTML = `Crítico`;
             if (i == 0) {
                 reservatorioUmid.innerHTML = `Reservatório 1`;
@@ -278,7 +278,7 @@ function atualizarDadosGraficos() {
                 reservatorioUmid.innerHTML = `Reservatório 2`;
             }
         } else {
-            cardAlerta.style.display = 'flex';
+            cardAlertaUmid.style.display = 'flex';
             StatusUmid.innerHTML = `Moderado`;
              if (i == 0) {
                 reservatorioUmid.innerHTML = `Reservatório 1`;

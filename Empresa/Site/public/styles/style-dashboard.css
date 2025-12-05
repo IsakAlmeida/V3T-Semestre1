@@ -306,15 +306,16 @@ canvas {
 }
 
 .cardsAlertas {
+    display: flex;
     position: absolute;
     gap: 25px;
     height: 35%;
-    width: 23%;
-    top: 50%;
-    left: 74%;
+    width: 30%;
+    top: 70%;
+    left: 67%;
 }
 
-#cardAlerta {
+#cardAlertaTemp, #cardAlertaUmid {
     display: none;
     position: relative;
     background-color: #ff050545;
@@ -326,7 +327,7 @@ canvas {
 }
 
 
-#cardAlerta img {
+#cardAlertaTemp img, #cardAlertaUmid img{
     width: 30px;
     position: absolute;
     top: 5%;
@@ -334,7 +335,7 @@ canvas {
 
 }
 
-#cardAlerta p {
+#cardAlertaTemp p, #cardAlertaUmid p{
     font-size: 15px;
     font-weight: bold;
     margin: 10px;
