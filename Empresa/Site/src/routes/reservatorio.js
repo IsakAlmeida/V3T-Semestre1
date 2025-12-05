@@ -15,4 +15,7 @@ router.get("/historico/:reservatorioId", function (req, res) {
   reservatorioController.buscarHistoricoPorReservatorio(req, res);
 });
 
+router.get("/buscarSensor/:reservatorioId", function (req, res) {
+  reservatorioController.buscarSensorPorReservatorio(req, res);
+});
 module.exports = router;

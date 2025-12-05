@@ -45,7 +45,7 @@ function carregarHistorico() {
         historicoBD = [];
         resposta.json().then((alertas) => {
           alertas.forEach((alerta) => {
-            historicoBD.push(alerta);
+            historicoBD.push(alerta); 
           });
           plotarHistorico();
         });
@@ -65,26 +65,30 @@ function carregarHistorico() {
     } else {
       div_historico.innerHTML = `
       <div id="dados_reservatorio">
+      <div class="info-reservatorio">
         <h3>Dados Reservatório:</h3>
         <span>Nome Reservatório: ${historicoBD[0].nome}</span>
         <span>Local: ${historicoBD[0].locall}</span>
+      </div>
+        <img src="./imgs/TemperaturaTexto.png">
+        <img src="./imgs/UmidadeTexto.png">
       </div>
       <table id="tabela_alertas">
         <tr id="cabecalho-table">
           <th>Temperatura(°C):</th>
           <th>Umidade(%):</th>
           <th>Data:</th>
-          <th>Classificação:</th>
         </tr>
       </table>
       `
       historicoBD.forEach((alerta) => {
+        let dataBanco = new Date(alerta.dtHora);
+        console.log(dataBanco.toLocaleDateString('pt-br'));
         tabela_alertas.innerHTML += `
         <tr class="dados_registro">
-          <td class="${alerta.temperaturaCelsius>=25 ? 'critico': alerta.temperaturaCelsius>20 ? 'moderado': ''}">${alerta.temperaturaCelsius}ºC</td>
-          <td class="${alerta.umidadePorcentagem>50 ? 'dado_umidade': ''}">${alerta.umidadePorcentagem}%</td>
-          <td class="dado_horas">${(alerta.dtHora).substring(0,19)}</td>
-          <td>${alerta.tipo}</td>
+          <td class="${alerta.temperaturaCelsius>=25 || alerta.temperaturaCelsius<=15 ? 'critico': alerta.temperaturaCelsius!=20 ? 'moderado': ''}">${alerta.temperaturaCelsius}ºC</td>
+          <td class="${alerta.umidadePorcentagem>50 || alerta.umidadePorcentagem<=30 ? 'critico': alerta.umidadePorcentagem!=40? 'moderado' : ''}">${alerta.umidadePorcentagem}%</td>
+          <td class="dado_horas"> ${dataBanco.toLocaleDateString('pt-br')} - ${(dataBanco).toString().substring(16,24)}</td>
         </tr>
         `;
       });

@@ -6,7 +6,7 @@
     <link rel="icon" href="../imgs/logo-redonda.png" type="image/png" />
     <link rel="stylesheet" href="./styles/style-historico.css" />
 
-    <title>Histórico - V3T</title>
+    <title>Reservatórios - V3T</title>
   </head>
 
   <body onload="listarReservatorios()">
@@ -23,15 +23,15 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="buttonSensores">
+      <li class="buttonSensores ativo">
         <a href="./reservatorio.html">
-          <img src="../imgs/icone-sensor.png" alt="Icone Sensores" />
+          <img src="../imgs/iconeVerde-sensor.png" alt="Icone Sensores" />
           <span>Reservatórios</span>
         </a>
       </li>
-      <li class="buttonDashboard ativo">
+      <li class="buttonDashboard">
         <a href="historico.html">
-          <img src="../imgs/iconeHistoricoVerde.svg" alt="Icone Histórico" />
+          <img src="../imgs/icon-historico.svg" alt="Icone Histórico" />
           <span>Histórico</span>
         </a>
       </li>
@@ -46,14 +46,14 @@
     <div class="pageDashboard">
       <ul class="title">
         <li>
-          <span>Histórico de Alertas</span>
+          <span>Reservatórios</span>
         </li>
         <li>
           <select id="select_reservatorio">
           </select>
         </li>
         <li>
-          <button onclick="carregarHistorico()">Pesquisar</button>
+          <button onclick="redirecionarReservatorio()">Pesquisar</button>
         </li>
         
       </ul>
@@ -62,7 +62,6 @@
     <div id="div_historico">
       <span id="msg-padrao">Selecione um reservatório.</span>
     </div>
-    <script src="./scripts/script-historico.js"></script>
-    <div>kkk</div>
+    <script src="./scripts/script-reservatorio.js"></script>
   </body>
 </html>

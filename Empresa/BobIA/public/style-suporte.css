@@ -69,6 +69,11 @@ textarea[type="text"] {
 .pergunta{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+}
+
+#pergunta{
+    text-align: center;
 }
 
 .pergunta img {
@@ -83,6 +88,9 @@ textarea[type="text"] {
     margin-bottom: 50px;
 }
 
+a{
+    text-decoration: none;
+}
 
 select,
 button {

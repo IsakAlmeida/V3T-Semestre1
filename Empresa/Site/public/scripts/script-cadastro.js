@@ -160,9 +160,12 @@ function cadastrar(){
 
 
     if (!temErro) {
-        alert("Verifique se todos os campos estão preenchidos!");
-        return false;
+        cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="Preencha todos os campos.";
+      finalizarAguardar();
+      return false;
     } else {
+      setInterval(sumirMensagem, 3000);
         var codigoVar = ipt_token.value.trim();
         var nomeVar =ipt_nome.value;
         var emailVar = ipt_email.value;
@@ -175,7 +178,9 @@ function cadastrar(){
         console.log("Código de ativação válido.");
         break;
       } else {
-        div_msg_cadastro.innerHTML = "(Mensagem de erro para código inválido)";
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "TOKEN inválido! Verifique de digitou certo.";
+        finalizarAguardar();
       }
     }
     
@@ -243,4 +248,7 @@ function cadastrar(){
       });
   }
 
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
   

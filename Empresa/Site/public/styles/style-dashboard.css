@@ -12,6 +12,7 @@ html {
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: 'Montserrat', sans-serif;
+    background-color: #f4f7fe;
 }
 
 /* =======================================
@@ -217,7 +218,6 @@ html {
     align-items: flex-start;
     gap: 20px;
     width: 100%;
-    margin-bottom: 60px;
 }
 
 #graphicTemperatura,
@@ -284,7 +284,7 @@ canvas {
 }
 
 #traco {
-    background-color: #004830;
+    background-color: rgba(208, 94, 24, 1);
     width: 20px;
     height: 4px;
     border-radius: 30px;
@@ -296,4 +296,53 @@ canvas {
     width: 20px;
     height: 4px;
     border-radius: 30px;
+}
+
+.supportIcon {
+    width: 35px;
+    position: absolute;
+    left: 8%;
+    top: 92%;
+}
+
+.cardsAlertas {
+    display: flex;
+    position: absolute;
+    gap: 25px;
+    height: 35%;
+    width: 30%;
+    top: 70%;
+    left: 67%;
+}
+
+#cardAlertaTemp, #cardAlertaUmid {
+    display: none;
+    position: relative;
+    background-color: #ff050545;
+    border-radius: 12px;
+    height: 45%;
+    width: 90%;
+    margin: 20px 0;
+    transition: 0.9s;
+}
+
+
+#cardAlertaTemp img, #cardAlertaUmid img{
+    width: 30px;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+
+}
+
+#cardAlertaTemp p, #cardAlertaUmid p{
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.descricaoAlerta {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
 }
