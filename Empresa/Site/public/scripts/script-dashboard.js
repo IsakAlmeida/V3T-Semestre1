@@ -233,6 +233,7 @@ function buscarNovosDados() {
 }
 
 function atualizarDadosGraficos() {
+    section_cards = "";
 
     labels.shift();
     var data = new Date(novoDado[0].dtHora);
@@ -250,70 +251,54 @@ function atualizarDadosGraficos() {
         valorTemp.innerHTML = Number(novoDado[i].temperaturaCelsius).toFixed(1);
         valorUmid.innerHTML = novoDado[i].umidadePorcentagem;
 
-
-        if (Number(novoDado[0].temperaturaCelsius) > 25 || Number(novoDado[0].temperaturaCelsius) < 15 && Number(novoDado[1].temperaturaCelsius) > 25 || Number(novoDado[1].temperaturaCelsius) < 15) {
-            cardAlertaTemp.style.display = 'flex';
-            StatusTemp.innerHTML = `Crítico`;
-            cardAlertaTemp.style.backgroundColor = 'ff050545';
-            reservatorioTemp.innerHTML = `Reservatório 1 e Reservatório 2`;
-        } else {
-            cardAlertaTemp.style.display = 'flex';
-            StatusTemp.innerHTML = `Moderado`;
-            cardAlertaTemp.style.backgroundColor = 'yellow';
-            reservatorioTemp.innerHTML = `Reservatório 1 e Reservatório 2`;
+        for(let i=0;i<novoDado.length;i++){
+            if(Number(novoDado[i].temperaturaCelsius) > 25 || Number(novoDado[i].temperaturaCelsius)<15){
+                section_cards.innerHTML += `
+                <div id="cardAlertaTemp">
+                    <img src="./imgs/warning.png">
+                    <div class="descricaoAlerta">
+                        <p>Temperatura está em: <span id="valorTemp">${novoDado[i].temperaturaCelsius}</span>°C!</p>
+                        <p>Status: <span id="StatusTemp">Crítico</span>!</p>
+                        <p>Local: <span id="reservatorioTemp">Reservatório ${i+1}</span></p>
+                    </div>
+                </div>` 
+            }else if(Number(novoDado[i].temperaturaCelsius)!=20){
+                section_cards.innerHTML += `
+                <div id="cardAlertaTemp">
+                    <img src="./imgs/warning.png">
+                    <div class="descricaoAlerta">
+                        <p>Temperatura está em: <span id="valorTemp">${novoDado[i].temperaturaCelsius}</span>°C!</p>
+                        <p>Status: <span id="StatusTemp">Moderado</span>!</p>
+                        <p>Local: <span id="reservatorioTemp">Reservatório ${i+1}</span></p>
+                    </div>
+                </div>` 
+            }
+            if(Number(novoDado[i].umidadePorcentagem) > 50 || Number(novoDado[i].umidadeCelsius) < 30){
+                section_cards.innerHTML += `
+                <div id="cardAlertaUmid">
+                    <img src="./imgs/warning.png">
+                    <div class="descricaoAlerta">
+                        <p>Umidade está em: <span id="valorUmid">${novoDado[i].umidadePorcentagem}</span>%!</p>
+                        <p>Status: <span id="StatusUmid">Crítico</span>!</p>
+                        <p>Local: <span id="reservatorioUmid">Reservatório ${i+1}</span></p>
+                    </div>
+                </div>
+                `
+            }else if(Number(novoDado[i].umidadePorcentagem)!=40){
+                section_cards.innerHTML += `
+                <div id="cardAlertaUmid">
+                    <img src="./imgs/warning.png">
+                    <div class="descricaoAlerta">
+                        <p>Umidade está em: <span id="valorUmid">${novoDado[i].umidadePorcentagem}</span>%!</p>
+                        <p>Status: <span id="StatusUmid">Moderado</span>!</p>
+                        <p>Local: <span id="reservatorioUmid">Reservatório ${i+1}</span></p>
+                    </div>
+                </div>
+                `
+            }
         }
 
-        if (Number(novoDado[0].umidadePorcentagem) > 50 || Number(novoDado[0].umidadeCelsius) < 30 && Number(novoDado[1].umidadePorcentagem) > 50 || Number(novoDado[1].umidadeCelsius) < 30) {
-            cardAlertaUmid.style.display = 'flex';
-            StatusUmid.innerHTML = `Crítico`;
-            cardAlertaUmid.style.backgroundColor = 'ff050545';
-            reservatorioUmid.innerHTML = `Reservatório 1 e Reservatório 2`;
-        } else {
-            cardAlertaUmid.style.display = 'flex';
-            StatusUmid.innerHTML = `Moderado`;
-            cardAlertaUmid.style.backgroundColor = 'yellow';
-            reservatorioUmid.innerHTML = `Reservatório 1 e Reservatório 2`;
-        }
-    }
-    
-    if (Number(novoDado[i].temperaturaCelsius) > 25 || Number(novoDado[i].temperaturaCelsius) < 15) {
-        cardAlertaTemp.style.display = 'flex';
-        StatusTemp.innerHTML = `Crítico`;
-        cardAlertaTemp.style.backgroundColor = 'ff050545';
-        if (i == 0) {
-            reservatorioTemp.innerHTML = `Reservatório 1`;
-        } else {
-            reservatorioTemp.innerHTML = `Reservatório 2`;
-        }
-    } else {
-        cardAlertaTemp.style.display = 'flex';
-        StatusTemp.innerHTML = `Moderado`;
-        cardAlertaTemp.style.backgroundColor = 'yellow';
-        if (i == 0) {
-            reservatorioTemp.innerHTML = `Reservatório 1`;
-        } else {
-            reservatorioTemp.innerHTML = `Reservatório 2`;
-        }
-    }
 
-    if (Number(novoDado[i].umidadePorcentagem) > 50 || Number(novoDado[i].umidadeCelsius) < 30) {
-        cardAlertaUmid.style.display = 'flex';
-        StatusUmid.innerHTML = `Crítico`;
-        cardAlertaUmid.style.backgroundColor = 'ff050545';
-        if (i == 0) {
-            reservatorioUmid.innerHTML = `Reservatório 1`;
-        } else {
-            reservatorioUmid.innerHTML = `Reservatório 2`;
-        }
-    } else {
-        cardAlertaUmid.style.display = 'flex';
-        StatusUmid.innerHTML = `Moderado`;
-        cardAlertaUmid.style.backgroundColor = 'yellow';
-        if (i == 0) {
-            reservatorioUmid.innerHTML = `Reservatório 1`;
-        } else {
-            reservatorioUmid.innerHTML = `Reservatório 2`;
-        }
     }
 
 
