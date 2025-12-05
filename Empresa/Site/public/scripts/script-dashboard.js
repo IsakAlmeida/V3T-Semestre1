@@ -251,44 +251,71 @@ function atualizarDadosGraficos() {
         valorUmid.innerHTML = novoDado[i].umidadePorcentagem;
 
 
-        if (Number(novoDado[i].temperaturaCelsius) > 25 || Number(novoDado[i].temperaturaCelsius) < 15) {
+        if (Number(novoDado[0].temperaturaCelsius) > 25 || Number(novoDado[0].temperaturaCelsius) < 15 && Number(novoDado[1].temperaturaCelsius) > 25 || Number(novoDado[1].temperaturaCelsius) < 15) {
             cardAlertaTemp.style.display = 'flex';
             StatusTemp.innerHTML = `Crítico`;
-            if (i == 0) {
-                reservatorioTemp.innerHTML = `Reservatório 1`;
-            } else {
-                reservatorioTemp.innerHTML = `Reservatório 2`;
-            }
+            cardAlertaTemp.style.backgroundColor = 'ff050545';
+            reservatorioTemp.innerHTML = `Reservatório 1 e Reservatório 2`;
         } else {
             cardAlertaTemp.style.display = 'flex';
             StatusTemp.innerHTML = `Moderado`;
             cardAlertaTemp.style.backgroundColor = 'yellow';
-            if (i == 0) {
-                reservatorioTemp.innerHTML += `Reservatório 1`;
-            } else {
-                reservatorioTemp.innerHTML += `<br>Reservatório 2`;
-            }
+            reservatorioTemp.innerHTML = `Reservatório 1 e Reservatório 2`;
         }
 
-        if (Number(novoDado[i].umidadePorcentagem) > 50 || Number(novoDado[i].umidadeCelsius) < 30) {
+        if (Number(novoDado[0].umidadePorcentagem) > 50 || Number(novoDado[0].umidadeCelsius) < 30 && Number(novoDado[1].umidadePorcentagem) > 50 || Number(novoDado[1].umidadeCelsius) < 30) {
             cardAlertaUmid.style.display = 'flex';
             StatusUmid.innerHTML = `Crítico`;
-            if (i == 0) {
-                reservatorioUmid.innerHTML = `Reservatório 1`;
-            } else {
-                reservatorioUmid.innerHTML = `Reservatório 2`;
-            }
+            cardAlertaUmid.style.backgroundColor = 'ff050545';
+            reservatorioUmid.innerHTML = `Reservatório 1 e Reservatório 2`;
         } else {
             cardAlertaUmid.style.display = 'flex';
             StatusUmid.innerHTML = `Moderado`;
             cardAlertaUmid.style.backgroundColor = 'yellow';
-             if (i == 0) {
-                reservatorioUmid.innerHTML += `Reservatório 1`;
-            } else {
-                reservatorioUmid.innerHTML += `<br>Reservatório 2`;
-            }
+            reservatorioUmid.innerHTML = `Reservatório 1 e Reservatório 2`;
         }
     }
+    
+    if (Number(novoDado[i].temperaturaCelsius) > 25 || Number(novoDado[i].temperaturaCelsius) < 15) {
+        cardAlertaTemp.style.display = 'flex';
+        StatusTemp.innerHTML = `Crítico`;
+        cardAlertaTemp.style.backgroundColor = 'ff050545';
+        if (i == 0) {
+            reservatorioTemp.innerHTML = `Reservatório 1`;
+        } else {
+            reservatorioTemp.innerHTML = `Reservatório 2`;
+        }
+    } else {
+        cardAlertaTemp.style.display = 'flex';
+        StatusTemp.innerHTML = `Moderado`;
+        cardAlertaTemp.style.backgroundColor = 'yellow';
+        if (i == 0) {
+            reservatorioTemp.innerHTML = `Reservatório 1`;
+        } else {
+            reservatorioTemp.innerHTML = `Reservatório 2`;
+        }
+    }
+
+    if (Number(novoDado[i].umidadePorcentagem) > 50 || Number(novoDado[i].umidadeCelsius) < 30) {
+        cardAlertaUmid.style.display = 'flex';
+        StatusUmid.innerHTML = `Crítico`;
+        cardAlertaUmid.style.backgroundColor = 'ff050545';
+        if (i == 0) {
+            reservatorioUmid.innerHTML = `Reservatório 1`;
+        } else {
+            reservatorioUmid.innerHTML = `Reservatório 2`;
+        }
+    } else {
+        cardAlertaUmid.style.display = 'flex';
+        StatusUmid.innerHTML = `Moderado`;
+        cardAlertaUmid.style.backgroundColor = 'yellow';
+        if (i == 0) {
+            reservatorioUmid.innerHTML = `Reservatório 1`;
+        } else {
+            reservatorioUmid.innerHTML = `Reservatório 2`;
+        }
+    }
+
 
     graficoTemperatura.update();
     graficoUmidade.update();
