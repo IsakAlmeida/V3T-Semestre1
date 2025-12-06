@@ -24,6 +24,13 @@ JOIN Empresa e ON e.idEmpresa = r.fkEmpresa
     return database.executar(instrucaoSql);
 }
 
+function buscarKPIsMacro(idEmpresa){
+    var instrucaoSql = `select * from vw_kpis_macro where fkEmpresa = ${idEmpresa};`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function buscarDadosSensor(idSensor) {
 
     var instrucaoSql = `SELECT temperaturaCelsius, umidadePorcentagem, dtHora FROM Captura
@@ -38,5 +45,6 @@ function buscarDadosSensor(idSensor) {
 module.exports = {
     buscarMedidaTempoRealSensor,
     buscarSensores,
-    buscarDadosSensor
+    buscarDadosSensor,
+    buscarKPIsMacro
 }

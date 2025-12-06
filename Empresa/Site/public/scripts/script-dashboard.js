@@ -10,6 +10,7 @@ var ctxAlertas = document.getElementById('chartAlertas');
 
 var idEmpresa = sessionStorage.ID_EMPRESA;
 var idReservatorio = sessionStorage.RESERVATORIOS.idReservatorio
+buscaKpis();
 
 var sensores = [];
 function listarSensores() {
@@ -306,5 +307,27 @@ function atualizarDadosGraficos() {
 function limparCard(){
     section_cards.innerHTML = "";
 }
+
+function buscaKpis() {
+    fetch(`/medidas/kpis-macro/${idEmpresa}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                kpiNumAlertas.innerHTML = resposta[0].numAlertas;
+                kpiMaxTemp.innerHTML = Number(resposta[0].maxTemp).toFixed(1);
+                kpiMinTemp.innerHTML = Number(resposta[0].minTemp).toFixed(1);
+                kpiMaxUmid.innerHTML = resposta[0].maxUmid;
+                kpiMinUmid.innerHTML = resposta[0].minUmid;
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+setTimeout(buscaKpis, 15000)
 
 

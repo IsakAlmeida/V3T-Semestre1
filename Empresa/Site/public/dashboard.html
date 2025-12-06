@@ -59,6 +59,64 @@
                 <span>Macro</span>
             </li>
         </ul>
+        <div class="kpiContainer">
+            <div class="kpiCard">
+                <img src="./imgs/alerta-icon-kpi.svg" alt="kpi Temperatura Atual" class="kpiIcon">
+                <div class="kpiContent">
+                    <div class="kpiText">
+                        <span class="kpiTitle">Quantidade de Alertas (Hoje):</span>
+                    </div>
+                    <div class="indicadorContainer">
+                        <span class="kpiValue"><span id="kpiNumAlertas">0</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="kpiCard">
+                <img src="./imgs/tempHot-icon-kpi.svg" class="kpiIcon">
+                <div class="kpiContent">
+                    <div class="kpiText">
+                        <span class="kpiTitle">Maior Temperatura (Hoje): </span>
+                    </div>
+                    <div class="indicadorContainer">
+                        <span class="kpiValue"><span id="kpiMaxTemp">0</span>ºC</span>
+                    </div>
+                </div>
+            </div>
+            <div class="kpiCard">
+                <img src="./imgs/tempCold-icon-kpi.svg" alt="kpi Temperatura Atual" class="kpiIcon">
+                <div class="kpiContent">
+                    <div class="kpiText">
+                        <span class="kpiTitle">Menor Temperatura (Hoje):</span>
+                    </div>
+                    <div class="indicadorContainer">
+                        <span class="kpiValue"><span id="kpiMinTemp">0</span>ºC</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kpiCard">
+                <img src="./imgs/umidHigh-icon-kpi.svg" alt="kpi Umidade Atual" class="kpiIcon">
+                <div class="kpiContent">
+                    <div class="kpiText">
+                        <span class="kpiTitle">Maior Umidade (Hoje):</span>
+                    </div>
+                    <div class="indicadorContainer">
+                        <span class="kpiValue"><span id="kpiMaxUmid">0</span>%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="kpiCard">
+                <img src="./imgs/umidLow-icon-kpi.svg" alt="kpi Umidade Atual" class="kpiIcon">
+                <div class="kpiContent">
+                    <div class="kpiText">
+                        <span class="kpiTitle">Menor Umidade (Hoje):</span>
+                    </div>
+                    <div class="indicadorContainer">
+                        <span class="kpiValue"><span id="kpiMinUmid">0</span>%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="graphics">
             <div class="graficosDuplos">
                 <div id="graphicTemperatura">

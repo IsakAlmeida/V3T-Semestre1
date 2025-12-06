@@ -146,9 +146,8 @@ html {
 .kpiCard {
     display: flex;
     align-items: center;
-    flex: 1 1 20%;
-    min-width: 200px;
-    height: 40px;
+    flex: 1;
+    height: 15px;
     padding: 25px;
     background-color: white;
     border-radius: 10px;
@@ -161,7 +160,7 @@ html {
 }
 
 .kpiIcon {
-    width: 60px;
+    width: 30px;
     margin-right: 20px;
 }
 
@@ -181,6 +180,7 @@ html {
 .kpiTitle {
     font-size: 16px;
     color: #555;
+    font-weight: 500;
 }
 
 .kpiStatusIdeal {
@@ -197,7 +197,7 @@ html {
 
 
 .kpiValue {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: bold;
     color: #333;
 }

@@ -15,4 +15,8 @@ router.get("/tempo-real-sensor/:idSensor", function(req, res){
     medidaController.buscarMedidaTempoRealSensor(req, res);
 });
 
+router.get("/kpis-macro/:idEmpresa", function(req, res){
+    medidaController.buscarKPIsMacro(req, res);
+});
+
 module.exports = router;
