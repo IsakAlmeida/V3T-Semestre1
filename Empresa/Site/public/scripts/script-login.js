@@ -122,7 +122,7 @@ function login() {
 
                 if(sessionStorage.NIVEL_ACESSO == '3'){
                     setTimeout(function () {
-                    window.location = "http://10.18.32.93:3001/";
+                    window.location = "http://10.18.32.93:3300/";
                 }, 1000); // apenas para exibir o loading    
                 }else{
                     setTimeout(function () {
